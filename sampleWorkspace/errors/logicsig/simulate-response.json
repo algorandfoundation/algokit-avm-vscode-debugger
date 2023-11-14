@@ -1,0 +1,153 @@
+{
+  "exec-trace-config": {
+    "enable": true,
+    "scratch-change": true,
+    "stack-change": true,
+    "state-change": true
+  },
+  "initial-states": {},
+  "last-round": 5,
+  "txn-groups": [
+    {
+      "failed-at": [1],
+      "failure-message": "transaction {_struct:{} Sig:[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] Msig:{_struct:{} Version:0 Threshold:0 Subsigs:[]} Lsig:{_struct:{} Logic:[9 49 1 20 0 49 32 50 3 18 16] Sig:[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] Msig:{_struct:{} Version:0 Threshold:0 Subsigs:[]} Args:[]} Txn:{_struct:{} Type:pay Header:{_struct:{} Sender:NYWSPJOL42GPOSJL5CHLLMTF2OI65DK45BNODHB2AZDYJ6AS4F73VDTYVU Fee:{Raw:2000} FirstValid:5 LastValid:1005 Note:[1 144 175 4 138 220 202 59] GenesisID:sandnet-v1 GenesisHash:BVREH7YVGVO5UWDWAZUFINGEJMQMWE7QCUBNTMVTE5WI2JA2QF7A Group:RHWBU7AW2AA52WP55GM3UYK22BGA4XR3XJQQTSZDWZSUWW74VFYQ Lease:[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] RekeyTo:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ} KeyregTxnFields:{_struct:{} VotePK:[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] SelectionPK:[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] StateProofPK:[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] VoteFirst:0 VoteLast:0 VoteKeyDilution:0 Nonparticipation:false} PaymentTxnFields:{_struct:{} Receiver:5AI27VDGCCIDV425ZUJPKDCTP3R5P2T6VFJYZV4C4NBWII3INIQ6IKHMCU Amount:{Raw:12345} CloseRemainderTo:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ} AssetConfigTxnFields:{_struct:{} ConfigAsset:0 AssetParams:{_struct:{} Total:0 Decimals:0 DefaultFrozen:false UnitName: AssetName: URL: MetadataHash:[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] Manager:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ Reserve:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ Freeze:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ Clawback:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ}} AssetTransferTxnFields:{_struct:{} XferAsset:0 AssetAmount:0 AssetSender:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ AssetReceiver:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ AssetCloseTo:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ} AssetFreezeTxnFields:{_struct:{} FreezeAccount:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ FreezeAsset:0 AssetFrozen:false} ApplicationCallTxnFields:{_struct:{} ApplicationID:0 OnCompletion:NoOpOC ApplicationArgs:[] Accounts:[] ForeignApps:[] Boxes:[] ForeignAssets:[] LocalStateSchema:{_struct:{} NumUint:0 NumByteSlice:0} GlobalStateSchema:{_struct:{} NumUint:0 NumByteSlice:0} ApprovalProgram:[] ClearStateProgram:[] ExtraProgramPages:0} StateProofTxnFields:{_struct:{} StateProofType:0 StateProof:StateProof: {} Message:{_struct:{} BlockHeadersCommitment:[] VotersCommitment:[] LnProvenWeight:0 FirstAttestedRound:0 LastAttestedRound:0}}} AuthAddr:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ} invalid : transaction SDZ7UTMY5TJPLCTIOXHAKGT3HHMATQWC46OKPD6L54Z2RGXPMJOA: rejected by logic err=err opcode executed. Details: pc=4, opcodes=txn Fee; !; err",
+      "txn-results": [
+        {
+          "exec-trace": {
+            "logic-sig-hash": "Inf40LWZTDzZhoxEhTIxBG0nbIxUrg9AQXCrK78bInk=",
+            "logic-sig-trace": [
+              {
+                "pc": 1,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 3,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 4,
+                "stack-additions": [
+                  {
+                    "bytes": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 6,
+                "stack-additions": [
+                  {
+                    "bytes": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 8,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 2
+              },
+              {
+                "pc": 9,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 2
+              }
+            ]
+          },
+          "logic-sig-budget-consumed": 6,
+          "txn-result": {
+            "pool-error": "",
+            "txn": {
+              "lsig": {
+                "l": "CTEBFDEgMgMSEA=="
+              },
+              "txn": {
+                "amt": 12345,
+                "fv": 5,
+                "gen": "sandnet-v1",
+                "gh": "DWJD/xU1XdpYdgZoVDTESyDLE/AVAtmysydsjSQagX4=",
+                "grp": "iewafBbQAd1Z/emZumFa0EwOXju6YQnLI7ZlS1v8qXE=",
+                "lv": 1005,
+                "note": "o7BM5SRJ9zA=",
+                "rcv": "5AI27VDGCCIDV425ZUJPKDCTP3R5P2T6VFJYZV4C4NBWII3INIQ6IKHMCU",
+                "snd": "KCAUHNOBMNSUBLLGPD3HUZFKG7SUYKY7JSCZ3KV6WVP3FMKEPQOYS3KG5Y",
+                "type": "pay"
+              }
+            }
+          }
+        },
+        {
+          "exec-trace": {
+            "logic-sig-hash": "NW2mJ5d46uPJ1lgbk6qkHJWih9w/XrZtvZu/cWV7b5I=",
+            "logic-sig-trace": [
+              {
+                "pc": 1,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 2000
+                  }
+                ]
+              },
+              {
+                "pc": 3,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ],
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 4
+              }
+            ]
+          },
+          "logic-sig-budget-consumed": 3,
+          "txn-result": {
+            "pool-error": "",
+            "txn": {
+              "lsig": {
+                "l": "CTEBFAAxIDIDEhA="
+              },
+              "txn": {
+                "amt": 12345,
+                "fee": 2000,
+                "fv": 5,
+                "gen": "sandnet-v1",
+                "gh": "DWJD/xU1XdpYdgZoVDTESyDLE/AVAtmysydsjSQagX4=",
+                "grp": "iewafBbQAd1Z/emZumFa0EwOXju6YQnLI7ZlS1v8qXE=",
+                "lv": 1005,
+                "note": "AZCvBIrcyjs=",
+                "rcv": "5AI27VDGCCIDV425ZUJPKDCTP3R5P2T6VFJYZV4C4NBWII3INIQ6IKHMCU",
+                "snd": "NYWSPJOL42GPOSJL5CHLLMTF2OI65DK45BNODHB2AZDYJ6AS4F73VDTYVU",
+                "type": "pay"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "version": 2
+}

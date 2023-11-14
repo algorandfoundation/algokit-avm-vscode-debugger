@@ -1,0 +1,96 @@
+{
+  "exec-trace-config": {
+    "enable": true,
+    "scratch-change": true,
+    "stack-change": true,
+    "state-change": true
+  },
+  "initial-states": {},
+  "last-round": 13,
+  "txn-groups": [
+    {
+      "app-budget-added": 700,
+      "app-budget-consumed": 5,
+      "failed-at": [0],
+      "failure-message": "transaction WCJXWQQ65ZDAJ2R5YR635C7VKXUXJWYPSJ63BJSC5TKSUHZ5NQ5A: logic eval error: assert failed pc=10. Details: pc=10, opcodes=txna ApplicationArgs 0; btoi; assert; label1:",
+      "txn-results": [
+        {
+          "app-budget-consumed": 5,
+          "exec-trace": {
+            "approval-program-hash": "1KZi4myBA+q7zZAoHAPPiX/zBQxj8QbO7u1dWJMud4M=",
+            "approval-program-trace": [
+              {
+                "pc": 1,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1007
+                  }
+                ]
+              },
+              {
+                "pc": 3,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 6,
+                "stack-additions": [
+                  {
+                    "bytes": "AAAAAAAAAAA=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 9,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ],
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 10,
+                "stack-pop-count": 1
+              }
+            ],
+            "logic-sig-hash": "EC1P8unO+zjVbdF8XZOs1rp+uaGNk7vXtZ/IYsN/sug=",
+            "logic-sig-trace": [
+              {
+                "pc": 1,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ]
+              }
+            ]
+          },
+          "logic-sig-budget-consumed": 1,
+          "txn-result": {
+            "pool-error": "",
+            "txn": {
+              "lsig": {
+                "l": "CYEB"
+              },
+              "txn": {
+                "apaa": ["AAAAAAAAAAA="],
+                "apid": 1007,
+                "fee": 1000,
+                "fv": 13,
+                "gh": "DWJD/xU1XdpYdgZoVDTESyDLE/AVAtmysydsjSQagX4=",
+                "lv": 1013,
+                "note": "PbdEwwVzBis=",
+                "snd": "OYVUL6GR6QTWJWP2SSSUTSKB7EQJRRGBRKFQI6M5ZVNEKG6UXPJPGSCFSU",
+                "type": "appl"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "version": 2
+}

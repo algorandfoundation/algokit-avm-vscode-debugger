@@ -1,0 +1,123 @@
+{
+  "exec-trace-config": {
+    "enable": true,
+    "scratch-change": true,
+    "stack-change": true,
+    "state-change": true
+  },
+  "initial-states": {},
+  "last-round": 11,
+  "txn-groups": [
+    {
+      "app-budget-added": 1400,
+      "app-budget-consumed": 10,
+      "failed-at": [0, 0],
+      "failure-message": "transaction 2APGJLEQVGE3ZVHPR6UNSFWAW7BGYYVKVCFENWX4CBZUM5CQX7EQ: logic eval error: overspend (account YCVGIALPB5UCXY3QS4ICXLGXXAAFCA35QAEUB2MSBH7J6UJQU5D3LEY36Q, data {AccountBaseData:{Status:Offline MicroAlgos:{Raw:0} RewardsBase:0 RewardedMicroAlgos:{Raw:0} AuthAddr:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ TotalAppSchema:{_struct:{} NumUint:0 NumByteSlice:0} TotalExtraAppPages:0 TotalAppParams:0 TotalAppLocalStates:0 TotalAssetParams:0 TotalAssets:0 TotalBoxes:0 TotalBoxBytes:0} VotingData:{VoteID:[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] SelectionID:[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] StateProofID:[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0] VoteFirstValid:0 VoteLastValid:0 VoteKeyDilution:0}}, tried to spend {1000}). Details: pc=21, opcodes=txna ApplicationArgs 0; itxn_field ApplicationArgs; itxn_submit; label1:",
+      "txn-results": [
+        {
+          "app-budget-consumed": 10,
+          "exec-trace": {
+            "approval-program-hash": "qZ6vI+Hx+bhXlZbOykVWCWJT/4tSYXBygoQBHH7xIlQ=",
+            "approval-program-trace": [
+              {
+                "pc": 1,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1011
+                  }
+                ]
+              },
+              {
+                "pc": 3,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 6
+              },
+              {
+                "pc": 7,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 6
+                  }
+                ]
+              },
+              {
+                "pc": 9,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 11,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1007
+                  }
+                ]
+              },
+              {
+                "pc": 14,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 16,
+                "stack-additions": [
+                  {
+                    "bytes": "AAAAAAAAAAA=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 19,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 21,
+                "spawned-inners": [0]
+              }
+            ],
+            "inner-trace": [{}]
+          },
+          "txn-result": {
+            "inner-txns": [
+              {
+                "pool-error": "",
+                "txn": {
+                  "txn": {
+                    "apaa": ["AAAAAAAAAAA="],
+                    "apid": 1007,
+                    "fee": 1000,
+                    "fv": 11,
+                    "lv": 1011,
+                    "snd": "YCVGIALPB5UCXY3QS4ICXLGXXAAFCA35QAEUB2MSBH7J6UJQU5D3LEY36Q",
+                    "type": "appl"
+                  }
+                }
+              }
+            ],
+            "pool-error": "",
+            "txn": {
+              "sig": "qGI2+ooLqAU0+5jUDhNUzneSQrq+WoB6lPmezTmiUTASkCwR/ttI53flPOqUDoOjnoyEAVpWN8L9jemrL9ybBA==",
+              "txn": {
+                "apaa": ["AAAAAAAAAAA="],
+                "apfa": [1007],
+                "apid": 1011,
+                "fee": 1000,
+                "fv": 11,
+                "gh": "DWJD/xU1XdpYdgZoVDTESyDLE/AVAtmysydsjSQagX4=",
+                "lv": 1011,
+                "note": "h2tFkRbRvJk=",
+                "snd": "THBZEHQO2AAT2BEO4WVDOSYW77TQRPQQZ2IU3PLJVT6Z3QCNJJJOT76KGA",
+                "type": "appl"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "version": 2
+}

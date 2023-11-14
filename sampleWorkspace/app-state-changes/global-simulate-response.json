@@ -1,0 +1,238 @@
+{
+  "last-round": 51,
+  "txn-groups": [
+    {
+      "txn-results": [
+        {
+          "txn-result": {
+            "pool-error": "",
+            "txn": {
+              "sig": "9Sm0GLdwLZ8a8VWVZXFgdTnk4Bc8Gsoq5Zkc1BKUAKBMuoZRuiD91I3AP8poj8lg5/tdecZuXvaPuaSocXpiBQ==",
+              "txn": {
+                "apaa": ["iRPB+A=="],
+                "apbx": [
+                  {
+                    "n": "Ym94LWtleS0x"
+                  },
+                  {
+                    "n": "Ym94LWtleS0y"
+                  }
+                ],
+                "apid": 1050,
+                "fee": 1000,
+                "fv": 48,
+                "gen": "sandnet-v1",
+                "gh": "LSfI/BB2PAth7oDeWEH/oYncUvwuhqkSVkvKxI5kd3I=",
+                "lv": 1048,
+                "snd": "54zalZwKNOYGxmz8XSAPhmaeXvOFrN5jZYadDledqng=",
+                "type": "appl"
+              }
+            },
+            "global-state-delta": [
+              {
+                "key": "Z2xvYmFsLWludC1rZXk=",
+                "value": {
+                  "action": 2,
+                  "uint": 3735928559
+                }
+              },
+              {
+                "key": "Z2xvYmFsLWJ5dGVzLWtleQ==",
+                "value": {
+                  "action": 1,
+                  "bytes": "d2VsdCBhbSBkcmFodA=="
+                }
+              }
+            ]
+          },
+          "app-budget-consumed": 20,
+          "exec-trace": {
+            "approval-program-hash": "elIoqp1XgWrLCBLPmaZlDsKE3sEMZBY1dlxOvBXPtak=",
+            "approval-program-trace": [
+              {
+                "pc": 1
+              },
+              {
+                "pc": 4,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1050
+                  }
+                ]
+              },
+              {
+                "pc": 6,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 9,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 11,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ]
+              },
+              {
+                "pc": 12,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ],
+                "stack-pop-count": 2
+              },
+              {
+                "pc": 13,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 16,
+                "stack-additions": [
+                  {
+                    "type": 1,
+                    "bytes": "jhaTEQ=="
+                  }
+                ]
+              },
+              {
+                "pc": 22,
+                "stack-additions": [
+                  {
+                    "type": 1,
+                    "bytes": "iRPB+A=="
+                  }
+                ]
+              },
+              {
+                "pc": 28,
+                "stack-additions": [
+                  {
+                    "type": 1,
+                    "bytes": "1RPETg=="
+                  }
+                ]
+              },
+              {
+                "pc": 34,
+                "stack-additions": [
+                  {
+                    "type": 1,
+                    "bytes": "iRPB+A=="
+                  }
+                ]
+              },
+              {
+                "pc": 37,
+                "stack-pop-count": 4
+              },
+              {
+                "pc": 99,
+                "stack-additions": [
+                  {
+                    "type": 1,
+                    "bytes": "Z2xvYmFsLWludC1rZXk="
+                  }
+                ]
+              },
+              {
+                "pc": 115,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 3735928559
+                  }
+                ]
+              },
+              {
+                "pc": 121,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "Z2xvYmFsLWludC1rZXk=",
+                    "operation": "w",
+                    "new-value": {
+                      "type": 2,
+                      "uint": 3735928559
+                    }
+                  }
+                ]
+              },
+              {
+                "pc": 122,
+                "stack-additions": [
+                  {
+                    "type": 1,
+                    "bytes": "Z2xvYmFsLWJ5dGVzLWtleQ=="
+                  }
+                ]
+              },
+              {
+                "pc": 140,
+                "stack-additions": [
+                  {
+                    "type": 1,
+                    "bytes": "d2VsdCBhbSBkcmFodA=="
+                  }
+                ]
+              },
+              {
+                "pc": 155,
+                "stack-pop-count": 2,
+                "state-changes": [
+                  {
+                    "app-state-type": "g",
+                    "key": "Z2xvYmFsLWJ5dGVzLWtleQ==",
+                    "operation": "w",
+                    "new-value": {
+                      "type": 1,
+                      "bytes": "d2VsdCBhbSBkcmFodA=="
+                    }
+                  }
+                ]
+              },
+              {
+                "pc": 156
+              },
+              {
+                "pc": 198,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "app-budget-added": 700,
+      "app-budget-consumed": 20
+    }
+  ],
+  "version": 2,
+  "exec-trace-config": {
+    "enable": true,
+    "scratch-change": true,
+    "stack-change": true,
+    "state-change": true
+  },
+  "initial-states": {
+    "app-initial-states": [
+      {
+        "id": 1050
+      }
+    ]
+  }
+}

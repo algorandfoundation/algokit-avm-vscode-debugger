@@ -1,0 +1,15 @@
+#pragma version 9
+txn ApplicationID
+bz end
+
+itxn_begin
+int appl
+itxn_field TypeEnum
+txn Applications 1
+itxn_field ApplicationID
+txn ApplicationArgs 0
+itxn_field ApplicationArgs
+itxn_submit
+
+end:
+int 1

@@ -1,0 +1,149 @@
+{
+  "exec-trace-config": {
+    "enable": true,
+    "scratch-change": true,
+    "stack-change": true,
+    "state-change": true
+  },
+  "initial-states": {},
+  "last-round": 6,
+  "txn-groups": [
+    {
+      "app-budget-added": 700,
+      "app-budget-consumed": 2,
+      "failed-at": [1],
+      "failure-message": "transaction Z4XYNPFASUB3NMVQQUVY3MM74IMSZTJKWSWTTUIBX5GZZNIS2ZEA: transaction rejected by ApprovalProgram",
+      "txn-results": [
+        {
+          "exec-trace": {
+            "logic-sig-hash": "Inf40LWZTDzZhoxEhTIxBG0nbIxUrg9AQXCrK78bInk=",
+            "logic-sig-trace": [
+              {
+                "pc": 1,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 3,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 4,
+                "stack-additions": [
+                  {
+                    "bytes": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 6,
+                "stack-additions": [
+                  {
+                    "bytes": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+                    "type": 1
+                  }
+                ]
+              },
+              {
+                "pc": 8,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 2
+              },
+              {
+                "pc": 9,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 2
+              }
+            ]
+          },
+          "logic-sig-budget-consumed": 6,
+          "txn-result": {
+            "pool-error": "",
+            "txn": {
+              "lsig": {
+                "l": "CTEBFDEgMgMSEA=="
+              },
+              "txn": {
+                "amt": 12345,
+                "fv": 5,
+                "gen": "sandnet-v1",
+                "gh": "DWJD/xU1XdpYdgZoVDTESyDLE/AVAtmysydsjSQagX4=",
+                "grp": "iYqBpg5CrgoI+h0C31SMHwkgOZcmBF80YgP5SjQWFaI=",
+                "lv": 1005,
+                "note": "o7BM5SRJ9zA=",
+                "rcv": "5AI27VDGCCIDV425ZUJPKDCTP3R5P2T6VFJYZV4C4NBWII3INIQ6IKHMCU",
+                "snd": "KCAUHNOBMNSUBLLGPD3HUZFKG7SUYKY7JSCZ3KV6WVP3FMKEPQOYS3KG5Y",
+                "type": "pay"
+              }
+            }
+          }
+        },
+        {
+          "app-budget-consumed": 2,
+          "exec-trace": {
+            "approval-program-hash": "EsgA+UYADvM+Xgw5LdVrJGIRxHi4DX1+Or5rtns9jiQ=",
+            "approval-program-trace": [
+              {
+                "pc": 1,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 3,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ],
+                "stack-pop-count": 1
+              }
+            ]
+          },
+          "txn-result": {
+            "application-index": 1008,
+            "pool-error": "",
+            "txn": {
+              "sig": "RvhYC4Ce5HCrnP7RyKWHcBtNa+ufusAc0fu2B/BKDBtIKGQPEv2DgyD7PLUT95GbuFz2p9Zwyx7HYYDn+lI/Cw==",
+              "txn": {
+                "apap": "CYEAQw==",
+                "apsu": "CYEB",
+                "fee": 2000,
+                "fv": 5,
+                "gh": "DWJD/xU1XdpYdgZoVDTESyDLE/AVAtmysydsjSQagX4=",
+                "grp": "iYqBpg5CrgoI+h0C31SMHwkgOZcmBF80YgP5SjQWFaI=",
+                "lv": 1005,
+                "note": "KiQF0SR0bz4=",
+                "snd": "THBZEHQO2AAT2BEO4WVDOSYW77TQRPQQZ2IU3PLJVT6Z3QCNJJJOT76KGA",
+                "type": "appl"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "version": 2
+}

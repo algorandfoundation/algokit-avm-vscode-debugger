@@ -1,0 +1,7 @@
+#pragma version 9
+txn Fee
+!
+txn RekeyTo
+global ZeroAddress
+==
+&&

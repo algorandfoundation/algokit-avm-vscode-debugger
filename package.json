@@ -1,0 +1,177 @@
+{
+  "name": "teal-debug",
+  "displayName": "TEAL Debug",
+  "version": "0.52.0",
+  "publisher": "algorand-vscode",
+  "description": "Debug extension for developing TEAL smart contracts in VS Code.",
+  "author": {
+    "name": "Scytalians"
+  },
+  "license": "MIT",
+  "keywords": [
+    "multi-root ready"
+  ],
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Debuggers"
+  ],
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/algorand/teal-debugger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/algorand/teal-debugger/issues"
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "check-format": "prettier . --check",
+    "format": "prettier . --write",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --tsconfig=./tsconfig.json --external:vscode --format=cjs --platform=node --outfile=dist/extension.js",
+    "watch": "npm run -S esbuild-base -- --sourcemap --sources-content=false --watch",
+    "build": "npm run -S esbuild-base -- --sourcemap --sources-content=false",
+    "package": "vsce package",
+    "publish": "vsce publish",
+    "publish-pre-release": "vsce publish --pre-release",
+    "vscode:prepublish": "rimraf dist && npm run -S esbuild-base -- --minify",
+    "test": "ts-mocha -p tsconfig.json tests/*test.ts --timeout 30s --diff false",
+    "test:coverage": "nyc npm run test"
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "check-coverage": true,
+    "all": true,
+    "include": [
+      "src/**/!(*.test.*).[tj]s?(x)"
+    ],
+    "exclude": [
+      "src/_tests_/**/*.*"
+    ],
+    "reporter": [
+      "html",
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "report-dir": "coverage"
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@types/glob": "^7.2.0",
+    "@types/lodash": "^4.14.196",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^14.14.37",
+    "@types/vscode": "^1.66.0",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "@vscode/debugadapter": "^1.56.0",
+    "@vscode/debugadapter-testsupport": "^1.56.0",
+    "await-notify": "^1.0.1",
+    "base64-js": "^1.5.1",
+    "esbuild": "^0.14.29",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "events": "^3.3.0",
+    "glob": "^7.2.0",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "path-browserify": "^1.0.1",
+    "prettier": "^3.0.3",
+    "rimraf": "^3.0.2",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^4.6.3",
+    "url": "^0.11.0",
+    "vsce": "^2.7.0"
+  },
+  "main": "./dist/extension.js",
+  "browser": "./dist/web-extension.js",
+  "activationEvents": [
+    "workspaceContains:**/*.teal",
+    "onDebug",
+    "onDebugResolve:teal",
+    "onDebugDynamicConfigurations:teal"
+  ],
+  "workspaceTrust": {
+    "request": "never"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "teal",
+        "extensions": [
+          ".teal"
+        ],
+        "configuration": "./teal-language-configuration.json"
+      }
+    ],
+    "breakpoints": [
+      {
+        "language": "teal"
+      }
+    ],
+    "debuggers": [
+      {
+        "type": "teal",
+        "languages": [
+          "teal"
+        ],
+        "label": "TEAL Debug",
+        "program": "./out/src/debugAdapter/debugAdapter.js",
+        "runtime": "node",
+        "configurationAttributes": {
+          "launch": {
+            "properties": {
+              "simulateTraceFile": {
+                "type": "string",
+                "description": "Transaction group simulation response with execution trace.",
+                "default": "${workspaceFolder}/path/to/simulateTraceFile.json"
+              },
+              "programSourcesDescriptionFile": {
+                "type": "string",
+                "description": "Description file for sources of programs appearing in transaction group.",
+                "default": "${workspaceFolder}/path/to/programSourcesDescriptionFile.json"
+              },
+              "stopOnEntry": {
+                "type": "boolean",
+                "description": "Automatically stop after launch.",
+                "default": true
+              }
+            }
+          }
+        },
+        "initialConfigurations": [
+          {
+            "type": "teal",
+            "request": "launch",
+            "name": "Debug AVM Transactions",
+            "simulateTraceFile": "${workspaceFolder}/path/to/simulateTraceFile.json",
+            "programSourcesDescriptionFile": "${workspaceFolder}/path/to/programSourcesDescriptionFile.json",
+            "stopOnEntry": true
+          }
+        ],
+        "configurationSnippets": [
+          {
+            "label": "AVM Debug",
+            "description": "A new configuration for replaying and debugging a Algorand transactions.",
+            "body": {
+              "type": "teal",
+              "request": "launch",
+              "name": "Debug AVM Transactions",
+              "simulateTraceFile": "^\"\\${workspaceFolder}/path/to/simulateTraceFile.json\"",
+              "programSourcesDescriptionFile": "^\"\\${workspaceFolder}/path/to/programSourcesDescriptionFile.json\"",
+              "stopOnEntry": true
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "dependencies": {
+    "algosdk": "github:jasonpaulos/js-algorand-sdk#teal-source-map-improvements",
+    "json-bigint": "^1.0.0"
+  }
+}

@@ -1,0 +1,14 @@
+#pragma version 9
+txn ApplicationID
+bz end
+
+callsub main
+
+end:
+int 1
+return
+
+main:
+txn Sender
+log
+retsub

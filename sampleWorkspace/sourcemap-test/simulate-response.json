@@ -1,0 +1,166 @@
+{
+  "exec-trace-config": {
+    "enable": true,
+    "scratch-change": true,
+    "stack-change": true,
+    "state-change": true
+  },
+  "last-round": 0,
+  "txn-groups": [
+    {
+      "app-budget-added": 700,
+      "app-budget-consumed": 15,
+      "txn-results": [
+        {
+          "app-budget-consumed": 15,
+          "exec-trace": {
+            "approval-program-hash": "7brAsOgat+0ZJIS07Pl3ZMG+5+u/A6g0+pUiNNvVCg0=",
+            "approval-program-trace": [
+              {
+                "pc": 1
+              },
+              {
+                "pc": 4,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 6,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 8,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 2
+              },
+              {
+                "pc": 9,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 12,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 3
+                  }
+                ]
+              },
+              {
+                "pc": 14,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 4
+                  }
+                ]
+              },
+              {
+                "pc": 16,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 7
+                  }
+                ],
+                "stack-pop-count": 2
+              },
+              {
+                "pc": 17,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 6
+                  }
+                ]
+              },
+              {
+                "pc": 19,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ]
+              },
+              {
+                "pc": 20,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 7
+                  }
+                ],
+                "stack-pop-count": 2
+              },
+              {
+                "pc": 21,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 2
+              },
+              {
+                "pc": 22,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 23,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ]
+              },
+              {
+                "pc": 24,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 1
+              }
+            ]
+          },
+          "txn-result": {
+            "application-index": 1001,
+            "pool-error": "",
+            "txn": {
+              "sig": "P6PqPjbIhxYU9ICM6x/Y0+ZicpVA+D/Ju1kD+T0NG/0AcDto9dFSEMxIX3WgC5Y2doYgyIq2hbvhoHGhw1cLAQ==",
+              "txn": {
+                "apap": "CSABATEYgQASQQALgQOBBAiBBiIIEkQiQw==",
+                "apsu": "CYEB",
+                "fee": 1000,
+                "fv": 1,
+                "gh": "ifK2RQF+3sOKGHGatMPIZXys92Le0M24cPWHLZzQCMM=",
+                "lv": 1001,
+                "note": "hCMtVNNN5Hw=",
+                "snd": "KYHNDXENAGPPJWWQ5KNZRYQ6XQ7I6536WI4S3366MBUKP7RGAPOHBBK6MQ",
+                "type": "appl"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "version": 2
+}

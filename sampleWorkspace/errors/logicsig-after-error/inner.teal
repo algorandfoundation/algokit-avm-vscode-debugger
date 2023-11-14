@@ -1,0 +1,10 @@
+#pragma version 9
+txn ApplicationID
+bz end
+
+txn ApplicationArgs 0
+btoi
+assert
+
+end:
+int 1

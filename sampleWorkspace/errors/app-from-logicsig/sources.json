@@ -1,0 +1,12 @@
+{
+  "txn-group-sources": [
+    {
+      "sourcemap-location": "./nine.teal.tok.map",
+      "hash": "EC1P8unO+zjVbdF8XZOs1rp+uaGNk7vXtZ/IYsN/sug="
+    },
+    {
+      "sourcemap-location": "./inner.teal.tok.map",
+      "hash": "1KZi4myBA+q7zZAoHAPPiX/zBQxj8QbO7u1dWJMud4M="
+    }
+  ]
+}

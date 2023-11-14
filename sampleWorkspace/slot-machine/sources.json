@@ -1,0 +1,16 @@
+{
+  "txn-group-sources": [
+    {
+      "sourcemap-location": "./slot-machine.teal.tok.map",
+      "hash": "AYqVv/i0Y88cebp0m1MAYE9gk/1SnhFm8oLKOBMOKac="
+    },
+    {
+      "sourcemap-location": "./random-byte.teal.tok.map",
+      "hash": "nN5LNX4rlRXfN0ax9hH0TsYh1XDhOSLnANPnrWSdATw="
+    },
+    {
+      "sourcemap-location": "./fake-random.teal.tok.map",
+      "hash": "88rrCGDJdARk4rasK5FN8BzmKTqHW5WRzYiRWmtA7HY="
+    }
+  ]
+}
