@@ -1,6 +1,6 @@
 import * as Net from 'net';
-import { AvmDebugSession } from './debugRequestHandlers';
-import { FileAccessor } from './utils';
+import { AvmDebugSession } from './debugSession';
+import { FileAccessor } from './fileAccessor';
 
 export class BasicServer {
   private server: Net.Server;

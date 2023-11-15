@@ -2,7 +2,7 @@ import * as algosdk from 'algosdk';
 import { AppState } from './appState';
 import {
   ByteArrayMap,
-  TEALDebuggingAssets,
+  AvmDebuggingAssets,
   ProgramSourceDescriptor,
   ProgramSourceDescriptorRegistry,
 } from './utils';
@@ -58,7 +58,7 @@ export class TraceReplayEngine {
     this.stack = [];
   }
 
-  public async loadResources(debugAssets: TEALDebuggingAssets) {
+  public async loadResources(debugAssets: AvmDebuggingAssets) {
     const { simulateResponse, programSourceDescriptorRegistry } = debugAssets;
     this.simulateResponse = simulateResponse;
 
@@ -739,7 +739,7 @@ export class ProgramStackFrame extends TraceReplayStackFrame {
     ) {
       let lsigBytes = this.txnInfo.txn.lsig.l;
       if (typeof lsigBytes === 'string') {
-        lsigBytes = Buffer.from(lsigBytes, 'base64');
+        lsigBytes = algosdk.base64ToBytes(lsigBytes);
       }
       const lsigAccount = new algosdk.LogicSigAccount(lsigBytes);
       this.logicSigAddress = lsigAccount.address();
@@ -780,9 +780,7 @@ export class ProgramStackFrame extends TraceReplayStackFrame {
       } else if (typeof this.logicSigAddress !== 'undefined') {
         name = `logic sig ${this.logicSigAddress}.teal`;
       } else {
-        name = `program ${Buffer.from(this.programHash).toString(
-          'base64url',
-        )}.teal`;
+        name = `program ${algosdk.bytesToHex(this.programHash)}.teal`;
       }
       return {
         name,

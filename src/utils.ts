@@ -1,17 +1,18 @@
-import * as path from 'path';
 import * as JSONbigWithoutConfig from 'json-bigint';
 import * as algosdk from 'algosdk';
+import { FileAccessor } from './fileAccessor';
 
-export interface FileAccessor {
-  isWindows: boolean;
-  readFile(path: string): Promise<Uint8Array>;
-  writeFile(path: string, contents: Uint8Array): Promise<void>;
-}
-
-export function isValidUtf8(data: Uint8Array): boolean {
-  const dataBuffer = Buffer.from(data);
-  const decoded = dataBuffer.toString('utf-8');
-  return Buffer.from(decoded).equals(dataBuffer);
+/**
+ * Attempt to decode the given data as UTF-8 and return the result if it is
+ * valid UTF-8. Otherwise, return undefined.
+ */
+export function utf8Decode(data: Uint8Array): string | undefined {
+  const decoder = new TextDecoder('utf-8', { fatal: true });
+  try {
+    return decoder.decode(data);
+  } catch {
+    return undefined;
+  }
 }
 
 export function limitArray<T>(
@@ -68,7 +69,7 @@ export class ByteArrayMap<T> {
   }
 
   public set(key: Uint8Array, value: T): void {
-    this.map.set(Buffer.from(key).toString('hex'), value);
+    this.map.set(algosdk.bytesToHex(key), value);
   }
 
   public setHex(key: string, value: T): void {
@@ -76,7 +77,7 @@ export class ByteArrayMap<T> {
   }
 
   public get(key: Uint8Array): T | undefined {
-    return this.map.get(Buffer.from(key).toString('hex'));
+    return this.map.get(algosdk.bytesToHex(key));
   }
 
   public getHex(key: string): T | undefined {
@@ -88,11 +89,11 @@ export class ByteArrayMap<T> {
   }
 
   public has(key: Uint8Array): boolean {
-    return this.map.has(Buffer.from(key).toString('hex'));
+    return this.map.has(algosdk.bytesToHex(key));
   }
 
   public delete(key: Uint8Array): boolean {
-    return this.map.delete(Buffer.from(key).toString('hex'));
+    return this.map.delete(algosdk.bytesToHex(key));
   }
 
   public deleteHex(key: string): boolean {
@@ -105,7 +106,7 @@ export class ByteArrayMap<T> {
 
   public *entries(): IterableIterator<[Uint8Array, T]> {
     for (const [key, value] of this.map.entries()) {
-      yield [Buffer.from(key, 'hex'), value];
+      yield [algosdk.hexToBytes(key), value];
     }
   }
 
@@ -121,10 +122,7 @@ export class ByteArrayMap<T> {
 }
 
 function filePathRelativeTo(base: string, filePath: string): string {
-  if (path.isAbsolute(filePath)) {
-    return filePath;
-  }
-  return path.join(path.dirname(base), filePath);
+  return new URL(filePath, new URL(base, 'file://')).pathname;
 }
 
 interface ProgramSourceEntryFile {
@@ -177,20 +175,18 @@ export class ProgramSourceDescriptor {
       originFile,
       data['sourcemap-location'],
     );
-    const rawSourcemap = Buffer.from(
-      await prefixPotentialError(
-        fileAccessor.readFile(sourcemapFileLocation),
-        'Could not read source map file',
-      ),
+    const rawSourcemap = await prefixPotentialError(
+      fileAccessor.readFile(sourcemapFileLocation),
+      'Could not read source map file',
     );
     const sourcemap = new algosdk.SourceMap(
-      JSON.parse(rawSourcemap.toString('utf-8')),
+      JSON.parse(new TextDecoder().decode(rawSourcemap)),
     );
 
     return new ProgramSourceDescriptor({
       sourcemapFileLocation,
       sourcemap,
-      hash: new Uint8Array(Buffer.from(data.hash, 'base64')),
+      hash: algosdk.base64ToBytes(data.hash),
     });
   }
 }
@@ -216,16 +212,14 @@ export class ProgramSourceDescriptorRegistry {
     fileAccessor: FileAccessor,
     programSourcesDescriptionFilePath: string,
   ): Promise<ProgramSourceDescriptorRegistry> {
-    const rawSourcesDescription = Buffer.from(
-      await prefixPotentialError(
-        fileAccessor.readFile(programSourcesDescriptionFilePath),
-        'Could not read program sources description file',
-      ),
+    const rawSourcesDescription = await prefixPotentialError(
+      fileAccessor.readFile(programSourcesDescriptionFilePath),
+      'Could not read program sources description file',
     );
     let jsonSourcesDescription: ProgramSourceEntryFile;
     try {
       jsonSourcesDescription = JSON.parse(
-        rawSourcesDescription.toString('utf-8'),
+        new TextDecoder().decode(rawSourcesDescription),
       ) as ProgramSourceEntryFile;
       if (
         !Array.isArray(jsonSourcesDescription['txn-group-sources']) ||
@@ -257,7 +251,7 @@ export class ProgramSourceDescriptorRegistry {
   }
 }
 
-export class TEALDebuggingAssets {
+export class AvmDebuggingAssets {
   constructor(
     public readonly simulateResponse: algosdk.modelsv2.SimulateResponse,
     public readonly programSourceDescriptorRegistry: ProgramSourceDescriptorRegistry,
@@ -267,17 +261,15 @@ export class TEALDebuggingAssets {
     fileAccessor: FileAccessor,
     simulateTraceFilePath: string,
     programSourcesDescriptionFilePath: string,
-  ): Promise<TEALDebuggingAssets> {
-    const rawSimulateTrace = Buffer.from(
-      await prefixPotentialError(
-        fileAccessor.readFile(simulateTraceFilePath),
-        'Could not read simulate trace file',
-      ),
+  ): Promise<AvmDebuggingAssets> {
+    const rawSimulateTrace = await prefixPotentialError(
+      fileAccessor.readFile(simulateTraceFilePath),
+      'Could not read simulate trace file',
     );
     let simulateResponse: algosdk.modelsv2.SimulateResponse;
     try {
       const jsonPased = parseJsonWithBigints(
-        rawSimulateTrace.toString('utf-8'),
+        new TextDecoder().decode(rawSimulateTrace),
       );
       if (jsonPased.version !== 2) {
         throw new Error(
@@ -306,7 +298,7 @@ export class TEALDebuggingAssets {
         programSourcesDescriptionFilePath,
       );
 
-    return new TEALDebuggingAssets(simulateResponse, txnGroupDescriptorList);
+    return new AvmDebuggingAssets(simulateResponse, txnGroupDescriptorList);
   }
 }
 

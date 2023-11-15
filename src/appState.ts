@@ -81,7 +81,7 @@ function createAvmKvArray(
     .map(
       ([key, value]) =>
         new algosdk.modelsv2.AvmKeyValue({
-          key: Buffer.from(key, 'hex'),
+          key: algosdk.hexToBytes(key),
           value,
         }),
     );

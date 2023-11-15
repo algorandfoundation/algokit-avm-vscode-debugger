@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import { RuntimeEvents } from './debugRequestHandlers';
+import { RuntimeEvents } from './debugSession';
 import { AppState } from './appState';
 import {
   FrameSourceLocation,
@@ -7,11 +7,8 @@ import {
   TraceReplayEngine,
   TraceReplayStackFrame,
 } from './traceReplayEngine';
-import {
-  FileAccessor,
-  TEALDebuggingAssets,
-  ProgramSourceDescriptor,
-} from './utils';
+import { FileAccessor } from './fileAccessor';
+import { AvmDebuggingAssets, ProgramSourceDescriptor } from './utils';
 
 export interface IRuntimeBreakpoint {
   id: number;
@@ -22,11 +19,6 @@ export interface IRuntimeBreakpoint {
 export interface IRuntimeBreakpointLocation {
   line: number;
   column?: number;
-}
-
-interface IRuntimeStepInTargets {
-  id: number;
-  label: string;
 }
 
 interface IRuntimeStack {
@@ -48,7 +40,7 @@ export class AvmRuntime extends EventEmitter {
     super();
   }
 
-  public onLaunch(debugAssets: TEALDebuggingAssets): Promise<void> {
+  public onLaunch(debugAssets: AvmDebuggingAssets): Promise<void> {
     return this.engine.loadResources(debugAssets);
   }
 
@@ -199,10 +191,6 @@ export class AvmRuntime extends EventEmitter {
     });
   }
 
-  public getStepInTargets(frameId: number): IRuntimeStepInTargets[] {
-    return [];
-  }
-
   public stackLength(): number {
     return this.engine.stack.length;
   }
@@ -313,7 +301,7 @@ export class AvmRuntime extends EventEmitter {
       );
       if (bps.length !== 0) {
         // send 'stopped' event
-        this.sendEvent(RuntimeEvents.stopOnBreakpoint);
+        this.sendEvent(RuntimeEvents.stopOnBreakpoint, bps[0].id);
 
         // the following shows the use of 'breakpoint' events to update properties of a breakpoint in the UI
         // if breakpoint is not yet verified, verify it now and send a 'breakpoint' update event

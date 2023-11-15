@@ -5,7 +5,47 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "teal",
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug App Box State Changes",
+
+      "simulateTraceFile": "${workspaceFolder}/app-state-changes/box-simulate-response.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/app-state-changes/sources.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug App Global State Changes",
+
+      "simulateTraceFile": "${workspaceFolder}/app-state-changes/global-simulate-response.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/app-state-changes/sources.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug App Local State Changes",
+
+      "simulateTraceFile": "${workspaceFolder}/app-state-changes/local-simulate-response.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/app-state-changes/sources.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Recursive App",
+
+      "simulateTraceFile": "${workspaceFolder}/recursive-app/simulate-response.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/recursive-app/sources.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
       "request": "launch",
       "name": "Debug Slot Machine",
 
@@ -15,7 +55,27 @@
       "stopOnEntry": true
     },
     {
-      "type": "teal",
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Sourcemap Test",
+
+      "simulateTraceFile": "${workspaceFolder}/sourcemap-test/simulate-response.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/sourcemap-test/sources.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Stack Scratch",
+
+      "simulateTraceFile": "${workspaceFolder}/stack-scratch/simulate-response.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/stack-scratch/sources.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
       "request": "launch",
       "name": "Debug Stepping Test",
 
@@ -25,9 +85,29 @@
       "stopOnEntry": true
     },
     {
-      "type": "teal",
+      "type": "avm",
       "request": "launch",
-      "name": "Debug Inner App Error",
+      "name": "Debug App Error",
+
+      "simulateTraceFile": "${workspaceFolder}/errors/app/simulate-response.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/errors/app/sources.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug App from LogicSig Error",
+
+      "simulateTraceFile": "${workspaceFolder}/errors/app-from-logicsig/simulate-response.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/errors/app-from-logicsig/sources.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Inner App Error (App Reject)",
 
       "simulateTraceFile": "${workspaceFolder}/errors/inner-app/app-reject-simulate-response.json",
       "programSourcesDescriptionFile": "${workspaceFolder}/errors/inner-app/sources.json",
@@ -35,12 +115,32 @@
       "stopOnEntry": true
     },
     {
-      "type": "teal",
+      "type": "avm",
       "request": "launch",
-      "name": "Debug App from LogicSig Error",
+      "name": "Debug Inner App Error (Overspend)",
 
-      "simulateTraceFile": "${workspaceFolder}/errors/app-from-logicsig/simulate-response.json",
-      "programSourcesDescriptionFile": "${workspaceFolder}/errors/app-from-logicsig/sources.json",
+      "simulateTraceFile": "${workspaceFolder}/errors/inner-app/overspend-simulate-response.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/errors/inner-app/sources.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug LogicSig Error",
+
+      "simulateTraceFile": "${workspaceFolder}/errors/logicsig/simulate-response.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/errors/logicsig/sources.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Error Before LogicSig",
+
+      "simulateTraceFile": "${workspaceFolder}/errors/logicsig-after-error/simulate-response.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/errors/logicsig-after-error/sources.json",
 
       "stopOnEntry": true
     }

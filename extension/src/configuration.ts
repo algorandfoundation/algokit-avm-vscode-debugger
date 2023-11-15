@@ -8,7 +8,7 @@ import {
   CancellationToken,
 } from 'vscode';
 
-export class TealDebugConfigProvider
+export class AvmDebugConfigProvider
   implements vscode.DebugConfigurationProvider
 {
   /**

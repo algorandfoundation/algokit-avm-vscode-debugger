@@ -1,10 +1,11 @@
-import { promises as fs } from 'fs';
+import * as fs from 'fs/promises';
+import { basename } from 'path';
 import * as Net from 'net';
-import { FileAccessor } from './utils';
-import { AvmDebugSession } from './debugRequestHandlers';
+import { FileAccessor } from './fileAccessor';
+import { AvmDebugSession } from './debugSession';
 
 /*
- * debugAdapter.js is the entrypoint of the debug adapter when it runs as a separate process.
+ * cli.js is the entrypoint of the debug adapter when it runs as a separate process.
  */
 
 /*
@@ -18,6 +19,9 @@ const fsAccessor: FileAccessor = {
   },
   writeFile(path: string, contents: Uint8Array): Promise<void> {
     return fs.writeFile(path, contents);
+  },
+  basename(path: string): string {
+    return basename(path);
   },
 };
 

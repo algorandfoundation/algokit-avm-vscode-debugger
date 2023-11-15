@@ -2,7 +2,7 @@ import * as assert from 'assert';
 import { SpawnOptions } from 'child_process';
 import { DebugClient as DebugClientBase } from '@vscode/debugadapter-testsupport';
 import { DebugProtocol } from '@vscode/debugprotocol';
-import { ILaunchRequestArguments } from '../src/debugAdapter/debugRequestHandlers';
+import { ILaunchRequestArguments } from '../src/debugSession';
 import {
   ILocation,
   IPartialLocation,
@@ -159,7 +159,7 @@ export class DebugClient extends DebugClientBase {
     ) as Promise<DebugProtocol.BreakpointLocationsResponse>;
   }
 
-  async hitBreakpoint(
+  hitBreakpoint(
     launchArgs: ILaunchRequestArguments,
     location: ILocation,
     expectedStopLocation?: IPartialLocation | undefined,
@@ -168,67 +168,11 @@ export class DebugClient extends DebugClientBase {
     if (launchArgs.stopOnEntry) {
       throw new Error("Can't hit breakpoint when stopOnEntry is true");
     }
-    // Can't call into super.hitBreakpoint because there is a race between setting the breakpoint
-    // and sending the launch request. Any breakpoints set before launch will be marked 'unverified',
-    // which will cause super.hitBreakpoint to fail.
-    await Promise.all([
-      this.configurationSequence(),
-      this.launch({
-        ...launchArgs,
-        stopOnEntry: true,
-      }),
-      this.assertStoppedLocation('entry', {}),
-    ]);
-
-    const setBreakpointsResponse = await this.setBreakpointsRequest({
-      breakpoints: [{ line: location.line, column: location.column }],
-      source: { path: location.path },
-    });
-
-    const bp = setBreakpointsResponse.body.breakpoints[0];
-    const verified =
-      typeof location.verified === 'boolean' ? location.verified : true;
-    assert.strictEqual(
-      bp.verified,
-      verified,
-      'breakpoint verification mismatch: verified',
-    );
-    const actualLocation = {
-      column: bp.column,
-      line: bp.line,
-      path: bp.source && bp.source.path,
-    };
-    // assertPartialLocationsEqual(actualLocation, expectedBPLocation || location);
-    const expectedLocation = expectedBPLocation || location;
-    if (actualLocation.path) {
-      this.assertPath(
-        actualLocation.path,
-        expectedLocation.path!,
-        'breakpoint verification mismatch: path',
-      );
-    }
-    if (typeof actualLocation.line === 'number') {
-      assert.strictEqual(
-        actualLocation.line,
-        expectedLocation.line,
-        'breakpoint verification mismatch: line',
-      );
-    }
-    if (
-      typeof expectedLocation.column === 'number' &&
-      typeof actualLocation.column === 'number'
-    ) {
-      assert.strictEqual(
-        actualLocation.column,
-        expectedLocation.column,
-        'breakpoint verification mismatch: column',
-      );
-    }
-
-    await this.continueRequest({ threadId: 1 });
-    await this.assertStoppedLocation(
-      'breakpoint',
-      expectedStopLocation || location,
+    return super.hitBreakpoint(
+      launchArgs,
+      location,
+      expectedStopLocation,
+      expectedBPLocation,
     );
   }
 }

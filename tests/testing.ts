@@ -2,13 +2,14 @@ import * as assert from 'assert';
 import * as path from 'path';
 import * as fs from 'fs/promises';
 import { DebugClient } from './client';
-import { BasicServer } from '../src/debugAdapter/basicServer';
-import { FileAccessor, ByteArrayMap } from '../src/debugAdapter/utils';
+import { BasicServer } from '../src/basicServer';
+import { FileAccessor } from '../src/fileAccessor';
+import { ByteArrayMap } from '../src/utils';
 
 export const PROJECT_ROOT = path.join(__dirname, '../');
 const DEBUG_CLIENT_PATH = path.join(
   PROJECT_ROOT,
-  'out/src/debugAdapter/debugAdapter.js',
+  'out/src/debugAdapter/cli.js',
 );
 export const DATA_ROOT = path.join(PROJECT_ROOT, 'sampleWorkspace/');
 
@@ -19,6 +20,9 @@ export const testFileAccessor: FileAccessor = {
   },
   async writeFile(path: string, contents: Uint8Array) {
     return await fs.writeFile(path, contents);
+  },
+  basename(p: string): string {
+    return path.basename(p);
   },
 };
 
@@ -43,7 +47,7 @@ export class TestFixture {
   public async init() {
     this._server = new BasicServer(testFileAccessor);
 
-    this._client = new DebugClient('node', DEBUG_CLIENT_PATH, 'teal');
+    this._client = new DebugClient('node', DEBUG_CLIENT_PATH, 'avm');
     await this._client.start(this._server.port());
 
     // If you want to invoke the debug adapter separately in a child process and
@@ -51,7 +55,7 @@ export class TestFixture {
     // this._client = new DebugClient(
     //   'node',
     //   DEBUG_CLIENT_PATH,
-    //   'teal',
+    //   'avm',
     //   undefined,
     //   true,
     // );
