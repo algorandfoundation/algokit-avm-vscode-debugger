@@ -2,7 +2,7 @@
 
 import * as vscode from 'vscode';
 import { ProviderResult } from 'vscode';
-import { AvmDebugSession } from '../../src';
+import { AvmDebugSession } from '../debugger';
 import { workspaceFileAccessor } from './fileAccessor';
 
 export class InlineDebugAdapterFactory

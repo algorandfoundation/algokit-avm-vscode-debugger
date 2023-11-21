@@ -1,40 +1,34 @@
 {
-  "name": "avm-debug",
+  "name": "vscode-avm-debug",
+  "displayName": "Algorand AVM Debugger",
   "version": "0.1.0",
-  "description": "Algorand AVM transaction and smart contract debugger using the Debugger Adapter Protocol",
-  "author": {
-    "name": "Algorand, llc"
-  },
+  "private": false,
+  "description": "A VS Code debug extension for debugging Algorand AVM transactions and smart contract programs.",
+  "author": "Algorand Foundation",
+  "publisher": "Algorand Foundation",
   "license": "MIT",
+  "keywords": [
+    "algorand",
+    "avm",
+    "algorand debugger",
+    "avm debugger",
+    "smart contract debugger"
+  ],
   "engines": {
-    "node": ">=18.0.0"
+    "vscode": "^1.80.0"
   },
+  "icon": "images/icon.png",
+  "categories": [
+    "Debuggers"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/algorand/avm-debugger.git"
+    "url": "https://github.com/MakerXStudio/algokit-vscode-debugger.git"
   },
   "bugs": {
-    "url": "https://github.com/algorand/avm-debugger/issues"
+    "url": "https://github.com/MakerXStudio/algokit-vscode-debugger/issues"
   },
-  "scripts": {
-    "compile": "tsc -p ./",
-    "lint": "eslint src --ext ts",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "check-format": "prettier . --check",
-    "format": "prettier . --write",
-    "esbuild-base": "esbuild ./extension/src/extension.ts --bundle --tsconfig=./tsconfig.json --external:vscode --format=cjs --platform=node --outfile=extension/dist/extension.js",
-    "watch": "npm run -S esbuild-base -- --sourcemap --sources-content=false --watch",
-    "esbuild-web": "esbuild ./extension/src/web-extension.ts --bundle --tsconfig=./tsconfig.json --external:vscode --format=cjs --platform=browser --outfile=extension/dist/web-extension.js",
-    "watch-web": "npm run -S esbuild-web -- --sourcemap --sources-content=false --watch",
-    "build": "npm run -S esbuild-base -- --sourcemap --sources-content=false && npm run -S esbuild-web -- --sourcemap --sources-content=false",
-    "package": "vsce package",
-    "publish": "vsce publish",
-    "publish-pre-release": "vsce publish --pre-release",
-    "vscode:prepublish": "rimraf dist && npm run -S esbuild-base -- --minify && npm run -S esbuild-web -- --minify",
-    "test": "ts-mocha -p tsconfig.json tests/*test.ts --timeout 30s --diff false",
-    "test:coverage": "nyc npm run test"
-  },
-  "main": "./dist/debugAdapter/index.js",
+  "scripts": {},
   "dependencies": {
     "@vscode/debugadapter": "^1.64.0",
     "algosdk": "github:jasonpaulos/js-algorand-sdk#teal-source-map-improvements",
@@ -42,45 +36,99 @@
     "json-bigint": "^1.0.0"
   },
   "devDependencies": {
-    "@istanbuljs/nyc-config-typescript": "^1.0.2",
-    "@types/glob": "^7.2.0",
-    "@types/lodash": "^4.14.196",
-    "@types/mocha": "^9.1.0",
-    "@types/node": "^14.14.37",
-    "@types/vscode": "^1.66.0",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
-    "@vscode/debugadapter-testsupport": "^1.64.0",
-    "@vscode/vsce": "^2.22.0",
-    "esbuild": "^0.14.29",
-    "eslint": "^8.52.0",
-    "eslint-config-prettier": "^9.0.0",
-    "events": "^3.3.0",
-    "glob": "^7.2.0",
-    "mocha": "^10.2.0",
-    "nyc": "^15.1.0",
-    "prettier": "^3.0.3",
-    "rimraf": "^3.0.2",
-    "ts-mocha": "^10.0.0",
-    "typescript": "^4.6.3",
-    "url": "^0.11.3"
+    "@makerx/eslint-config": "^3.1.0",
+    "@makerx/prettier-config": "^2.0.0",
+    "@makerx/ts-config": "^1.0.1",
+    "@types/vscode": "^1.66.0"
   },
-  "nyc": {
-    "extends": "@istanbuljs/nyc-config-typescript",
-    "check-coverage": true,
-    "all": true,
-    "include": [
-      "src/**/!(*.test.*).[tj]s?(x)"
+  "main": "./dist/extension.js",
+  "browser": "./dist/web-extension.js",
+  "activationEvents": [
+    "workspaceContains:**/*.teal",
+    "onDebug",
+    "onDebugResolve:avm",
+    "onDebugDynamicConfigurations:avm"
+  ],
+  "workspaceTrust": {
+    "request": "never"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "teal",
+        "extensions": [
+          ".teal"
+        ],
+        "configuration": "teal-language-configuration.json"
+      }
     ],
-    "exclude": [
-      "src/_tests_/**/*.*"
+    "grammars": [
+      {
+        "language": "teal",
+        "scopeName": "source.teal",
+        "path": "syntaxes/teal.tmLanguage.json"
+      }
     ],
-    "reporter": [
-      "html",
-      "lcov",
-      "text",
-      "text-summary"
+    "breakpoints": [
+      {
+        "language": "teal"
+      }
     ],
-    "report-dir": "coverage"
+    "debuggers": [
+      {
+        "type": "avm",
+        "languages": [
+          "teal"
+        ],
+        "label": "AVM Debug",
+        "program": "../out/src/cli.js",
+        "runtime": "node",
+        "configurationAttributes": {
+          "launch": {
+            "properties": {
+              "simulateTraceFile": {
+                "type": "string",
+                "description": "Transaction group simulation response with execution trace.",
+                "default": "${workspaceFolder}/path/to/simulateTraceFile.json"
+              },
+              "programSourcesDescriptionFile": {
+                "type": "string",
+                "description": "Description file for sources of programs appearing in transaction group.",
+                "default": "${workspaceFolder}/path/to/programSourcesDescriptionFile.json"
+              },
+              "stopOnEntry": {
+                "type": "boolean",
+                "description": "Automatically stop after launch.",
+                "default": true
+              }
+            }
+          }
+        },
+        "initialConfigurations": [
+          {
+            "type": "avm",
+            "request": "launch",
+            "name": "Debug AVM Transactions",
+            "simulateTraceFile": "${workspaceFolder}/path/to/simulateTraceFile.json",
+            "programSourcesDescriptionFile": "${workspaceFolder}/path/to/programSourcesDescriptionFile.json",
+            "stopOnEntry": true
+          }
+        ],
+        "configurationSnippets": [
+          {
+            "label": "AVM Debug",
+            "description": "A new configuration for replaying and debugging a Algorand transactions.",
+            "body": {
+              "type": "avm",
+              "request": "launch",
+              "name": "Debug AVM Transactions",
+              "simulateTraceFile": "^\"\\${workspaceFolder}/path/to/simulateTraceFile.json\"",
+              "programSourcesDescriptionFile": "^\"\\${workspaceFolder}/path/to/programSourcesDescriptionFile.json\"",
+              "stopOnEntry": true
+            }
+          }
+        ]
+      }
+    ]
   }
 }
