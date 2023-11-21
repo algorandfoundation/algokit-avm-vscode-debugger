@@ -28,7 +28,11 @@
   "bugs": {
     "url": "https://github.com/MakerXStudio/algokit-vscode-debugger/issues"
   },
-  "scripts": {},
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint \"src/**/*.ts\"",
+    "lint:fix": "eslint \"src/**/*.ts\" --fix"
+  },
   "dependencies": {
     "@vscode/debugadapter": "^1.64.0",
     "algosdk": "github:jasonpaulos/js-algorand-sdk#teal-source-map-improvements",
@@ -36,10 +40,13 @@
     "json-bigint": "^1.0.0"
   },
   "devDependencies": {
-    "@makerx/eslint-config": "^3.1.0",
-    "@makerx/prettier-config": "^2.0.0",
-    "@makerx/ts-config": "^1.0.1",
-    "@types/vscode": "^1.66.0"
+    "@types/vscode": "^1.66.0",
+    "@makerx/eslint-config": "3.1.0",
+    "@makerx/prettier-config": "2.0.0",
+    "@makerx/ts-config": "1.0.1",
+    "typescript": "^4.7.0",
+    "eslint": "8.22.0",
+    "prettier": "3.1.0"
   },
   "main": "./dist/extension.js",
   "browser": "./dist/web-extension.js",
