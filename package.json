@@ -30,12 +30,16 @@
   },
   "scripts": {
     "build": "run-s build:*",
-    "build:0-clean": "rimraf dist",
-    "build:1-build": "esbuild ./src/extension.ts --bundle --tsconfig=./tsconfig.json --external:vscode --format=cjs --platform=node --outfile=dist/extension.js",
-    "watch": "npm run -S build:1-build -- --sourcemap --sources-content=false --watch",
+    "build:clean": "rimraf dist",
+    "build:check-types": "tsc --noEmit",
+    "build:build": "esbuild ./src/extension.ts --bundle --tsconfig=./tsconfig.json --external:vscode --format=cjs --platform=node --outfile=dist/extension.js",
+    "watch": "npm run build:build -- --sourcemap --sources-content=false --watch",
     "format": "prettier --write .",
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\" --fix",
+    "test": "echo 'No tests yet'",
+    "audit": "npm audit",
+    "pre-commit": "run-s build lint:fix audit format test",
     "package": "vsce package"
   },
   "dependencies": {
