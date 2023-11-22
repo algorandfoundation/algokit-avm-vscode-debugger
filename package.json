@@ -1,9 +1,9 @@
 {
   "name": "vscode-avm-debug",
-  "displayName": "Algorand AVM Debugger",
+  "displayName": "AVM Debugger",
   "version": "0.1.0",
   "private": false,
-  "description": "A VS Code debug extension for debugging Algorand AVM transactions and smart contract programs.",
+  "description": "An extension for debugging AVM transactions and smart contract programs.",
   "author": "Algorand Foundation",
   "publisher": "Algorand Foundation",
   "license": "MIT",
@@ -17,7 +17,7 @@
   "engines": {
     "vscode": "^1.80.0"
   },
-  "icon": "images/icon.png",
+  "icon": "./images/icon.png",
   "categories": [
     "Debuggers"
   ],
@@ -29,29 +29,40 @@
     "url": "https://github.com/MakerXStudio/algokit-vscode-debugger/issues"
   },
   "scripts": {
+    "build": "run-s build:*",
+    "build:0-clean": "rimraf dist",
+    "build:1-build": "esbuild ./src/extension.ts --bundle --tsconfig=./tsconfig.json --external:vscode --format=cjs --platform=node --outfile=dist/extension.js",
+    "watch": "npm run -S build:1-build -- --sourcemap --sources-content=false --watch",
     "format": "prettier --write .",
     "lint": "eslint \"src/**/*.ts\"",
-    "lint:fix": "eslint \"src/**/*.ts\" --fix"
+    "lint:fix": "eslint \"src/**/*.ts\" --fix",
+    "package": "vsce package"
   },
   "dependencies": {
     "@vscode/debugadapter": "^1.64.0",
     "algosdk": "github:jasonpaulos/js-algorand-sdk#teal-source-map-improvements",
     "await-notify": "^1.0.1",
+    "esbuild": "^0.19.7",
     "json-bigint": "^1.0.0"
   },
   "devDependencies": {
-    "@types/vscode": "^1.66.0",
     "@makerx/eslint-config": "3.1.0",
     "@makerx/prettier-config": "2.0.0",
     "@makerx/ts-config": "1.0.1",
-    "typescript": "^4.7.0",
+    "@types/json-bigint": "^1.0.4",
+    "@types/node": "^18.18.11",
+    "@types/vscode": "^1.66.0",
+    "@vscode/vsce": "^2.22.0",
     "eslint": "8.22.0",
-    "prettier": "3.1.0"
+    "npm-run-all": "^4.1.5",
+    "prettier": "3.1.0",
+    "rimraf": "^5.0.5",
+    "tslib": "^2.6.2",
+    "typescript": "^4.7.0"
   },
   "main": "./dist/extension.js",
-  "browser": "./dist/web-extension.js",
   "activationEvents": [
-    "workspaceContains:**/*.teal",
+    "workspaceContains:**/*.avm.trace",
     "onDebug",
     "onDebugResolve:avm",
     "onDebugDynamicConfigurations:avm"
@@ -88,7 +99,6 @@
           "teal"
         ],
         "label": "AVM Debug",
-        "program": "../out/src/cli.js",
         "runtime": "node",
         "configurationAttributes": {
           "launch": {

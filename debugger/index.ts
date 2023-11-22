@@ -1,2 +1,2 @@
-export { AvmDebugSession } from './debugSession';
-export { FileAccessor } from './fileAccessor';
+export { AvmDebugSession } from './debugSession'
+export { FileAccessor } from './fileAccessor'

@@ -1,7 +1,7 @@
 'use strict'
 
 import * as vscode from 'vscode'
-import { WorkspaceFolder, DebugConfiguration, ProviderResult, CancellationToken } from 'vscode'
+import { CancellationToken, DebugConfiguration, ProviderResult, WorkspaceFolder } from 'vscode'
 
 export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider {
   /**

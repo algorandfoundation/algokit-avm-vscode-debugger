@@ -1,8 +1,8 @@
-import * as fs from 'fs/promises';
-import { basename } from 'path';
-import * as Net from 'net';
-import { FileAccessor } from './fileAccessor';
-import { AvmDebugSession } from './debugSession';
+import * as fs from 'fs/promises'
+import * as Net from 'net'
+import { basename } from 'path'
+import { AvmDebugSession } from './debugSession'
+import { FileAccessor } from './fileAccessor'
 
 /*
  * cli.js is the entrypoint of the debug adapter when it runs as a separate process.
@@ -15,15 +15,15 @@ import { AvmDebugSession } from './debugSession';
 const fsAccessor: FileAccessor = {
   isWindows: process.platform === 'win32',
   readFile(path: string): Promise<Uint8Array> {
-    return fs.readFile(path);
+    return fs.readFile(path)
   },
   writeFile(path: string, contents: Uint8Array): Promise<void> {
-    return fs.writeFile(path, contents);
+    return fs.writeFile(path, contents)
   },
   basename(path: string): string {
-    return basename(path);
+    return basename(path)
   },
-};
+}
 
 async function run() {
   /*
@@ -37,45 +37,45 @@ async function run() {
    */
 
   // first parse command line arguments to see whether the debug adapter should run as a server
-  let port = 0;
+  let port = 0
 
-  const args = process.argv.slice(2);
+  const args = process.argv.slice(2)
   args.forEach(function (val, index, array) {
-    const portMatch = /^--server=(\d{4,5})$/.exec(val);
+    const portMatch = /^--server=(\d{4,5})$/.exec(val)
     if (portMatch) {
-      port = parseInt(portMatch[1], 10);
+      port = parseInt(portMatch[1], 10)
     }
-  });
+  })
 
   if (port > 0) {
     // start a server that creates a new session for every connection request
-    console.error(`waiting for debug protocol on port ${port}`);
+    console.error(`waiting for debug protocol on port ${port}`)
     const server = Net.createServer((socket) => {
-      console.log('>> accepted connection from client');
+      console.log('>> accepted connection from client')
       socket.on('error', (err) => {
-        throw err;
-      });
+        throw err
+      })
       socket.on('end', () => {
-        console.error('>> client connection closed\n');
-      });
-      const session = new AvmDebugSession(fsAccessor);
-      session.setRunAsServer(true);
-      session.start(socket, socket);
-    }).listen(port);
+        console.error('>> client connection closed\n')
+      })
+      const session = new AvmDebugSession(fsAccessor)
+      session.setRunAsServer(true)
+      session.start(socket, socket)
+    }).listen(port)
     server.on('error', (err) => {
-      throw err;
-    });
+      throw err
+    })
   } else {
     // start a single session that communicates via stdin/stdout
-    const session = new AvmDebugSession(fsAccessor);
+    const session = new AvmDebugSession(fsAccessor)
     process.on('SIGTERM', () => {
-      session.shutdown();
-    });
-    session.start(process.stdin, process.stdout);
+      session.shutdown()
+    })
+    session.start(process.stdin, process.stdout)
   }
 }
 
 run().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+  console.error(err)
+  process.exit(1)
+})

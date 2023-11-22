@@ -4,10 +4,8 @@ import * as vscode from 'vscode'
 import { AvmDebugConfigProvider } from './configuration'
 
 export function activateAvmDebug(context: vscode.ExtensionContext, factory: vscode.DebugAdapterDescriptorFactory) {
-  // register a configuration provider for 'avm' debug type
   const provider = new AvmDebugConfigProvider()
   context.subscriptions.push(vscode.debug.registerDebugConfigurationProvider('avm', provider))
-
   context.subscriptions.push(vscode.debug.registerDebugAdapterDescriptorFactory('avm', factory))
 
   if (isDisposable(factory)) {

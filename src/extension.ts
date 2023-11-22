@@ -2,9 +2,10 @@
 
 import * as vscode from 'vscode'
 import { activateAvmDebug } from './activateAvmDebug'
-import { ServerDebugAdapterFactory } from './serverDescriptorFactory'
-import { InlineDebugAdapterFactory } from './internalDescriptorFactory'
+import { InlineDebugAdapterFactory } from './inlineDebugAdapterFactory'
+import { ServerDebugAdapterFactory } from './serverDebugAdapterFactory'
 
+// TODO: NC - Dynamically resolve this, so we can switch from server mode to inline mode
 const runMode: 'server' | 'inline' = 'inline'
 
 export function activate(context: vscode.ExtensionContext) {
@@ -21,5 +22,6 @@ export function activate(context: vscode.ExtensionContext) {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-export function deactivate() {}
+export function deactivate() {
+  // no op
+}
