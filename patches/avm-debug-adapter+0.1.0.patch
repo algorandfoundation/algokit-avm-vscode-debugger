@@ -1,21 +1,23 @@
 diff --git a/node_modules/avm-debug-adapter/package.json b/node_modules/avm-debug-adapter/package.json
-index 8cda952..f5d492b 100644
+index 8cda952..3377416 100644
 --- a/node_modules/avm-debug-adapter/package.json
 +++ b/node_modules/avm-debug-adapter/package.json
-@@ -16,6 +16,19 @@
+@@ -16,6 +16,21 @@
    "bugs": {
      "url": "https://github.com/algorand/avm-debugger/issues"
    },
++  "main": "out/src/common/index.js",
++  "types": "out/src/common/index.d.ts",
 +  "typesVersions": {
 +    "*": {
 +      ".": [
-+        "./out/src/common/index.d.ts"
++        "out/src/common/index.d.ts"
 +      ],
 +      "*": [
-+        "./out/src/common/index.d.ts"
++        "out/src/common/index.d.ts"
 +      ],
 +      "node": [
-+        "./out/src/node/index.d.ts"
++        "out/src/node/index.d.ts"
 +      ]
 +    }
 +  },
