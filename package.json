@@ -67,7 +67,8 @@
     "workspaceContains:**/*.avm.trace",
     "onDebug",
     "onDebugResolve:avm",
-    "onDebugDynamicConfigurations:avm"
+    "onDebugDynamicConfigurations:avm",
+    "onCommand:extension.avmDebug.getSimulateTraceFile"
   ],
   "workspaceTrust": {
     "request": "never"
@@ -104,16 +105,18 @@
         "runtime": "node",
         "configurationAttributes": {
           "launch": {
+            "required": [
+              "simulateTraceFile"
+            ],
             "properties": {
               "simulateTraceFile": {
                 "type": "string",
                 "description": "Transaction group simulation response with execution trace.",
-                "default": "${workspaceFolder}/path/to/simulateTraceFile.json"
+                "default": "${workspaceFolder}/${command:PickSimulateTraceFile}"
               },
               "programSourcesDescriptionFile": {
                 "type": "string",
-                "description": "Description file for sources of programs appearing in transaction group.",
-                "default": "${workspaceFolder}/path/to/programSourcesDescriptionFile.json"
+                "description": "Description file for sources of programs appearing in transaction group."
               },
               "stopOnEntry": {
                 "type": "boolean",
@@ -128,25 +131,26 @@
             "type": "avm",
             "request": "launch",
             "name": "Debug AVM Transactions",
-            "simulateTraceFile": "${workspaceFolder}/path/to/simulateTraceFile.json",
-            "programSourcesDescriptionFile": "${workspaceFolder}/path/to/programSourcesDescriptionFile.json",
+            "simulateTraceFile": "${workspaceFolder}/${command:PickSimulateTraceFile}",
             "stopOnEntry": true
           }
         ],
         "configurationSnippets": [
           {
             "label": "AVM Debug",
-            "description": "A new configuration for replaying and debugging a Algorand transactions.",
+            "description": "A new configuration for replaying and debugging Algorand transactions.",
             "body": {
               "type": "avm",
               "request": "launch",
               "name": "Debug AVM Transactions",
-              "simulateTraceFile": "^\"\\${workspaceFolder}/path/to/simulateTraceFile.json\"",
-              "programSourcesDescriptionFile": "^\"\\${workspaceFolder}/path/to/programSourcesDescriptionFile.json\"",
+              "simulateTraceFile": "^\"\\${workspaceFolder}/\\${command:PickSimulateTraceFile}\"",
               "stopOnEntry": true
             }
           }
-        ]
+        ],
+        "variables": {
+          "PickSimulateTraceFile": "extension.avmDebug.getSimulateTraceFile"
+        }
       }
     ]
   }
