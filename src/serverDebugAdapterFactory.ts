@@ -1,9 +1,7 @@
-'use strict'
-
+import { AvmDebugSession } from 'avm-debug-adapter'
 import * as Net from 'net'
 import * as vscode from 'vscode'
 import { ProviderResult } from 'vscode'
-import { AvmDebugSession } from '../debugger'
 import { workspaceFileAccessor } from './fileAccessor'
 
 // TODO: NC - Come back and tweak this, as it's currently not what we want

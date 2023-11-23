@@ -1,7 +1,5 @@
-'use strict'
-
+import { FileAccessor } from 'avm-debug-adapter'
 import * as vscode from 'vscode'
-import { FileAccessor } from '../debugger'
 
 export const workspaceFileAccessor: FileAccessor = {
   isWindows: typeof process !== 'undefined' && process.platform === 'win32',

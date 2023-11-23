@@ -40,14 +40,11 @@
     "test": "echo 'No tests yet'",
     "audit": "npm audit",
     "pre-commit": "run-s build lint:fix audit format test",
-    "package": "vsce package"
+    "package": "vsce package",
+    "postinstall": "patch-package"
   },
   "dependencies": {
-    "@vscode/debugadapter": "^1.64.0",
-    "algosdk": "github:jasonpaulos/js-algorand-sdk#teal-source-map-improvements",
-    "await-notify": "^1.0.1",
-    "esbuild": "^0.19.7",
-    "json-bigint": "^1.0.0"
+    "avm-debug-adapter": "^0.1.0"
   },
   "devDependencies": {
     "@makerx/eslint-config": "3.1.0",
@@ -57,12 +54,13 @@
     "@types/node": "^18.18.11",
     "@types/vscode": "^1.66.0",
     "@vscode/vsce": "^2.22.0",
+    "esbuild": "^0.19.7",
     "eslint": "8.22.0",
     "npm-run-all": "^4.1.5",
+    "patch-package": "^8.0.0",
     "prettier": "3.1.0",
     "rimraf": "^5.0.5",
-    "tslib": "^2.6.2",
-    "typescript": "^4.7.0"
+    "typescript": "^5.3.2"
   },
   "main": "./dist/extension.js",
   "activationEvents": [
