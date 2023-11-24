@@ -1,0 +1,17 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pull_request:
+    uses: makerxstudio/shared-config/.github/workflows/node-ci.yml@main
+    with:
+      working-directory: ./
+      run-build: true
+      audit-script: |
+        npm run audit

@@ -5,44 +5,9 @@
       "name": "Extension",
       "type": "extensionHost",
       "request": "launch",
-      "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}/extension",
-        "${workspaceFolder}/sampleWorkspace"
-      ],
-      "outFiles": ["${workspaceFolder}/extension/dist/**/*.js"],
-      "preLaunchTask": "npm: watch"
-    },
-    {
-      "name": "Server",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/src/debugAdapter.ts",
-      "args": ["--server=4711"],
-      "outFiles": ["${workspaceFolder}/out/**/*.js"],
-      "preLaunchTask": "npm: compile"
-    },
-    {
-      "name": "Debug Mocha Tests",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/node_modules/ts-mocha/bin/ts-mocha",
-      "args": [
-        "-p",
-        "tsconfig.json",
-        "tests/*test.ts",
-        "--timeout",
-        "30s",
-        "--diff",
-        "false"
-      ]
-    }
-  ],
-  "compounds": [
-    {
-      "name": "Extension + Server",
-      "configurations": ["Extension", "Server"]
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}", "${workspaceFolder}/sampleWorkspace"],
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "npm: build"
     }
   ]
 }
