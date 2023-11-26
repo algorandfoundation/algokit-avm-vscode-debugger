@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Root",
+      "simulateTraceFile": "${workspaceFolder}/${command:PickSimulateTraceFile}",
+      "stopOnEntry": true
+    }
+  ]
+}

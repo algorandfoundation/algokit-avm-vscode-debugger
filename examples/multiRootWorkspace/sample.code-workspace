@@ -1,0 +1,40 @@
+{
+  "folders": [
+    {
+      "path": "./",
+      "name": "ROOT"
+    },
+    {
+      "path": "./app-state-changes"
+    },
+    {
+      "path": "./errors"
+    },
+    {
+      "path": "./recursive-app"
+    },
+    {
+      "path": "./slot-machine"
+    },
+    {
+      "path": "./sourcemap-test"
+    },
+    {
+      "path": "./stack-scratch"
+    },
+    {
+      "path": "./stepping-test"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "app-state-changes/": true,
+      "errors/": true,
+      "recursive-app/": true,
+      "slot-machine/": true,
+      "sourcemap-test/": true,
+      "stack-scratch/": true,
+      "stepping-test/": true
+    }
+  }
+}

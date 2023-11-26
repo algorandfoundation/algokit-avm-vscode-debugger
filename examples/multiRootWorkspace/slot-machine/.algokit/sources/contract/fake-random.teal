@@ -1,0 +1,42 @@
+#pragma version 6
+txn ApplicationID
+bz label1
+txna ApplicationArgs 0
+pushbytes 0xbf8acaee // 0xbf8acaee
+==
+assert
+global Round
+itob
+pushbytes 0x23 // "#"
+concat
+pushbytes 0x636f756e746572 // "counter"
+app_global_get
+dup
+pushint 1
++
+pushbytes 0x636f756e746572 // "counter"
+swap
+app_global_put
+itob
+concat
+dup
+sha512_256
+pushint 0
+extract_uint64
+txna ApplicationArgs 1
+btoi
+%
+itob
+swap
+concat
+pushbytes 0x151f7c75 // 0x151f7c75
+swap
+concat
+log
+b label2
+label1:
+pushbytes 0x636f756e746572 // "counter"
+pushint 0
+app_global_put
+label2:
+pushint 1

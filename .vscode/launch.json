@@ -2,12 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Extension",
+      "name": "Launch in workspace",
       "type": "extensionHost",
       "request": "launch",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}", "${workspaceFolder}/sampleWorkspace"],
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}", "${workspaceFolder}/examples/workspace"],
       "outFiles": ["${workspaceFolder}/dist/**/*.js"],
-      "preLaunchTask": "npm: build"
+      "preLaunchTask": "npm: watch"
+    },
+    {
+      "name": "Launch in multi-root workspace",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}", "${workspaceFolder}/examples/multiRootWorkspace"],
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "npm: watch"
     }
   ]
 }

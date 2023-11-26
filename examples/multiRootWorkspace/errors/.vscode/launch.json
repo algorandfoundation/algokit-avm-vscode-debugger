@@ -1,0 +1,72 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Any App Error",
+      "simulateTraceFile": "${workspaceFolder}/${command:PickSimulateTraceFile}",
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug App Error",
+
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/app.trace.avm.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug App from LogicSig Error",
+
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/app-from-logicsig.trace.avm.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Inner App Error (App Reject)",
+
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/inner-app-app-reject.trace.avm.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Inner App Error (Overspend)",
+
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/inner-app-overspend.trace.avm.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug LogicSig Error",
+
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/logicsig-after-error.trace.avm.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Error Before LogicSig",
+
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/logicsig-error-before.trace.avm.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
+
+      "stopOnEntry": true
+    }
+  ]
+}

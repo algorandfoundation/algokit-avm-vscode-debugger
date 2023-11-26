@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Sourcemap Test",
+
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/simulate-response.trace.avm.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
+
+      "stopOnEntry": true
+    }
+  ]
+}
