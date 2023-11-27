@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Anything",
+      "simulateTraceFile": "${workspaceFolder}/${command:PickSimulateTraceFile}",
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Slot Machine",
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/simulate-response.trace.avm.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
+      "stopOnEntry": true
+    }
+  ]
+}

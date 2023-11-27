@@ -3,5 +3,8 @@
   "env": {
     "node": true
   },
-  "extends": ["@makerx/eslint-config"]
+  "extends": ["@makerx/eslint-config"],
+  "rules": {
+    "no-console": "off"
+  }
 }

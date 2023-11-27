@@ -1,0 +1,32 @@
+{
+  "txn-group-sources": [
+    {
+      "sourcemap-location": "./app/lsig.teal.tok.map",
+      "hash": "Inf40LWZTDzZhoxEhTIxBG0nbIxUrg9AQXCrK78bInk="
+    },
+    {
+      "sourcemap-location": "./app/fail.teal.tok.map",
+      "hash": "EsgA+UYADvM+Xgw5LdVrJGIRxHi4DX1+Or5rtns9jiQ="
+    },
+    {
+      "sourcemap-location": "./app-from-logicsig/nine.teal.tok.map",
+      "hash": "EC1P8unO+zjVbdF8XZOs1rp+uaGNk7vXtZ/IYsN/sug="
+    },
+    {
+      "sourcemap-location": "./inner-app/outer.teal.tok.map",
+      "hash": "qZ6vI+Hx+bhXlZbOykVWCWJT/4tSYXBygoQBHH7xIlQ="
+    },
+    {
+      "sourcemap-location": "./inner-app/inner.teal.tok.map",
+      "hash": "1KZi4myBA+q7zZAoHAPPiX/zBQxj8QbO7u1dWJMud4M="
+    },
+    {
+      "sourcemap-location": "./logicsig/lsig.teal.tok.map",
+      "hash": "Inf40LWZTDzZhoxEhTIxBG0nbIxUrg9AQXCrK78bInk="
+    },
+    {
+      "sourcemap-location": "./logicsig/lsig-err.teal.tok.map",
+      "hash": "NW2mJ5d46uPJ1lgbk6qkHJWih9w/XrZtvZu/cWV7b5I="
+    }
+  ]
+}

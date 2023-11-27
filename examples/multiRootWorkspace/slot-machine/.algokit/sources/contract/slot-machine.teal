@@ -1,0 +1,158 @@
+#pragma version 6
+intcblock 1 0 2
+bytecblock 0x7265656c 0x6e756d5f7265656c73
+txn ApplicationID
+bz label1
+txna ApplicationArgs 0
+pushbytes 0x03968f04 // 0x03968f04
+==
+bnz label2
+txna ApplicationArgs 0
+pushbytes 0x697c9d3b // 0x697c9d3b
+==
+assert
+bytec_1 // "num_reels"
+app_global_get
+dup
+assert
+itxn_begin
+label4:
+intc_0 // 1
+-
+dup
+pushint 6
+itxn_field TypeEnum
+txna Applications 2
+itxn_field ApplicationID
+pushbytes 0x2426bdfc // 0x2426bdfc
+itxn_field ApplicationArgs
+bytec_0 // "reel"
+swap
+itob
+concat
+app_global_get
+dup
+len
+itob
+extract 6 0
+swap
+concat
+itxn_field ApplicationArgs
+txna Applications 1
+itxn_field Applications
+dup
+bz label3
+itxn_next
+b label4
+label3:
+intc_1 // 0
+==
+assert
+itxn_submit
+gitxna 2 Logs 0
+callsub label5
+dup2
+pushbytes 0x7769746e65737332 // "witness2"
+callsub label6
+pop
+pushbytes 0x72616e644279746532 // "randByte2"
+callsub label6
+pop
+gitxna 1 Logs 0
+callsub label5
+dup2
+pushbytes 0x7769746e65737331 // "witness1"
+callsub label6
+pop
+pushbytes 0x72616e644279746531 // "randByte1"
+callsub label6
+pop
+gitxna 0 Logs 0
+callsub label5
+dup2
+pushbytes 0x7769746e65737330 // "witness0"
+callsub label6
+pop
+pushbytes 0x72616e644279746530 // "randByte0"
+callsub label6
+pop
+uncover 2
+uncover 4
+concat
+concat
+uncover 1
+uncover 2
+uncover 3
+concat
+concat
+swap
+concat
+pushbytes 0x151f7c75 // 0x151f7c75
+swap
+concat
+log
+intc_0 // 1
+return
+label5:
+dup
+extract 4 1
+swap
+extract 5 0
+retsub
+label6:
+pushbytes 0x646267205b // "dbg ["
+swap
+concat
+pushbytes 0x5d202d2d2d3e // "] --->"
+concat
+log
+dup
+log
+retsub
+label1:
+bytec_1 // "num_reels"
+pushint 3
+app_global_put
+bytec_0 // "reel"
+intc_1 // 0
+itob
+concat
+pushbytes 0x40212d // "@!-"
+app_global_put
+bytec_0 // "reel"
+intc_0 // 1
+itob
+concat
+pushbytes 0x4040212d2d2d // "@@!---"
+app_global_put
+bytec_0 // "reel"
+intc_2 // 2
+itob
+concat
+pushbytes 0x40212d2d2d2d2d2d // "@!------"
+app_global_put
+intc_0 // 1
+return
+label2:
+bytec_0 // "reel"
+intc_2 // 2
+itob
+concat
+txna ApplicationArgs 1
+extract 2 0
+app_global_put
+bytec_0 // "reel"
+intc_0 // 1
+itob
+concat
+txna ApplicationArgs 2
+extract 2 0
+app_global_put
+bytec_0 // "reel"
+intc_1 // 0
+itob
+concat
+txna ApplicationArgs 3
+extract 2 0
+app_global_put
+intc_0 // 1

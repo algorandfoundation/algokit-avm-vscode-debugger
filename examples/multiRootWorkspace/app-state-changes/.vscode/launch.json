@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug App Box State Changes",
+
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/box-simulate-response.trace.avm.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug App Global State Changes",
+
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/global-simulate-response.trace.avm.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
+
+      "stopOnEntry": true
+    },
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug App Local State Changes",
+
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/local-simulate-response.trace.avm.json",
+      "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
+
+      "stopOnEntry": true
+    }
+  ]
+}

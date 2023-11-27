@@ -44,13 +44,16 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "avm-debug-adapter": "^0.1.0"
+    "algosdk": "^2.7.0",
+    "avm-debug-adapter": "^0.1.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@makerx/eslint-config": "3.1.0",
     "@makerx/prettier-config": "2.0.0",
-    "@makerx/ts-config": "1.0.1",
+    "@makerx/ts-config": "^1.0.1",
     "@types/json-bigint": "^1.0.4",
+    "@types/lodash": "^4.14.202",
     "@types/node": "^18.18.11",
     "@types/vscode": "^1.66.0",
     "@vscode/vsce": "^2.22.0",
@@ -64,10 +67,12 @@
   },
   "main": "./dist/extension.js",
   "activationEvents": [
-    "workspaceContains:**/*.avm.trace",
+    "workspaceContains:**/*.trace.avm.json",
     "onDebug",
     "onDebugResolve:avm",
-    "onDebugDynamicConfigurations:avm"
+    "onDebugDynamicConfigurations:avm",
+    "onCommand:extension.avmDebug.getSimulateTraceFile",
+    "onCommand:extension.avmDebug.getProgramSourcesDescriptionFile"
   ],
   "workspaceTrust": {
     "request": "never"
@@ -104,16 +109,18 @@
         "runtime": "node",
         "configurationAttributes": {
           "launch": {
+            "required": [
+              "simulateTraceFile"
+            ],
             "properties": {
               "simulateTraceFile": {
                 "type": "string",
                 "description": "Transaction group simulation response with execution trace.",
-                "default": "${workspaceFolder}/path/to/simulateTraceFile.json"
+                "default": "${workspaceFolder}/${command:PickSimulateTraceFile}"
               },
               "programSourcesDescriptionFile": {
                 "type": "string",
-                "description": "Description file for sources of programs appearing in transaction group.",
-                "default": "${workspaceFolder}/path/to/programSourcesDescriptionFile.json"
+                "description": "Description file for sources of programs appearing in transaction group."
               },
               "stopOnEntry": {
                 "type": "boolean",
@@ -128,25 +135,51 @@
             "type": "avm",
             "request": "launch",
             "name": "Debug AVM Transactions",
-            "simulateTraceFile": "${workspaceFolder}/path/to/simulateTraceFile.json",
-            "programSourcesDescriptionFile": "${workspaceFolder}/path/to/programSourcesDescriptionFile.json",
+            "simulateTraceFile": "${workspaceFolder}/${command:PickSimulateTraceFile}",
             "stopOnEntry": true
           }
         ],
         "configurationSnippets": [
           {
             "label": "AVM Debug",
-            "description": "A new configuration for replaying and debugging a Algorand transactions.",
+            "description": "A new configuration for replaying and debugging Algorand transactions.",
             "body": {
               "type": "avm",
               "request": "launch",
               "name": "Debug AVM Transactions",
-              "simulateTraceFile": "^\"\\${workspaceFolder}/path/to/simulateTraceFile.json\"",
-              "programSourcesDescriptionFile": "^\"\\${workspaceFolder}/path/to/programSourcesDescriptionFile.json\"",
+              "simulateTraceFile": "^\"\\${workspaceFolder}/\\${command:PickSimulateTraceFile}\"",
               "stopOnEntry": true
             }
           }
-        ]
+        ],
+        "variables": {
+          "PickSimulateTraceFile": "extension.avmDebug.getSimulateTraceFile",
+          "PickProgramSourcesDescriptionFile": "extension.avmDebug.getProgramSourcesDescriptionFile"
+        }
+      }
+    ],
+    "menus": {
+      "editor/title/run": [
+        {
+          "command": "extension.avmDebug.debugOpenTraceFile",
+          "when": "resourceFilename =~ /.trace.avm.json$/",
+          "group": "navigation"
+        }
+      ]
+    },
+    "commandPalette": [
+      {
+        "command": "extension.avmDebug.debugOpenTraceFile",
+        "when": "resourceFilename =~ /.trace.avm.json$/"
+      }
+    ],
+    "commands": [
+      {
+        "command": "extension.avmDebug.debugOpenTraceFile",
+        "title": "Debug AVM Trace File",
+        "category": "AVM Debug",
+        "enablement": "!inDebugMode",
+        "icon": "$(debug-alt)"
       }
     ]
   }

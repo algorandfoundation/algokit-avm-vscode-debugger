@@ -1,0 +1,46 @@
+#pragma version 6
+txn ApplicationID
+bz label1
+txna ApplicationArgs 0
+pushbytes 0x2426bdfc // 0x2426bdfc
+==
+assert
+itxn_begin
+pushint 6
+itxn_field TypeEnum
+txna Applications 1
+itxn_field ApplicationID
+pushbytes 0xbf8acaee // 0xbf8acaee
+itxn_field ApplicationArgs
+txna ApplicationArgs 1
+len
+pushint 2
+-
+itob
+itxn_field ApplicationArgs
+itxn_submit
+pushint 0
+itxn NumLogs
+pushint 1
+==
+assert
+itxna Logs 0
+dup
+extract 12 0
+swap
+extract 4 8
+btoi
+txna ApplicationArgs 1
+extract 2 0
+swap
+pushint 1
+extract3
+pushbytes 0x151f7c75 // 0x151f7c75
+swap
+concat
+swap
+concat
+log
+label1:
+pushint 1
+return

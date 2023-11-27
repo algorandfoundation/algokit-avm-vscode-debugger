@@ -1,0 +1,8 @@
+{
+  "txn-group-sources": [
+    {
+      "sourcemap-location": "./my-app/state-changes.teal.tok.map",
+      "hash": "elIoqp1XgWrLCBLPmaZlDsKE3sEMZBY1dlxOvBXPtak="
+    }
+  ]
+}
