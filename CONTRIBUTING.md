@@ -1,4 +1,4 @@
-# AVM Debugger Visual Studio Code Extension for Contributors
+# AlgoKit AVM Visual Studio Code Debugger Extension for Contributors
 
 ## Setup
 
@@ -13,7 +13,7 @@
 
 1. Run either the "Launch in workspace" or "Launch in multi-root workspace" configurations via the "Run and Debug" pane.
 1. A new "Extension Development Host" VS Code instance will be launched. If launching the multi-root workspace, then reload this VS Code instance as a workspace.
-1. Initiate an AVM debug session using the options in the "Run and Debug" pane.
+1. Initiate an AVM debug session using the configurations in the "Run and Debug" pane inside the "Extension Development Host" VS Code instance.
 
 ### Debug the AVM Debug Adapter and Debugger
 
@@ -22,4 +22,4 @@
 1. Run `npm i` inside the `avm-debugger` repository to install the dependencies.
 1. Open the `avm-debugger` repository root in VS Code.
 1. Run the "Server" configuration via the "Run and Debug" pane, which starts the debug adapter on port 4711.
-1. Run the steps above in "Run/Debug the Extension".
+1. Run the steps in [Run/Debug the AVM Debugger Extension](#rundebug-the-avm-debugger-extension).
