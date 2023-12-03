@@ -36,5 +36,6 @@
       "stack-scratch/": true,
       "stepping-test/": true
     }
+    // "avmDebugger.debugAdapter.port": 4711 // Enable this to debug the AVM debugger/debug adapter by running the "Server" launch configuration found in https://github.com/algorand/avm-debugger
   }
 }

@@ -181,6 +181,16 @@
         "enablement": "!inDebugMode",
         "icon": "$(debug-alt)"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "AVM Debugger",
+      "properties": {
+        "avmDebugger.debugAdapter.port": {
+          "type": "number",
+          "default": null,
+          "description": "If specified, the extension will connect to a debug adapter server running on the supplied port. By default the debug adapter will be run inline automatically. This setting should only be used in advanced scenarios."
+        }
+      }
+    }
   }
 }
