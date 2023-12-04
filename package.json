@@ -1,6 +1,6 @@
 {
-  "name": "vscode-avm-debug",
-  "displayName": "AVM Debugger",
+  "name": "algokit-avm-vscode-debugger",
+  "displayName": "AlgoKit AVM Debugger",
   "version": "0.1.0",
   "private": false,
   "description": "An extension for debugging AVM transactions and smart contract programs.",
@@ -8,10 +8,12 @@
   "publisher": "Algorand Foundation",
   "license": "MIT",
   "keywords": [
+    "algokit",
     "algorand",
     "avm",
     "algorand debugger",
     "avm debugger",
+    "algokit avm debugger",
     "smart contract debugger"
   ],
   "engines": {
@@ -23,10 +25,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/MakerXStudio/algokit-vscode-debugger.git"
+    "url": "https://github.com/algorandfoundation/algokit-avm-vscode-debugger.git"
   },
   "bugs": {
-    "url": "https://github.com/MakerXStudio/algokit-vscode-debugger/issues"
+    "url": "https://github.com/algorandfoundation/algokit-avm-vscode-debugger/issues"
   },
   "scripts": {
     "build": "run-s build:*",
@@ -71,8 +73,8 @@
     "onDebug",
     "onDebugResolve:avm",
     "onDebugDynamicConfigurations:avm",
-    "onCommand:extension.avmDebug.getSimulateTraceFile",
-    "onCommand:extension.avmDebug.getProgramSourcesDescriptionFile"
+    "onCommand:extension.avmDebugger.getSimulateTraceFile",
+    "onCommand:extension.avmDebugger.getProgramSourcesDescriptionFile"
   ],
   "workspaceTrust": {
     "request": "never"
@@ -153,15 +155,15 @@
           }
         ],
         "variables": {
-          "PickSimulateTraceFile": "extension.avmDebug.getSimulateTraceFile",
-          "PickProgramSourcesDescriptionFile": "extension.avmDebug.getProgramSourcesDescriptionFile"
+          "PickSimulateTraceFile": "extension.avmDebugger.getSimulateTraceFile",
+          "PickProgramSourcesDescriptionFile": "extension.avmDebugger.getProgramSourcesDescriptionFile"
         }
       }
     ],
     "menus": {
       "editor/title/run": [
         {
-          "command": "extension.avmDebug.debugOpenTraceFile",
+          "command": "extension.avmDebugger.debugOpenTraceFile",
           "when": "resourceFilename =~ /.trace.avm.json$/",
           "group": "navigation"
         }
@@ -169,24 +171,27 @@
     },
     "commandPalette": [
       {
-        "command": "extension.avmDebug.debugOpenTraceFile",
+        "command": "extension.avmDebugger.debugOpenTraceFile",
         "when": "resourceFilename =~ /.trace.avm.json$/"
       }
     ],
     "commands": [
       {
-        "command": "extension.avmDebug.debugOpenTraceFile",
+        "command": "extension.avmDebugger.debugOpenTraceFile",
         "title": "Debug AVM Trace File",
-        "category": "AVM Debug",
+        "category": "AlgoKit AVM Debug",
         "enablement": "!inDebugMode",
         "icon": "$(debug-alt)"
       }
     ],
     "configuration": {
-      "title": "AVM Debugger",
+      "title": "AlgoKit AVM Debugger",
       "properties": {
         "avmDebugger.debugAdapter.port": {
-          "type": "number",
+          "type": [
+            "number",
+            "null"
+          ],
           "default": null,
           "description": "If specified, the extension will connect to a debug adapter server running on the supplied port. By default the debug adapter will be run inline automatically. This setting should only be used in advanced scenarios."
         }
