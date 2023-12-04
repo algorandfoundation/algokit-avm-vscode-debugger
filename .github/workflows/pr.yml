@@ -15,3 +15,5 @@ jobs:
       run-build: true
       audit-script: |
         npm run audit
+      test-script: |
+        xvfb-run -a npm run test
