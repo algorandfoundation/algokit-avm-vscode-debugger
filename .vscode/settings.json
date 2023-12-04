@@ -11,7 +11,5 @@
     "source.fixAll.eslint": true,
     "source.organizeImports": true
   },
-  "jest.jestCommandLine": "npm run test --",
-  "jest.autoRun": {},
   "dotenv.enableAutocloaking": false
 }

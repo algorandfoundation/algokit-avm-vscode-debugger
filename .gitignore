@@ -44,6 +44,7 @@ node_modules/
 
 # Compiled code
 dist/
+test-dist/
 build/
 
 # Coverage report
