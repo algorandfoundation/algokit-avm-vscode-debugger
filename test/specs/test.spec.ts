@@ -24,7 +24,7 @@ describe('VS Code Extension Testing', () => {
     // await item!.select()
 
     const simulateTracePicker = new InputBox(workbench.locatorMap)
-    await simulateTracePicker.wait()
+    await simulateTracePicker.wait(10000)
     await simulateTracePicker.selectQuickPick(0)
 
     const debugControls = new DebugToolbar(workbench.locatorMap)
