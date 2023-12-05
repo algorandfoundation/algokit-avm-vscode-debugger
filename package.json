@@ -45,7 +45,8 @@
     "audit": "npm audit",
     "pre-commit": "run-s build lint:fix audit format test",
     "package": "vsce package",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "wdio": "wdio run ./test/wdio.conf.ts"
   },
   "dependencies": {
     "algosdk": "^2.7.0",
@@ -65,6 +66,10 @@
     "@vscode/test-cli": "^0.0.4",
     "@vscode/test-electron": "^2.3.8",
     "@vscode/vsce": "^2.22.0",
+    "@wdio/cli": "^8.24.6",
+    "@wdio/local-runner": "^8.24.6",
+    "@wdio/mocha-framework": "^8.24.6",
+    "@wdio/spec-reporter": "^8.24.2",
     "chai": "^4.3.10",
     "esbuild": "^0.19.7",
     "eslint": "8.22.0",
@@ -73,7 +78,9 @@
     "patch-package": "^8.0.0",
     "prettier": "3.1.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.3.0"
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.0",
+    "wdio-vscode-service": "^5.2.2"
   },
   "main": "./dist/extension.js",
   "activationEvents": [

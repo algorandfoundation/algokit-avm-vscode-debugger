@@ -8,6 +8,8 @@ suite('extension', () => {
     await vscode.commands.executeCommand('workbench.action.debug.stepInto')
     await vscode.commands.executeCommand('workbench.action.debug.stepInto')
     await vscode.commands.executeCommand('workbench.action.debug.stepInto')
+
+    // await vscode.window.
     await sleep(1000)
 
     assert.strictEqual(vscode.debug.activeDebugSession!.configuration.name, configurationName)
