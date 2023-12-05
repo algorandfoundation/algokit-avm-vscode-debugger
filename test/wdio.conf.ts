@@ -25,7 +25,7 @@ export const config: Options.Testrunner = {
       },
     },
   ],
-  logLevel: 'info',
+  logLevel: 'warn',
   bail: 0,
   baseUrl: '',
   waitforTimeout: 5000,
