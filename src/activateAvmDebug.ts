@@ -40,7 +40,6 @@ export function activateAvmDebug(context: vscode.ExtensionContext, factory: vsco
     }),
   )
 
-  console.log('>>> Registering command')
   context.subscriptions.push(
     vscode.commands.registerCommand('extension.avmDebug.getSimulateTraceFile', async (config) => {
       const workspaceFolder = workspaceFolderFromFsPath(config.workspaceFolderFsPath)
@@ -69,7 +68,6 @@ export function activateAvmDebug(context: vscode.ExtensionContext, factory: vsco
       })
     }),
   )
-  console.log('>>> Registered command')
 
   context.subscriptions.push(
     vscode.commands.registerCommand('extension.avmDebug.getProgramSourcesDescriptionFile', async (config) => {

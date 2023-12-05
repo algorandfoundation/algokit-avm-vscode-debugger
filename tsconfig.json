@@ -5,5 +5,5 @@
     "declaration": true,
     "lib": ["WebWorker", "ES2020"]
   },
-  "include": ["src/**/*.ts", "test/specs/test.spec.ts", "test/specs/extension.spec.ts"]
+  "include": ["src/**/*.ts", "test/specs/test.spec.ts"]
 }

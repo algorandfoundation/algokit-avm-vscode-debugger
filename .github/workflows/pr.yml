@@ -16,4 +16,4 @@ jobs:
       audit-script: |
         npm run audit
       test-script: |
-        xvfb-run -a npm run wdio
+        xvfb-run -a npm run test
