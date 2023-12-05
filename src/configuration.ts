@@ -48,7 +48,7 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
         programSourcesDescriptionFile = sourcesUris[0].fsPath
       } else {
         const pickedSource = await vscode.commands.executeCommand<string | undefined>(
-          'extension.avmDebug.getProgramSourcesDescriptionFile',
+          'extension.avmDebugger.getProgramSourcesDescriptionFile',
           config,
         )
         if (!pickedSource) {
