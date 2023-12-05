@@ -11,7 +11,7 @@ describe('VS Code Extension Testing', () => {
     // await Promise.all(notifs.map((n) => n.dismiss()))
 
     const title = await workbench.getTitleBar().getTitle()
-    expect(title).toContain('[Extension Development Host]')
+    expect(title).toEqual('[Extension Development Host]')
 
     await browser.executeWorkbench((vscode, configurationName) => {
       vscode.debug.startDebugging(vscode.workspace.workspaceFolders![0], configurationName)
@@ -24,7 +24,7 @@ describe('VS Code Extension Testing', () => {
     // await item!.select()
 
     const simulateTracePicker = new InputBox(workbench.locatorMap)
-    await simulateTracePicker.wait(10000)
+    await simulateTracePicker.wait()
     await simulateTracePicker.selectQuickPick(0)
 
     const debugControls = new DebugToolbar(workbench.locatorMap)
