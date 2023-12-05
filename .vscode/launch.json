@@ -5,7 +5,7 @@
       "name": "Launch in workspace",
       "type": "extensionHost",
       "request": "launch",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}", "${workspaceFolder}/examples/workspace"],
+      "args": ["--disable-extensions", "--extensionDevelopmentPath=${workspaceFolder}", "${workspaceFolder}/examples/workspace"],
       "outFiles": ["${workspaceFolder}/dist/**/*.js"],
       "preLaunchTask": "npm: watch"
     },
@@ -13,7 +13,7 @@
       "name": "Launch in multi-root workspace",
       "type": "extensionHost",
       "request": "launch",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}", "${workspaceFolder}/examples/multiRootWorkspace"],
+      "args": ["--disable-extensions", "--extensionDevelopmentPath=${workspaceFolder}", "${workspaceFolder}/examples/multiRootWorkspace"],
       "outFiles": ["${workspaceFolder}/dist/**/*.js"],
       "preLaunchTask": "npm: watch"
     }

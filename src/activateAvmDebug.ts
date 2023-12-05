@@ -17,7 +17,7 @@ export function activateAvmDebug(context: vscode.ExtensionContext, factory: vsco
   context.subscriptions.push(vscode.debug.registerDebugAdapterDescriptorFactory('avm', factory))
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('extension.avmDebug.debugOpenTraceFile', async (resource: vscode.Uri) => {
+    vscode.commands.registerCommand('extension.avmDebugger.debugOpenTraceFile', async (resource: vscode.Uri) => {
       let targetResource = resource
       if (!targetResource && vscode.window.activeTextEditor) {
         targetResource = vscode.window.activeTextEditor.document.uri
@@ -41,7 +41,7 @@ export function activateAvmDebug(context: vscode.ExtensionContext, factory: vsco
   )
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('extension.avmDebug.getSimulateTraceFile', async (config) => {
+    vscode.commands.registerCommand('extension.avmDebugger.getSimulateTraceFile', async (config) => {
       const workspaceFolder = workspaceFolderFromFsPath(config.workspaceFolderFsPath)
       const traceUris = await findFilesInWorkspace(workspaceFolder, SIMULATE_TRACE_FILE_PATTERN)
 
@@ -70,7 +70,7 @@ export function activateAvmDebug(context: vscode.ExtensionContext, factory: vsco
   )
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('extension.avmDebug.getProgramSourcesDescriptionFile', async (config) => {
+    vscode.commands.registerCommand('extension.avmDebugger.getProgramSourcesDescriptionFile', async (config) => {
       const workspaceFolder = workspaceFolderFromFsPath(config.workspaceFolderFsPath)
       const sourcesUris = await findFilesInWorkspace(workspaceFolder, SOURCES_FILE_PATTERN)
 
