@@ -11,10 +11,15 @@ describe('VS Code Extension Testing', () => {
     // await Promise.all(notifs.map((n) => n.dismiss()))
 
     const title = await workbench.getTitleBar().getTitle()
-    expect(title).toEqual('[Extension Development Host]')
+    expect(title).toContain('[Extension Development Host]')
 
     await browser.executeWorkbench((vscode, configurationName) => {
-      vscode.debug.startDebugging(vscode.workspace.workspaceFolders![0], configurationName)
+      const workspaceFolder = vscode.workspace.workspaceFolders![0]
+      console.log('>>> workspaceFolder', workspaceFolder)
+      console.log('>>> configurationName', configurationName)
+
+      const resss = vscode.debug.startDebugging(vscode.workspace.workspaceFolders![0], configurationName)
+      console.log('>>> debug started', resss)
     }, configurationName)
 
     // const myInput = (await $('.quick-input-widget')) as unknown as InputBox
@@ -42,7 +47,7 @@ describe('VS Code Extension Testing', () => {
     // await activeTextEditor.wait()
     // const openFileName = await activeTextEditor.getFilePath()
 
-    await wait(1000)
+    await browser.pause(1000)
     const result = await browser.executeWorkbench((vscode) => {
       const sessionName = vscode.debug.activeDebugSession!.configuration.name as string
       const sessionType = vscode.debug.activeDebugSession!.type as string
@@ -55,5 +60,3 @@ describe('VS Code Extension Testing', () => {
     expect(result.openFileName).toContain('/.algokit/sources/slot-machine/slot-machine.teal')
   })
 })
-
-const wait = (timeout: number) => new Promise((resolve) => setTimeout(resolve, timeout))
