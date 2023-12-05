@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "ESNext",
-    "types": ["node", "webdriverio/async", "@wdio/mocha-framework", "expect-webdriverio", "wdio-vscode-service"],
+    "types": ["node", "@wdio/mocha-framework", "expect-webdriverio", "wdio-vscode-service"],
     "target": "es2022",
     "moduleResolution": "node",
     "esModuleInterop": true

@@ -1,8 +1,8 @@
 name: Pull Request
 
 on:
-  push:
-    branches: [extension-tests]
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: read
@@ -13,7 +13,5 @@ jobs:
     with:
       working-directory: ./
       run-build: true
-      audit-script: |
-        npm audit --audit-level=critical
-      test-script: |
-        xvfb-run -a npm run test
+      audit-script: npm run audit
+      test-script: xvfb-run -a npm run test

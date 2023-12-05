@@ -1,9 +1,9 @@
 {
-  "extends": "./node_modules/@makerx/ts-config/tsconfig.json",
+  "extends": "@makerx/ts-config",
   "compilerOptions": {
     "outDir": "dist",
     "declaration": true,
     "lib": ["WebWorker", "ES2020"]
   },
-  "include": ["src/**/*.ts", "test/specs/test.spec.ts"]
+  "include": ["src/**/*.ts"]
 }
