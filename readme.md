@@ -58,7 +58,7 @@ To install the extension for development, follow these steps:
 
 ### Usage
 
-In other to use the AVM Debugger extension you need:
+In order to use the AVM Debugger extension you need:
 1. TEAL Source Maps. A `.json` file that maps the compiled TEAL source maps to the original source code. See example [here](./examples/multiRootWorkspace/slot-machine/.algokit/sources/sources.avm.json).
 2. Simulate Traces. A `.json` file that contains the traces obtained from algod's [`simulate` endpoint](https://developer.algorand.org/docs/get-details/dapps/smart-contracts/debugging/?from_query=simulate#simulate). Serves as an entrypoint for the debugger. See example [here](./examples/multiRootWorkspace/slot-machine/debug_traces/simulate-response.trace.avm.json).
 
