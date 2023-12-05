@@ -10,6 +10,9 @@ describe('VS Code Extension Testing', () => {
     // const notifs = await workbench.getNotifications()
     // await Promise.all(notifs.map((n) => n.dismiss()))
 
+    const title = await workbench.getTitleBar().getTitle()
+    expect(title).toContain('[Extension Development Host]')
+
     await browser.executeWorkbench((vscode, configurationName) => {
       vscode.debug.startDebugging(vscode.workspace.workspaceFolders![0], configurationName)
     }, configurationName)
