@@ -44,12 +44,11 @@
     "test:run": "wdio run ./test/wdio.conf.ts",
     "audit": "npm audit --audit-level=critical",
     "pre-commit": "run-s build lint:fix audit format test",
-    "package": "vsce package",
-    "postinstall": "patch-package"
+    "package": "vsce package"
   },
   "dependencies": {
     "algosdk": "^2.7.0",
-    "avm-debug-adapter": "^0.1.0",
+    "avm-debug-adapter": "^0.1.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -70,7 +69,6 @@
     "eslint": "8.22.0",
     "mocha": "^10.2.0",
     "npm-run-all": "^4.1.5",
-    "patch-package": "^8.0.0",
     "prettier": "3.1.0",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.1",
