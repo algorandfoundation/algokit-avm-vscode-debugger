@@ -22,7 +22,7 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
 
     return {
       ...config,
-      workspaceFolderFsPath: folder.uri.fsPath,
+      workspaceFolderFsPath: folder.uri.path,
     }
   }
 
