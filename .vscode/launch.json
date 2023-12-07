@@ -6,11 +6,12 @@
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "test"],
+      "runtimeArgs": ["run", "test:run"],
       "cwd": "${workspaceFolder}",
       "autoAttachChildProcesses": true,
       "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen"
+      "internalConsoleOptions": "neverOpen",
+      "preLaunchTask": "npm: build dev"
     },
     {
       "name": "Launch in workspace",
