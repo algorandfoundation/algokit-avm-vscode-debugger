@@ -34,8 +34,9 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm rebuild && npm run prepare --if-present
       - run: npm run lint
-      - run: npm run test
       - name: Test
-        run: xvfb-run -a npm run test
+        uses: coactions/setup-xvfb@v1
+        with:
+          run: npm run test
       - run: npm run audit
       - run: npm run build
