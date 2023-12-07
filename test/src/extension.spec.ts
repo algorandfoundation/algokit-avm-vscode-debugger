@@ -5,7 +5,9 @@ import { DebugToolbar, InputBox } from 'wdio-vscode-service'
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
 
-const simulateTraceFilePath = path.join(__dirname, '..', '..', 'examples', 'workspace', 'debug_traces', 'simulate-response.trace.avm.json')
+const simulateTraceFilePath = url
+  .pathToFileURL(path.join(__dirname, '..', '..', 'examples', 'workspace', 'debug_traces', 'simulate-response.trace.avm.json'))
+  .toString()
 
 describe('extension', () => {
   it('should launch debug session for config with hardcoded paths', async () => {
@@ -23,7 +25,7 @@ describe('extension', () => {
     const debugInfo = await getDebugInfo()
     expect(debugInfo.sessionName).toBe(configurationName)
     expect(debugInfo.sessionType).toBe('avm')
-    expect(debugInfo.openFileName).toContain('/.algokit/sources/slot-machine/slot-machine.teal')
+    expect(debugInfo.openFileName).toContain('slot-machine.teal')
 
     await debugControls.stop()
   })
@@ -48,7 +50,7 @@ describe('extension', () => {
     const debugInfo = await getDebugInfo()
     expect(debugInfo.sessionName).toBe(configurationName)
     expect(debugInfo.sessionType).toBe('avm')
-    expect(debugInfo.openFileName).toContain('/.algokit/sources/slot-machine/slot-machine.teal')
+    expect(debugInfo.openFileName).toContain('slot-machine.teal')
 
     await debugControls.stop()
   })
@@ -68,7 +70,7 @@ describe('extension', () => {
     const debugInfo = await getDebugInfo()
     expect(debugInfo.sessionName).toBe('Debug AVM Trace File')
     expect(debugInfo.sessionType).toBe('avm')
-    expect(debugInfo.openFileName).toContain('/.algokit/sources/slot-machine/slot-machine.teal')
+    expect(debugInfo.openFileName).toContain('slot-machine.teal')
 
     await debugControls.stop()
   })
@@ -100,8 +102,8 @@ const stepInto = async (toolbar: DebugToolbar) => {
 
 const openFile = async (simulateTraceFilePath: string) => {
   await browser.executeWorkbench(async (vscode, simulateTraceFilePath) => {
-    const rpath = vscode.Uri.parse(simulateTraceFilePath).fsPath
-    const doc = await vscode.workspace.openTextDocument(rpath)
+    const path = vscode.Uri.parse(simulateTraceFilePath).path
+    const doc = await vscode.workspace.openTextDocument(path)
     await vscode.window.showTextDocument(doc)
   }, simulateTraceFilePath)
 }

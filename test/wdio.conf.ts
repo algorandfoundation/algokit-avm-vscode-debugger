@@ -14,7 +14,7 @@ export const config: Options.Testrunner = {
     },
   },
   specs: ['./**/*.spec.ts'],
-  maxInstances: 10,
+  maxInstances: 1,
   capabilities: [
     {
       browserName: 'vscode',

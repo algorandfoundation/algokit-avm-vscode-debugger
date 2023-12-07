@@ -15,7 +15,7 @@ export const getFilePathRelativeToClosestWorkspace = (folder: vscode.WorkspaceFo
   return vscode.workspace.asRelativePath(fileUri, includeWorkspaceFolder)
 }
 
-export const workspaceFolderFromFsPath = (path: string) => {
+export const workspaceFolderFromPath = (path: string) => {
   // The debugger can't be started without a workspace folder, so this should never be undefined.
   return vscode.workspace.getWorkspaceFolder(vscode.Uri.parse(path))!
 }

@@ -9,7 +9,7 @@ import {
   SOURCES_FILE_NAME,
   SOURCES_FILE_PATTERN,
 } from './constants'
-import { findFilesInWorkspace, getFilePathRelativeToClosestWorkspace, workspaceFolderFromFsPath } from './utils'
+import { findFilesInWorkspace, getFilePathRelativeToClosestWorkspace, workspaceFolderFromPath } from './utils'
 
 export function activateAvmDebug(context: vscode.ExtensionContext, factory: vscode.DebugAdapterDescriptorFactory) {
   const provider = new AvmDebugConfigProvider()
@@ -42,7 +42,7 @@ export function activateAvmDebug(context: vscode.ExtensionContext, factory: vsco
 
   context.subscriptions.push(
     vscode.commands.registerCommand('extension.avmDebugger.getSimulateTraceFile', async (config) => {
-      const workspaceFolder = workspaceFolderFromFsPath(config.workspaceFolderFsPath)
+      const workspaceFolder = workspaceFolderFromPath(config.workspaceFolderPath)
       const traceUris = await findFilesInWorkspace(workspaceFolder, SIMULATE_TRACE_FILE_PATTERN)
 
       if (traceUris.length === 0) {
@@ -71,7 +71,7 @@ export function activateAvmDebug(context: vscode.ExtensionContext, factory: vsco
 
   context.subscriptions.push(
     vscode.commands.registerCommand('extension.avmDebugger.getProgramSourcesDescriptionFile', async (config) => {
-      const workspaceFolder = workspaceFolderFromFsPath(config.workspaceFolderFsPath)
+      const workspaceFolder = workspaceFolderFromPath(config.workspaceFolderPath)
       const sourcesUris = await findFilesInWorkspace(workspaceFolder, SOURCES_FILE_PATTERN)
 
       if (sourcesUris.length === 0) {
