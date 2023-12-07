@@ -24,7 +24,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      # setup node
       - name: Use Node.js '18.x'
         uses: actions/setup-node@v3
         with:
