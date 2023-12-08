@@ -22,7 +22,7 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
 
     return {
       ...config,
-      workspaceFolderFsPath: folder.uri.fsPath,
+      workspaceFolderPath: folder.uri.path,
     }
   }
 
@@ -31,8 +31,6 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     config: DebugConfiguration,
     _token: CancellationToken | undefined,
   ): Promise<DebugConfiguration | null> {
-    // TODO: NC - Unit tests
-
     if (!folder) {
       vscode.window.showErrorMessage(NO_WORKSPACE_ERROR_MESSAGE)
       return null

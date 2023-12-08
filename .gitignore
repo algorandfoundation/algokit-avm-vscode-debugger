@@ -61,4 +61,8 @@ out/
 .env.local
 
 *.vsix
+*.zip
 .vscode-test/
+
+# webdriver.io
+.wdio-vscode-service/

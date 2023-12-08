@@ -35,19 +35,20 @@
     "build:clean": "rimraf dist",
     "build:check-types": "tsc --noEmit",
     "build:build": "esbuild ./src/extension.ts --bundle --tsconfig=./tsconfig.json --external:vscode --format=cjs --platform=node --outfile=dist/extension.js",
-    "watch": "npm run build:build -- --sourcemap --sources-content=false --watch",
+    "build-dev": "npm run build:build -- --sourcemap --sources-content=false",
     "format": "prettier --write .",
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\" --fix",
-    "test": "echo 'No tests yet'",
-    "audit": "npm audit",
+    "test": "run-s test:*",
+    "test:build-app": "npm run build",
+    "test:run": "wdio run ./test/wdio.conf.ts",
+    "audit": "npm audit --audit-level=critical",
     "pre-commit": "run-s build lint:fix audit format test",
-    "package": "vsce package",
-    "postinstall": "patch-package"
+    "package": "vsce package"
   },
   "dependencies": {
     "algosdk": "^2.7.0",
-    "avm-debug-adapter": "^0.1.0",
+    "avm-debug-adapter": "^0.1.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -56,16 +57,23 @@
     "@makerx/ts-config": "^1.0.1",
     "@types/json-bigint": "^1.0.4",
     "@types/lodash": "^4.14.202",
+    "@types/mocha": "^10.0.6",
     "@types/node": "^18.18.11",
     "@types/vscode": "^1.66.0",
     "@vscode/vsce": "^2.22.0",
+    "@wdio/cli": "^8.24.6",
+    "@wdio/local-runner": "^8.24.6",
+    "@wdio/mocha-framework": "^8.24.6",
+    "@wdio/spec-reporter": "^8.24.2",
     "esbuild": "^0.19.7",
     "eslint": "8.22.0",
+    "mocha": "^10.2.0",
     "npm-run-all": "^4.1.5",
-    "patch-package": "^8.0.0",
     "prettier": "3.1.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.3.0"
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.0",
+    "wdio-vscode-service": "^5.2.2"
   },
   "main": "./dist/extension.js",
   "activationEvents": [

@@ -2,6 +2,9 @@
   "files.exclude": {
     "dist": false
   },
+  "files.associations": {
+    "*.yml": "yaml"
+  },
   "search.exclude": {
     "dist": true
   },
@@ -11,7 +14,5 @@
     "source.fixAll.eslint": true,
     "source.organizeImports": true
   },
-  "jest.jestCommandLine": "npm run test --",
-  "jest.autoRun": {},
   "dotenv.enableAutocloaking": false
 }

@@ -9,9 +9,36 @@ permissions:
 
 jobs:
   pull_request:
-    uses: makerxstudio/shared-config/.github/workflows/node-ci.yml@main
-    with:
-      working-directory: ./
-      run-build: true
-      audit-script: |
-        npm run audit
+    strategy:
+      matrix:
+        # Add windows back in once the debugger path issues on windows are fixed
+        # os: ['ubuntu-latest', 'windows-latest']
+        os: ['ubuntu-latest']
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: '.'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js '18.x'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+          cache-dependency-path: ./package-lock.json
+
+      - run: npm ci --ignore-scripts
+      - run: npm rebuild && npm run prepare --if-present
+      - run: npm run lint
+      - name: Test
+        uses: coactions/setup-xvfb@v1
+        with:
+          run: npm run test
+      - run: npm run audit
+      - run: npm run build

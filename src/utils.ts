@@ -15,9 +15,9 @@ export const getFilePathRelativeToClosestWorkspace = (folder: vscode.WorkspaceFo
   return vscode.workspace.asRelativePath(fileUri, includeWorkspaceFolder)
 }
 
-export const workspaceFolderFromFsPath = (fsPath: string) => {
+export const workspaceFolderFromPath = (path: string) => {
   // The debugger can't be started without a workspace folder, so this should never be undefined.
-  return vscode.workspace.getWorkspaceFolder(vscode.Uri.parse(fsPath))!
+  return vscode.workspace.getWorkspaceFolder(vscode.Uri.parse(path))!
 }
 
 export const readFileAsJson = async <T>(fsPath: string) => {
