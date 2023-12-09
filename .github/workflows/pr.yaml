@@ -1,0 +1,13 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  pr-build:
+    name: Build and Test
+    uses: ./.github/workflows/build-and-test.yaml

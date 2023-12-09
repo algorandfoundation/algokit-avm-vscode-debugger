@@ -1,0 +1,67 @@
+name: Continuous Delivery
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      production_release:
+        description: 'Production release?'
+        required: true
+        default: 'true'
+
+concurrency: release
+
+permissions:
+  contents: write
+  issues: read
+
+jobs:
+  cd-build:
+    name: Build and Test
+    uses: ./.github/workflows/build-and-test.yaml
+
+  cd-release:
+    name: Release Extension
+    needs: cd-build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies to get semantic release components and plugins
+        run: npm ci --ignore-scripts
+
+      - name: Download artifact
+        # if: ${{ github.event_name == 'workflow_call' }}
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+
+      - name: Create Release - Beta
+        if: ${{ github.ref_name == 'main' && inputs.production_release != 'true' }}
+        run: 'npx semantic-release'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release - Prod
+        if: ${{ github.ref_name == 'main' && inputs.production_release == 'true' }}
+        run: 'npx semantic-release --branches main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to Marketplace - Prod
+        if: ${{ github.ref_name == 'main' && inputs.production_release == 'true' }}
+        run: npx vsce publish --packagePath $(ls ./*.vsix | head -1)
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
