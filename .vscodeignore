@@ -21,3 +21,4 @@ out
 test
 patches
 .wdio-vscode-service
+.releaserc.json
