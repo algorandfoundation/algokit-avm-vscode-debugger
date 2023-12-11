@@ -1,0 +1,68 @@
+name: Build and Test
+
+on: [workflow_call]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: '.'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js '18.x'
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: npm
+          cache-dependency-path: ./package-lock.json
+
+      - run: npm ci --ignore-scripts
+      - run: npm rebuild && npm run prepare --if-present
+      - run: npm run lint
+      - run: npm run audit
+      - run: npm run build
+      - name: Upload artifact
+        if: ${{ github.ref_name == 'main' }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: 'dist'
+          if-no-files-found: error
+
+  test:
+    strategy:
+      matrix:
+        # os: ['ubuntu-latest', 'windows-latest']
+        os: ['ubuntu-latest']
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: '.'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js '18.x'
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: npm
+          cache-dependency-path: ./package-lock.json
+
+      - run: npm ci --ignore-scripts
+      - run: npm rebuild && npm run prepare --if-present
+      - name: Test
+        uses: coactions/setup-xvfb@v1
+        with:
+          run: npm run test

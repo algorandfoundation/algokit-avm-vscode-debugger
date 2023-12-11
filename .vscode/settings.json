@@ -2,9 +2,6 @@
   "files.exclude": {
     "dist": false
   },
-  "files.associations": {
-    "*.yml": "yaml"
-  },
   "search.exclude": {
     "dist": true
   },
