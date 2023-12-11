@@ -42,7 +42,6 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Download artifact
-        # if: ${{ github.event_name == 'workflow_call' }}
         uses: actions/download-artifact@v3
         with:
           name: dist
