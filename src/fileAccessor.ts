@@ -19,6 +19,30 @@ export const workspaceFileAccessor: FileAccessor = {
     }
     return uri.path.substring(lastSlash + 1)
   },
+  filePathRelativeTo(base: string, filePath: string): string {
+    // Check if filePath is an absolute path
+    if (this.isWindows) {
+      if (filePath.match(/^[a-zA-Z]:\\/)) {
+        return filePath
+      }
+    } else {
+      if (filePath.startsWith('/')) {
+        return filePath
+      }
+    }
+
+    // Create a Uri object with the base path
+    let baseUri = vscode.Uri.file(base)
+    if (!baseUri.path.endsWith('/')) {
+      // If the base path is not a directory, get its parent directory
+      baseUri = vscode.Uri.joinPath(baseUri, '..')
+    }
+
+    // Resolve the file path against the base Uri
+    const fullUri = vscode.Uri.joinPath(baseUri, filePath)
+
+    return fullUri.fsPath
+  },
 }
 
 function pathToUri(path: string) {
