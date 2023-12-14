@@ -22,3 +22,5 @@ test
 patches
 .wdio-vscode-service
 .releaserc.json
+images/**/*
+!images/icon.png
