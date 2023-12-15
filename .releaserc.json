@@ -21,6 +21,10 @@
           {
             "type": "chore",
             "release": "patch"
+          },
+          {
+            "type": "docs",
+            "release": "patch"
           }
         ]
       }

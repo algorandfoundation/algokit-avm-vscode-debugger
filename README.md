@@ -50,33 +50,8 @@ Before you can use the AVM Debugger extension, you need to ensure that you have 
 
 ## Installation
 
-### Via VS Code Marketplace
-
 1. Install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=algorandfoundation.algokit-avm-vscode-debugger).
 2. Follow the next steps in the [Usage](#usage) section.
-
-### For Development
-
-To install the extension for development, follow these steps:
-
-1. Clone the repository:
-   ```
-   git clone https://github.com/MakerXStudio/algokit-vscode-debugger.git
-   ```
-2. Navigate into the cloned repository:
-   ```
-   cd algokit-vscode-debugger
-   ```
-3. Install the dependencies:
-   ```
-   npm install
-   ```
-4. Build the extension:
-   ```
-   npm run build
-   ```
-5. Open the repository in VS Code and install the `.vsix` artifact.
-6. Follow the next steps in the [Usage](#usage) section.
 
 ## Usage
 
@@ -189,6 +164,10 @@ This document outlines the features supported by the AVM debugger. Screenshots a
 | Inspect program state        | The debugger allows inspection of the state of the program being debugged, including the PC (program counter), stack, and scratch space. Byte arrays can be displayed in various formats. | ![Inspecting program state](images/program%20state%20variables.png)                      |
 | Watch values                 | Specific values can be added to the watch list. Negative indexing is supported to look up values relative to the top of the stack.                                                        | ![Watched values](images/watch%20values.png)                                             |
 | Inspect application state    | The debugger allows inspection and watching of any available application state from the execution.                                                                                        | ![Inspecting application state variables](images/app%20state%20variables%20expanded.png) |
+
+## How can I contribute?
+
+This is an open source project managed by the Algorand Foundation. See the [contributing page](./CONTRIBUTING.md) to learn about making improvements, including developer setup instructions.
 
 ## Contact
 
