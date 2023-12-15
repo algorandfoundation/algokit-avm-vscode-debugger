@@ -52,7 +52,7 @@ Before you can use the AVM Debugger extension, you need to ensure that you have 
 
 ### Via VS Code Marketplace
 
-1. Install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=algorandfoundation.algokit-avm-debugger). {TODO: TWEAK URL}
+1. Install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=algorandfoundation.algokit-avm-vscode-debugger).
 2. Follow the next steps in the [Usage](#usage) section.
 
 ### For Development
