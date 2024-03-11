@@ -1,15 +1,14 @@
 <div align="center">
-<a href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger"><img src="https://bafkreidtmbarmzvewlbrsz7lwwusi276lvltp6xqxvatce32ch3zc4f7eq.ipfs.nftstorage.link/" width=60%></a>
+  <a href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger"><img src="https://bafkreidtmbarmzvewlbrsz7lwwusi276lvltp6xqxvatce32ch3zc4f7eq.ipfs.nftstorage.link/" width=60%></a>
 </div>
 
 <p align="center">
-    <a target="_blank" href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger/blob/main/README.md"><img src="https://img.shields.io/badge/docs-repository-00dc94?logo=github&style=flat.svg" /></a>
-    <a target="_blank" href="https://developer.algorand.org/algokit/"><img src="https://img.shields.io/badge/learn-AlgoKit-00dc94?logo=algorand&mac=flat.svg" /></a>
-    <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=algorandfoundation.algokit-avm-vscode-debugger"><img src="https://img.shields.io/badge/download-Extension-00dc94?logo=visualstudiocode&mac=flat.svg" /></a>
-    <br />
-    <a target="_blank" href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger"><img src="https://img.shields.io/github/stars/algorandfoundation/algokit-avm-vscode-debugger?color=00dc94&logo=star&style=flat" /></a>
-    <a target="_blank" href="https://developer.algorand.org/algokit/"><img  src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Falgorandfoundation%2Falgokit-avm-vscode-debugger&countColor=%2300dc94&style=flat" /></a>
-
+  <a target="_blank" href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger/blob/main/README.md"><img src="https://img.shields.io/badge/docs-repository-00dc94?logo=github&style=flat.svg" /></a>
+  <a target="_blank" href="https://developer.algorand.org/algokit/"><img src="https://img.shields.io/badge/learn-AlgoKit-00dc94?logo=algorand&mac=flat.svg" /></a>
+  <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=algorandfoundation.algokit-avm-vscode-debugger"><img src="https://img.shields.io/badge/download-Extension-00dc94?logo=visualstudiocode&mac=flat.svg" /></a>
+  <br />
+  <a target="_blank" href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger"><img src="https://img.shields.io/github/stars/algorandfoundation/algokit-avm-vscode-debugger?color=00dc94&logo=star&style=flat" /></a>
+  <a target="_blank" href="https://developer.algorand.org/algokit/"><img  src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Falgorandfoundation%2Falgokit-avm-vscode-debugger&countColor=%2300dc94&style=flat" /></a>
 </p>
 
 ---
@@ -19,7 +18,7 @@ The AlgoKit AVM VS Code Debugger extension provides a convenient way to debug an
 ---
 
 <div align="center">
-<a href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger"><img src="https://bafybeib4mrixfhkgi5qbgc7yaplkve3vppbno4jmzoxyqzw5qxendxn274.ipfs.nftstorage.link/" width=70%></a>
+  <a href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger"><img src="https://bafybeib4mrixfhkgi5qbgc7yaplkve3vppbno4jmzoxyqzw5qxendxn274.ipfs.nftstorage.link/" width=70%></a>
 </div>
 
 ---
