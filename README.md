@@ -8,7 +8,8 @@
     <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=algorandfoundation.algokit-avm-vscode-debugger"><img src="https://img.shields.io/badge/download-Extension-00dc94?logo=visualstudiocode&mac=flat.svg" /></a>
     <br />
     <a target="_blank" href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger"><img src="https://img.shields.io/github/stars/algorandfoundation/algokit-avm-vscode-debugger?color=00dc94&logo=star&style=flat" /></a>
-    <a target="_blank" href="https://developer.algorand.org/algokit/"><img  src="https://vbr.wocr.tk/badge?page_id=algorandfoundation%2Falgokit-avm-vscode-debugger&color=%2300dc94&style=flat" /></a>
+    <a target="_blank" href="https://developer.algorand.org/algokit/"><img  src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Falgorandfoundation%2Falgokit-avm-vscode-debugger&countColor=%2300dc94&style=flat" /></a>
+
 </p>
 
 ---
