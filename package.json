@@ -195,6 +195,16 @@
         "category": "AlgoKit AVM Debug",
         "enablement": "!inDebugMode",
         "icon": "$(debug-alt)"
+      },
+      {
+        "command": "extension.avmDebugger.clearAvmDebugRegistry",
+        "title": "Clear AVM Debug Registry",
+        "category": "AlgoKit AVM Debug"
+      },
+      {
+        "command": "extension.avmDebugger.editAvmDebugRegistry",
+        "title": "Edit AVM Debug Registry",
+        "category": "AlgoKit AVM Debug"
       }
     ],
     "configuration": {

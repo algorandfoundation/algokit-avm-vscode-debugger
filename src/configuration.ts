@@ -2,6 +2,7 @@ import algosdk from 'algosdk'
 import * as vscode from 'vscode'
 import { CancellationToken, DebugConfiguration, WorkspaceFolder } from 'vscode'
 import { NO_WORKSPACE_ERROR_MESSAGE, SOURCES_FILE_PATTERN } from './constants'
+import { workspaceFileAccessor } from './fileAccessor'
 import { bytesToBase64, concatIfTruthy, findFilesInWorkspace, readFileAsJson } from './utils'
 
 export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider {
@@ -61,13 +62,6 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
       vscode.window.showErrorMessage(`Could not open the simulate trace file at path "${config.simulateTraceFile}".`)
       return null
     }
-
-    const sources = await readFileAsJson<SourcesFile>(programSourcesDescriptionFile)
-    if (!sources) {
-      vscode.window.showErrorMessage(`Could not open the program sources description file at path "${programSourcesDescriptionFile}".`)
-      return null
-    }
-
     const simulateTrace = algosdk.modelsv2.SimulateResponse.from_obj_for_encoding(traceFileContent)
 
     const hashes = simulateTrace.txnGroups.flatMap((group) => {
@@ -78,8 +72,14 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
       }, [] as string[])
     })
     const uniqueHashes = [...new Set(hashes)]
-    const sourcesHashes = sources['txn-group-sources']?.map((s) => s.hash) ?? []
 
+    let sources = await readFileAsJson<SourcesFile>(programSourcesDescriptionFile)
+    if (!sources) {
+      vscode.window.showWarningMessage(`Empty program sources description file at "${programSourcesDescriptionFile}".`)
+      sources = {}
+    }
+
+    const sourcesHashes = sources['txn-group-sources']?.map((s) => s.hash) ?? []
     const missingHashes = uniqueHashes.reduce((acc, hash) => {
       if (!sourcesHashes.includes(hash)) {
         return acc.concat(hash)
@@ -89,11 +89,30 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     }, [] as string[])
 
     if (missingHashes.length > 0) {
-      vscode.window.showInformationMessage(
-        `The following program hashes don't have a corresponding source mapping and won't be debuggable:\n ${missingHashes
-          .map((hash) => `"${hash}"`)
-          .join(', ')}.`,
-      )
+      const sourceMapFiles = await findFilesInWorkspace(folder, ['**/*.tok.map', '**/*.teal.map', '**/*.puya.map'])
+
+      for (const hash of missingHashes) {
+        const selectedSourceMap = await vscode.window.showQuickPick(
+          sourceMapFiles.map((uri) => ({
+            label: vscode.workspace.asRelativePath(uri),
+            uri,
+          })),
+          {
+            placeHolder: `Select source map for program hash "${hash}"`,
+            title: 'Select Source Map',
+          },
+        )
+
+        if (selectedSourceMap) {
+          sources['txn-group-sources']?.push({
+            'sourcemap-location': selectedSourceMap.label,
+            hash,
+          })
+        }
+      }
+
+      // Persist updated sources back to the file
+      await workspaceFileAccessor.writeFile(programSourcesDescriptionFile, new TextEncoder().encode(JSON.stringify(sources, null, 2)))
     }
 
     return { ...config, programSourcesDescriptionFile }

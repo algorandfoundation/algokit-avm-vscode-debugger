@@ -2,9 +2,17 @@ import { orderBy } from 'lodash'
 import * as vscode from 'vscode'
 import { workspaceFileAccessor } from './fileAccessor'
 
-export const findFilesInWorkspace = async (folder: vscode.WorkspaceFolder, filePattern: string) => {
-  const files = await vscode.workspace.findFiles(new vscode.RelativePattern(folder, filePattern), '**/node_modules/**')
-  return orderBy(files, ['fsPath'], ['desc'])
+export const findFilesInWorkspace = async (folder: vscode.WorkspaceFolder, filePattern: string | string[] = []) => {
+  const patterns = Array.isArray(filePattern) ? filePattern : [filePattern]
+
+  const filesPromises = patterns.map((pattern) =>
+    vscode.workspace.findFiles(new vscode.RelativePattern(folder, pattern), '**/node_modules/**'),
+  )
+
+  const filesArrays = await Promise.all(filesPromises)
+  const allFiles = Array.from(new Set(filesArrays.flat()))
+
+  return orderBy(allFiles, ['fsPath'], ['desc'])
 }
 
 export const getFilePathRelativeToClosestWorkspace = (folder: vscode.WorkspaceFolder) => (fileUri: vscode.Uri) => {
