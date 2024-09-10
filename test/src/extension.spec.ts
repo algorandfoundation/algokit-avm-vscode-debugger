@@ -1,4 +1,5 @@
 import { $, browser, expect } from '@wdio/globals'
+import fs from 'fs'
 import url from 'node:url'
 import path from 'path'
 import { DebugToolbar, InputBox } from 'wdio-vscode-service'
@@ -13,8 +14,30 @@ describe('extension', () => {
   it('should launch debug session for config with hardcoded paths', async () => {
     const configurationName = 'Debug Slot Machine'
     const workbench = await browser.getWorkbench()
+    const workspacePath = await browser.executeWorkbench(async (vscode) => {
+      return vscode.workspace.workspaceFolders![0].uri.fsPath
+    })
+    const sourcesFilePath = path.join(workspacePath, '.algokit', 'sources', 'sources.avm.json')
+    await presetSourcesContent(sourcesFilePath, {
+      'txn-group-sources': [
+        {
+          'sourcemap-location': './slot-machine/fake-random.teal.tok.map',
+          hash: '88rrCGDJdARk4rasK5FN8BzmKTqHW5WRzYiRWmtA7HY=',
+        },
+        {
+          'sourcemap-location': null,
+          hash: 'nN5LNX4rlRXfN0ax9hH0TsYh1XDhOSLnANPnrWSdATw=',
+        },
+      ],
+    })
 
     await launchDebugger(configurationName)
+
+    const simulateTracePicker = new InputBox(workbench.locatorMap)
+    await simulateTracePicker.wait()
+    const traceFiles = await simulateTracePicker.getQuickPicks()
+    await traceFiles[0].wait()
+    await traceFiles[0].select()
 
     const debugControls = new DebugToolbar(workbench.locatorMap)
     await debugControls.wait()
@@ -31,6 +54,24 @@ describe('extension', () => {
   })
 
   it('should launch debug session for config with simulate trace file picker', async () => {
+    const workspacePath = await browser.executeWorkbench(async (vscode) => {
+      return vscode.workspace.workspaceFolders![0].uri.fsPath
+    })
+    const sourcesFilePath = path.join(workspacePath, '.algokit', 'sources', 'sources.avm.json')
+
+    await presetSourcesContent(sourcesFilePath, {
+      'txn-group-sources': [
+        {
+          'sourcemap-location': './slot-machine/fake-random.teal.tok.map',
+          hash: '88rrCGDJdARk4rasK5FN8BzmKTqHW5WRzYiRWmtA7HY=',
+        },
+        {
+          'sourcemap-location': null,
+          hash: 'nN5LNX4rlRXfN0ax9hH0TsYh1XDhOSLnANPnrWSdATw=',
+        },
+      ],
+    })
+
     const configurationName = 'Debug Anything'
     const workbench = await browser.getWorkbench()
 
@@ -38,8 +79,26 @@ describe('extension', () => {
 
     const simulateTracePicker = new InputBox(workbench.locatorMap)
     await simulateTracePicker.wait()
-    expect((await simulateTracePicker.getQuickPicks()).length).toBe(2)
-    await simulateTracePicker.selectQuickPick(0)
+    const traceFiles = await simulateTracePicker.getQuickPicks()
+    const traceFileLabels = await Promise.all(traceFiles.map((file) => file.getLabel()))
+    expect(traceFileLabels).toContain('debug_traces/simulate-response.trace.avm.json')
+    expect(traceFileLabels).toContain('debug_traces/simulate-response-2.trace.avm.json')
+    expect(traceFileLabels).toContain('Browse...')
+    await traceFiles[0].wait()
+    await traceFiles[0].select()
+
+    const sourceMapPicker = new InputBox(workbench.locatorMap)
+    await sourceMapPicker.wait()
+    const categories = await sourceMapPicker.getQuickPicks()
+    const categoryLabels = await Promise.all(categories.map((category) => category.getLabel()))
+    expect(categoryLabels).toContain('slot-machine.teal.tok.map')
+    expect(categoryLabels).toContain('random-byte.teal.tok.map')
+    expect(categoryLabels).toContain('fake-random.teal.tok.map')
+    expect(categoryLabels).toContain('Browse...')
+    expect(categoryLabels).toContain('Ignore sourcemap for this hash')
+
+    await categories[0].wait()
+    await categories[0].select()
 
     const debugControls = new DebugToolbar(workbench.locatorMap)
     await debugControls.wait()
@@ -106,4 +165,12 @@ const openFile = async (simulateTraceFilePath: string) => {
     const doc = await vscode.workspace.openTextDocument(path)
     await vscode.window.showTextDocument(doc)
   }, simulateTraceFilePath)
+}
+
+const presetSourcesContent = async (filePath: string, content: object) => {
+  try {
+    await fs.promises.writeFile(filePath, JSON.stringify(content))
+  } catch (error) {
+    console.error(`Failed to preset sources content: ${error}`)
+  }
 }

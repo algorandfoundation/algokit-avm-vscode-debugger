@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "algosdk": "^2.9.0",
-    "avm-debug-adapter": "^0.2.0",
+    "avm-debug-adapter": "file:../af-avm-debugger/out/avm-debug-adapter-0.2.0.tgz",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -217,6 +217,11 @@
           ],
           "default": null,
           "description": "If specified, the extension will connect to a debug adapter server running on the supplied port. By default the debug adapter will be run inline automatically. This setting should only be used in advanced scenarios."
+        },
+        "avmDebugger.defaultSourcemapRegistryFile": {
+          "type": "string",
+          "default": "",
+          "description": "The default path for the sourcemap registry file. If not set, defaults to '.algokit/sources/sources.avm.json' in the workspace root."
         }
       }
     }

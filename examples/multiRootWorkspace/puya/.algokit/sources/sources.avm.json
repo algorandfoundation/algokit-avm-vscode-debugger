@@ -1,0 +1,8 @@
+{
+  "txn-group-sources": [
+    {
+      "sourcemap-location": "./contract/HelloWorld.approval.bin.map",
+      "hash": "bpraJf7C/G0trk7LMjZwUyO2nRquR4vOGEzujlnkWpw="
+    }
+  ]
+}

@@ -1,80 +1,20 @@
 import algosdk from 'algosdk'
+import path from 'path'
 import * as vscode from 'vscode'
 import { CancellationToken, DebugConfiguration, WorkspaceFolder } from 'vscode'
-import { NO_WORKSPACE_ERROR_MESSAGE } from './constants'
+import { DEFAULT_SOURCES_AVM_JSON_FILE, NO_WORKSPACE_ERROR_MESSAGE } from './constants'
 import { workspaceFileAccessor } from './fileAccessor'
-import { bytesToBase64, concatIfTruthy, findFilesInWorkspace, readFileAsJson } from './utils'
-
-type SourcesFile = {
-  'txn-group-sources'?: {
-    'sourcemap-location': string | undefined
-    hash: string
-  }[]
-}
-
-type QuickPickSourceMapItem = {
-  title: string
-  hash: string
-}
-
-const getHashes = (trace: algosdk.modelsv2.SimulationTransactionExecTrace): string[] => {
-  const approvalHash = bytesToBase64(trace.approvalProgramHash)
-  const clearHash = bytesToBase64(trace.clearStateProgramHash)
-  const logicSigHash = bytesToBase64(trace.logicSigHash)
-  const hashes = concatIfTruthy<string>([], [approvalHash, clearHash, logicSigHash])
-
-  if (trace.innerTrace) {
-    return hashes.concat(trace.innerTrace.flatMap((it) => getHashes(it)))
-  }
-
-  return hashes
-}
-
-const getSourceMapQuickPickItems = (hashes: string[], trace: algosdk.modelsv2.SimulateResponse): Record<string, QuickPickSourceMapItem> => {
-  const identifiers: Record<string, QuickPickSourceMapItem> = {}
-
-  trace.txnGroups.forEach((group) => {
-    group.txnResults.forEach((result) => {
-      if (!result.execTrace) return
-
-      hashes.forEach((hash) => {
-        const { execTrace, txnResult } = result
-        if (!execTrace) return
-
-        const { approvalProgramHash, clearStateProgramHash, logicSigHash } = execTrace
-        const { txn, lsig } = txnResult.txn
-
-        if (hash === bytesToBase64(approvalProgramHash) || hash === bytesToBase64(clearStateProgramHash)) {
-          const title = txn.apid
-            ? `Select source maps for Application with ID: ${txn.apid}, hash: ${hash}`
-            : `Select source map for Application with hash: ${hash}`
-          identifiers[hash] = { hash, title }
-        } else if (hash === bytesToBase64(logicSigHash)) {
-          const lsigBytes = lsig?.l
-          const lsigAddr = lsigBytes ? new algosdk.LogicSigAccount(lsigBytes).address() : undefined
-          const title = lsigAddr
-            ? `Select source maps for Logic Sig with address: ${lsigAddr}, hash: ${hash}`
-            : `Select source map for Logic Sig with hash: ${hash}`
-          identifiers[hash] = { hash, title }
-        } else if (!identifiers[hash]) {
-          identifiers[hash] = { hash, title: `Select source map for Application with hash: ${hash}` }
-        }
-      })
-    })
-  })
-
-  return identifiers
-}
-
-const getSourceMapType = (uri: vscode.Uri): string => {
-  if (uri.path.includes('puya.map')) {
-    return 'Puya sourcemap'
-  } else if (uri.path.includes('teal.map')) {
-    return 'TEAL sourcemap'
-  }
-
-  return 'Legacy sourcemap'
-}
+import {
+  findFilesInWorkspace,
+  getMissingHashes,
+  getSimulateTrace,
+  getSourceMapQuickPickItems,
+  getUniqueHashes,
+  QuickPickWithUri,
+  readFileAsJson,
+  SourcesFile,
+  writeFileAsJson,
+} from './utils'
 
 export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider {
   async resolveDebugConfiguration(
@@ -82,20 +22,14 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     config: DebugConfiguration,
     _token: CancellationToken | undefined,
   ): Promise<DebugConfiguration | null> {
-    if (!config.simulateTraceFile) {
-      vscode.window.showErrorMessage('Missing property "simulateTraceFile" in debug config.')
+    if (!config.simulateTraceFile || !folder) {
+      vscode.window.showErrorMessage(
+        config.simulateTraceFile ? NO_WORKSPACE_ERROR_MESSAGE : 'Missing property "simulateTraceFile" in debug config.',
+      )
       return null
     }
 
-    if (!folder) {
-      vscode.window.showErrorMessage(NO_WORKSPACE_ERROR_MESSAGE)
-      return null
-    }
-
-    return {
-      ...config,
-      workspaceFolderPath: folder.uri.path,
-    }
+    return { ...config, workspaceFolderPath: folder.uri.path }
   }
 
   async resolveDebugConfigurationWithSubstitutedVariables(
@@ -108,137 +42,176 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
       return null
     }
 
-    let programSourcesDescriptionFile: string | undefined = config.programSourcesDescriptionFile
+    const programSourcesDescriptionFile = await this.getProgramSourcesDescriptionFile(folder, config)
+    const simulateTrace = await getSimulateTrace(config.simulateTraceFile)
+    if (!simulateTrace) return null
 
-    if (!programSourcesDescriptionFile) {
-      const algoKitSourcesDir = vscode.Uri.joinPath(folder.uri, '.algokit', 'sources')
-      const defaultSourcesFile = vscode.Uri.joinPath(algoKitSourcesDir, 'sources.avm.json')
-
-      try {
-        await vscode.workspace.fs.stat(defaultSourcesFile)
-        programSourcesDescriptionFile = defaultSourcesFile.fsPath
-      } catch (error) {
-        // File doesn't exist, we'll create it later if needed
-      }
-    }
-
-    const traceFileContent = await readFileAsJson<Record<string, unknown>>(config.simulateTraceFile)
-    if (!traceFileContent) {
-      vscode.window.showErrorMessage(`Could not open the simulate trace file at path "${config.simulateTraceFile}".`)
-      return null
-    }
-    const simulateTrace = algosdk.modelsv2.SimulateResponse.from_obj_for_encoding(traceFileContent)
-
-    const hashes = simulateTrace.txnGroups.flatMap((group) => {
-      return group.txnResults.reduce((acc, result) => {
-        const hashes = result.execTrace ? getHashes(result.execTrace) : []
-
-        return [...acc, ...hashes]
-      }, [] as string[])
-    })
-    const uniqueHashes = [...new Set(hashes)]
-
-    let sources = await readFileAsJson<SourcesFile>(programSourcesDescriptionFile)
-    if (!sources) {
-      vscode.window.showWarningMessage(`Empty program sources description file at "${programSourcesDescriptionFile}".`)
-      sources = {}
-    }
-
-    const sourcesHashes = await Promise.all(
-      (sources['txn-group-sources'] ?? []).map(async (s) => {
-        let fileExists: boolean
-        try {
-          fileExists = (await workspaceFileAccessor.readFile(s['sourcemap-location'])) !== undefined
-        } catch (error) {
-          fileExists = false
-        }
-        const shouldInclude = s['sourcemap-location'] !== null && fileExists
-        return shouldInclude ? s.hash : null
-      }),
-    ).then((hashes) => hashes.filter((hash): hash is string => hash !== null))
-
-    const missingHashes = uniqueHashes.reduce((acc, hash) => {
-      if (!sourcesHashes.includes(hash)) {
-        return acc.concat(hash)
-      }
-
-      return acc
-    }, [] as string[])
+    const uniqueHashes = getUniqueHashes(simulateTrace)
+    const sources = await this.getSources(programSourcesDescriptionFile)
+    const missingHashes = getMissingHashes(uniqueHashes, sources)
 
     if (missingHashes.length > 0) {
-      const sourceMapFiles = await findFilesInWorkspace(folder, ['**/*.tok.map', '**/*.teal.map', '**/*.puya.map'])
-      const identifiers = getSourceMapQuickPickItems(missingHashes, simulateTrace)
-
-      // Group source map files by contract name
-      const groupedSourceMaps = await this.groupSourceMapsByContract(sourceMapFiles)
-
-      for (const hash of missingHashes) {
-        const ignoreOption = {
-          label: 'Ignore sourcemap for this hash',
-          detail: "Won't be asked again. Run '> Clear AVM Registry' command to reset choices.",
-          iconPath: new vscode.ThemeIcon('close'),
-        }
-
-        const quickPickItems = [ignoreOption, ...this.createCategorizedQuickPickItems(groupedSourceMaps)]
-
-        const selectedOption = await vscode.window.showQuickPick(quickPickItems, {
-          placeHolder: 'Pick source map or choose to ignore',
-          title: identifiers[hash].title,
-          matchOnDetail: true,
-        })
-
-        if (selectedOption) {
-          const isIgnoreOption = selectedOption.label.includes('Ignore')
-          if (isIgnoreOption) {
-            vscode.window.showInformationMessage(`Sourcemap for hash ${hash} will be ignored.`)
-          }
-          if (!sources['txn-group-sources']) {
-            sources['txn-group-sources'] = []
-          }
-          sources['txn-group-sources']?.push({
-            'sourcemap-location': isIgnoreOption ? null : selectedOption.label,
-            hash,
-          })
-        }
-      }
-
-      // Persist updated sources back to the file
-      if (!programSourcesDescriptionFile) {
-        const algoKitSourcesDir = vscode.Uri.joinPath(folder.uri, '.algokit', 'sources')
-        const newSourcesFile = vscode.Uri.joinPath(algoKitSourcesDir, 'sources.avm.json')
-
-        try {
-          await vscode.workspace.fs.createDirectory(algoKitSourcesDir)
-        } catch (error) {
-          // Directory might already exist, ignore the error
-        }
-
-        programSourcesDescriptionFile = newSourcesFile.fsPath
-      }
-
-      await workspaceFileAccessor.writeFile(programSourcesDescriptionFile, new TextEncoder().encode(JSON.stringify(sources, null, 2)))
+      await this.handleMissingHashes(folder, missingHashes, simulateTrace, sources)
+      await this.persistSources(folder, programSourcesDescriptionFile, sources)
     }
 
     return { ...config, programSourcesDescriptionFile }
   }
 
-  private async groupSourceMapsByContract(sourceMapFiles: vscode.Uri[]): Promise<Record<string, vscode.Uri[]>> {
-    const groupedSourceMaps: Record<string, vscode.Uri[]> = { Other: [] }
+  private async getProgramSourcesDescriptionFile(folder: WorkspaceFolder, config: DebugConfiguration): Promise<string> {
+    if (config.programSourcesDescriptionFile) return config.programSourcesDescriptionFile
+
+    const settings = vscode.workspace.getConfiguration('avmDebugger')
+    const defaultSourcesFile =
+      settings.get<string>('defaultSourcemapRegistryFile') || vscode.Uri.joinPath(folder.uri, DEFAULT_SOURCES_AVM_JSON_FILE).fsPath
+
+    try {
+      await vscode.workspace.fs.stat(vscode.Uri.file(defaultSourcesFile))
+      return defaultSourcesFile
+    } catch {
+      return defaultSourcesFile // We'll create it later if needed
+    }
+  }
+
+  private async getSources(filePath: string): Promise<SourcesFile> {
+    const sources = await readFileAsJson<SourcesFile>(filePath)
+    if (!sources) {
+      vscode.window.showWarningMessage(`Empty program sources description file at "${filePath}".`)
+      return {}
+    }
+    return sources
+  }
+
+  private async handleMissingHashes(
+    folder: WorkspaceFolder,
+    missingHashes: string[],
+    simulateTrace: algosdk.modelsv2.SimulateResponse,
+    sources: SourcesFile,
+  ): Promise<void> {
+    const sourceMapFiles = await findFilesInWorkspace(folder, ['**/*.tok.map', '**/*.teal.map', '**/*.puya.map'])
+    const identifiers = getSourceMapQuickPickItems(missingHashes, simulateTrace)
+    const groupedSourceMaps = await this.groupSourceMapsByType(sourceMapFiles)
+
+    for (const hash of missingHashes) {
+      const selectedOption = await this.showQuickPick(identifiers[hash].title, groupedSourceMaps)
+      if (selectedOption) {
+        this.updateSources(sources, hash, selectedOption)
+      }
+    }
+  }
+
+  private async showQuickPick(title: string, groupedSourceMaps: Record<string, vscode.Uri[]>): Promise<QuickPickWithUri | undefined> {
+    const ignoreOption = {
+      label: 'Ignore sourcemap for this hash',
+      description: "Persistent choice. Reset via '> Clear AVM Registry' command.",
+      iconPath: new vscode.ThemeIcon('close'),
+    }
+
+    const externalOption = {
+      label: 'Browse...',
+      description: 'Select external sourcemap file',
+      iconPath: new vscode.ThemeIcon('folder-opened'),
+    }
+
+    const quickPickItems = [
+      ...this.createCategorizedQuickPickItems(groupedSourceMaps),
+      { kind: vscode.QuickPickItemKind.Separator, label: 'Other Options' },
+      externalOption,
+      ignoreOption,
+    ]
+
+    const selectedOption = await vscode.window.showQuickPick(quickPickItems, {
+      placeHolder: 'Pick source map or choose to ignore',
+      title,
+      matchOnDetail: true,
+    })
+
+    if (selectedOption?.label === 'Browse...') {
+      const [file] =
+        (await vscode.window.showOpenDialog({
+          canSelectFiles: true,
+          canSelectFolders: false,
+          canSelectMany: false,
+          filters: { 'Sourcemap Files': ['map'] },
+          title: 'Select External Sourcemap File',
+        })) ?? []
+
+      if (file) {
+        return {
+          label: workspaceFileAccessor.basename(file.fsPath),
+          description: file.fsPath,
+          iconPath: new vscode.ThemeIcon('file-code'),
+          uri: file,
+        }
+      }
+      return undefined
+    }
+
+    return selectedOption
+  }
+
+  private updateSources(sources: SourcesFile, hash: string, selectedOption: QuickPickWithUri): void {
+    const isIgnoreOption = selectedOption.label.includes('Ignore')
+    if (isIgnoreOption) {
+      vscode.window.showInformationMessage(`Sourcemap for hash ${hash} will be ignored.`)
+    }
+    if (!sources['txn-group-sources']) {
+      sources['txn-group-sources'] = []
+    }
+    const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath
+    if (isIgnoreOption) {
+      sources['txn-group-sources']?.push({
+        'sourcemap-location': null,
+        hash,
+      })
+    } else if (selectedOption.uri instanceof vscode.Uri && workspaceRoot) {
+      const algoKitSourcesRoot = vscode.Uri.joinPath(vscode.Uri.file(workspaceRoot), '.algokit', 'sources').fsPath
+      const selectedPath = selectedOption.uri.fsPath
+
+      // Calculate relative path from .algokit/sources to the selected file
+      let relativePath = path.relative(algoKitSourcesRoot, selectedPath)
+      // Ensure the path uses forward slashes
+      relativePath = relativePath.replace(/\\/g, '/')
+
+      sources['txn-group-sources']?.push({
+        'sourcemap-location': relativePath,
+        hash,
+      })
+    }
+  }
+
+  private async persistSources(folder: WorkspaceFolder, filePath: string | undefined, sources: SourcesFile): Promise<void> {
+    if (!filePath) {
+      const algoKitSourcesDir = vscode.Uri.joinPath(folder.uri, '.algokit', 'sources')
+      const settings = vscode.workspace.getConfiguration('avmDebugger')
+      const defaultSourcesFile =
+        settings.get<string>('defaultSourcemapRegistryFile') || vscode.Uri.joinPath(folder.uri, DEFAULT_SOURCES_AVM_JSON_FILE).fsPath
+      const newSourcesFile = vscode.Uri.file(defaultSourcesFile)
+
+      try {
+        await vscode.workspace.fs.createDirectory(algoKitSourcesDir)
+      } catch {
+        // Directory might already exist, ignore the error
+      }
+
+      filePath = newSourcesFile.fsPath
+    }
+
+    await writeFileAsJson(filePath, sources)
+  }
+
+  private async groupSourceMapsByType(sourceMapFiles: vscode.Uri[]): Promise<Record<string, vscode.Uri[]>> {
+    const groupedSourceMaps: Record<string, vscode.Uri[]> = {
+      Puya: [],
+      TEAL: [],
+    }
 
     for (const uri of sourceMapFiles) {
-      const contractFile = vscode.Uri.file(uri.fsPath.replace(/\.(teal\.tok\.map|teal\.map|puya\.map)$/, '.teal'))
-      const contractFileExists = await workspaceFileAccessor
-        .readFile(contractFile.fsPath)
-        .catch(() => false)
-        .then((file) => file !== undefined)
-      if (contractFileExists) {
-        const baseName = workspaceFileAccessor.basename(contractFile.fsPath).replace(/\.(teal|py)$/, '')
-        if (!groupedSourceMaps[baseName]) {
-          groupedSourceMaps[baseName] = []
-        }
-        groupedSourceMaps[baseName].push(uri)
-      } else {
-        groupedSourceMaps['Other'].push(uri)
+      const fileName = uri.fsPath.toLowerCase()
+      if (fileName.endsWith('.puya.map')) {
+        groupedSourceMaps['Puya'].push(uri)
+      } else if (fileName.endsWith('.teal.map') || fileName.endsWith('.tok.map')) {
+        groupedSourceMaps['TEAL'].push(uri)
       }
     }
 
@@ -253,9 +226,8 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
         items.push({ kind: vscode.QuickPickItemKind.Separator, label: category })
         items.push(
           ...uris.map((uri) => ({
-            label: uri.fsPath,
-            detail: getSourceMapType(uri),
-            description: uri.path.endsWith('.map') ? 'Source map file' : undefined,
+            label: workspaceFileAccessor.basename(uri.fsPath),
+            description: uri.fsPath,
             uri,
             iconPath: new vscode.ThemeIcon('file-code'),
           })),
