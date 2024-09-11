@@ -79,12 +79,14 @@ export type QuickPickSourceMapItem = {
 
 export interface QuickPickWithUri extends vscode.QuickPickItem {
   uri?: vscode.Uri
+  tmplVars?: Record<string, number>
 }
 
 export type SourcesFile = {
   'txn-group-sources'?: {
-    'sourcemap-location': string | null
     hash: string
+    'sourcemap-location': string | null
+    tmplVars?: Record<string, number>
   }[]
 }
 

@@ -93,14 +93,73 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     const groupedSourceMaps = await this.groupSourceMapsByType(sourceMapFiles)
 
     for (const hash of missingHashes) {
-      const selectedOption = await this.showQuickPick(identifiers[hash].title, groupedSourceMaps)
+      const selectedOption = await this.showSourceMapsQuickPick(identifiers[hash].title, groupedSourceMaps)
       if (selectedOption) {
+        await this.handleMissingTmplVars(selectedOption, hash)
         this.updateSources(sources, hash, selectedOption)
       }
     }
   }
 
-  private async showQuickPick(title: string, groupedSourceMaps: Record<string, vscode.Uri[]>): Promise<QuickPickWithUri | undefined> {
+  private async handleMissingTmplVars(selectedOption: QuickPickWithUri, hash: string): Promise<void> {
+    if (!selectedOption.uri) return
+
+    const fileContent: Record<string, unknown> | undefined = await readFileAsJson(selectedOption.uri.fsPath)
+    if (!fileContent) {
+      vscode.window.showWarningMessage(`Invalid sourcemap file at "${selectedOption.uri.fsPath}".`)
+      return
+    }
+
+    const tmplVars = fileContent['tmpl-vars'] as string[]
+    if (tmplVars && Array.isArray(tmplVars)) {
+      selectedOption.tmplVars = await this.showTmplVarsInputs(tmplVars, hash)
+    }
+  }
+
+  private async showTmplVarsInputs(tmplVars: string[], hash: string): Promise<Record<string, number> | undefined> {
+    const result: Record<string, number> = {}
+
+    for (const variable of tmplVars) {
+      const value = await vscode.window.showInputBox({
+        prompt: `Enter value for template variable "${variable}"`,
+        placeHolder: `Value for ${variable}`,
+        title: `Template Variables for ${hash}`,
+      })
+
+      if (value === undefined) return undefined // User cancelled
+
+      result[variable] = this.calculateByteSize(value)
+    }
+
+    return result
+  }
+
+  private calculateByteSize(input: string): number {
+    // Try parsing as BigInt
+    if (/^-?\d+$/.test(input)) {
+      try {
+        BigInt(input)
+        // BigInt is always 8 bytes in AVM
+        return 8
+      } catch {
+        // If parsing as BigInt fails, continue to other checks
+      }
+    }
+
+    // Check if it's a hex-encoded string (Uint8Array)
+    if (/^[0-9A-Fa-f]+$/.test(input)) {
+      // Each pair of hex characters represents one byte
+      return Math.ceil(input.length / 2)
+    }
+
+    // If it's not a BigInt or hex-encoded, treat it as a UTF-8 string
+    return new TextEncoder().encode(input).length
+  }
+
+  private async showSourceMapsQuickPick(
+    title: string,
+    groupedSourceMaps: Record<string, vscode.Uri[]>,
+  ): Promise<QuickPickWithUri | undefined> {
     const ignoreOption = {
       label: 'Ignore sourcemap for this hash',
       description: "Persistent choice. Reset via '> Clear AVM Registry' command.",
@@ -126,7 +185,11 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
       matchOnDetail: true,
     })
 
-    if (selectedOption?.label === 'Browse...') {
+    if (!selectedOption) {
+      return undefined
+    }
+
+    if (selectedOption.label === 'Browse...') {
       const [file] =
         (await vscode.window.showOpenDialog({
           canSelectFiles: true,
@@ -176,6 +239,7 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
       sources['txn-group-sources']?.push({
         'sourcemap-location': relativePath,
         hash,
+        tmplVars: selectedOption.tmplVars,
       })
     }
   }
