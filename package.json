@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "algosdk": "^2.9.0",
-    "avm-debug-adapter": "file:../af-avm-debugger/out/avm-debug-adapter-0.2.0.tgz",
+    "avm-debug-adapter": "github:algorandfoundation/avm-debugger#feat/puya-debugger",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
