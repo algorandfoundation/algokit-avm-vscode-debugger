@@ -28,7 +28,7 @@ export const config: Options.Testrunner = {
   logLevel: 'warn',
   bail: 0,
   baseUrl: '',
-  waitforTimeout: 5000,
+  waitforTimeout: 10000,
   connectionRetryTimeout: 120000,
   connectionRetryCount: 3,
   services: ['vscode'],
