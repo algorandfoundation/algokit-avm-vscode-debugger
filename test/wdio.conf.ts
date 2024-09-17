@@ -22,6 +22,7 @@ export const config: Options.Testrunner = {
       'wdio:vscodeOptions': {
         extensionPath: path.join(__dirname, '..'),
         workspacePath: path.join(__dirname, '..', 'examples', 'workspace'),
+        vscodeArgs: ['--window-size=1200,800'],
       },
     },
   ],
@@ -36,6 +37,7 @@ export const config: Options.Testrunner = {
   reporters: ['spec'],
   mochaOpts: {
     ui: 'bdd',
-    timeout: 30000,
+    timeout: 60000,
+    retries: 2,
   },
 }

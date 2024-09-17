@@ -118,6 +118,8 @@ describe('extension', () => {
     const workbench = await browser.getWorkbench()
 
     await openFile(simulateTraceFilePath)
+
+    await $('.codicon-debug-alt').waitForClickable()
     await $('.codicon-debug-alt').click()
 
     const debugControls = new DebugToolbar(workbench.locatorMap)
@@ -156,6 +158,7 @@ const getDebugInfo = async () => {
 const stepInto = async (toolbar: DebugToolbar) => {
   // The built-in step-into command doesn't work, as it's using the wrong selector
   const stepIntoButton = await toolbar.button$('step-into')
+  await stepIntoButton.waitForClickable()
   await stepIntoButton.click()
 }
 
