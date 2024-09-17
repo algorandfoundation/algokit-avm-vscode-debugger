@@ -12,11 +12,14 @@ import {
   getUniqueHashes,
   QuickPickWithUri,
   readFileAsJson,
+  SourceRecord,
   SourcesFile,
   writeFileAsJson,
 } from './utils'
 
 export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider {
+  private disposables: vscode.Disposable[] = []
+
   async resolveDebugConfiguration(
     folder: WorkspaceFolder | undefined,
     config: DebugConfiguration,
@@ -55,7 +58,60 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
       await this.persistSources(folder, programSourcesDescriptionFile, sources)
     }
 
-    return { ...config, programSourcesDescriptionFile }
+    const curatedProgramSourcesPath = await this.createCuratedProgramSources(sources, uniqueHashes, programSourcesDescriptionFile)
+    return { ...config, programSourcesDescriptionFile: curatedProgramSourcesPath.fsPath }
+  }
+
+  private async createCuratedProgramSources(
+    sources: SourcesFile,
+    uniqueHashes: string[],
+    programSourcesDescriptionFile: string,
+  ): Promise<vscode.Uri> {
+    const PRIORITY_MAP: Record<string, number> = {
+      '.puya.map': 3,
+      '.teal.map': 2,
+      '.tok.map': 1,
+      '': 0,
+    }
+
+    const getPriority = (source: SourceRecord): number => PRIORITY_MAP[path.extname(source['sourcemap-location'] ?? '')] ?? 0
+
+    const curatedProgramSources = (sources['txn-group-sources'] ?? [])
+      .filter((source): source is SourceRecord => source !== undefined && uniqueHashes.includes(source.hash))
+      .reduce<SourceRecord[]>((acc, source) => {
+        const existingIndex = acc.findIndex((s) => s.hash === source.hash)
+        if (existingIndex === -1) {
+          acc.push(source)
+        } else if (getPriority(source) > getPriority(acc[existingIndex])) {
+          acc[existingIndex] = source
+        }
+        return acc
+      }, [])
+
+    const curatedProgramSourcesPath = vscode.Uri.joinPath(
+      vscode.Uri.file(programSourcesDescriptionFile),
+      '..',
+      `${Date.now()}.sources.avm.json`,
+    )
+
+    // Write curated sources to the temporary file
+    await vscode.workspace.fs.writeFile(
+      curatedProgramSourcesPath,
+      Buffer.from(JSON.stringify({ 'txn-group-sources': curatedProgramSources }, null, 2)),
+    )
+
+    // Register cleanup function
+    this.disposables.push(
+      vscode.debug.onDidTerminateDebugSession(async () => {
+        try {
+          await vscode.workspace.fs.delete(curatedProgramSourcesPath, { recursive: true })
+        } catch (error) {
+          console.error('Failed to delete curated sources file:', error)
+        }
+      }),
+    )
+
+    return curatedProgramSourcesPath
   }
 
   private async getProgramSourcesDescriptionFile(folder: WorkspaceFolder, config: DebugConfiguration): Promise<string> {
@@ -95,44 +151,46 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     for (const hash of missingHashes) {
       const selectedOption = await this.showSourceMapsQuickPick(identifiers[hash].title, groupedSourceMaps)
       if (selectedOption) {
-        await this.handleMissingTmplVars(selectedOption, hash)
+        // Uncomment if TMPL loading logic is decided to be enabled again for some edge case
+        // await this.handleMissingTmplVars(selectedOption, hash)
         this.updateSources(sources, hash, selectedOption)
       }
     }
   }
 
-  private async handleMissingTmplVars(selectedOption: QuickPickWithUri, hash: string): Promise<void> {
-    if (!selectedOption.uri) return
+  // TODO: Remove before merging if not needed
+  // private async handleMissingTmplVars(selectedOption: QuickPickWithUri, hash: string): Promise<void> {
+  //   if (!selectedOption.uri) return
 
-    const fileContent: Record<string, unknown> | undefined = await readFileAsJson(selectedOption.uri.fsPath)
-    if (!fileContent) {
-      vscode.window.showWarningMessage(`Invalid sourcemap file at "${selectedOption.uri.fsPath}".`)
-      return
-    }
+  //   const fileContent: Record<string, unknown> | undefined = await readFileAsJson(selectedOption.uri.fsPath)
+  //   if (!fileContent) {
+  //     vscode.window.showWarningMessage(`Invalid sourcemap file at "${selectedOption.uri.fsPath}".`)
+  //     return
+  //   }
 
-    const tmplVars = fileContent['tmpl-vars'] as string[]
-    if (tmplVars && Array.isArray(tmplVars)) {
-      selectedOption.tmplVars = await this.showTmplVarsInputs(tmplVars, hash)
-    }
-  }
+  //   const tmplVars = fileContent['tmpl-vars'] as string[]
+  //   if (tmplVars && Array.isArray(tmplVars)) {
+  //     selectedOption.tmplVars = await this.showTmplVarsInputs(tmplVars, hash)
+  //   }
+  // }
 
-  private async showTmplVarsInputs(tmplVars: string[], hash: string): Promise<Record<string, number> | undefined> {
-    const result: Record<string, number> = {}
+  // private async showTmplVarsInputs(tmplVars: string[], hash: string): Promise<Record<string, number> | undefined> {
+  //   const result: Record<string, number> = {}
 
-    for (const variable of tmplVars) {
-      const value = await vscode.window.showInputBox({
-        prompt: `Enter value for template variable "${variable}"`,
-        placeHolder: `Value for ${variable}`,
-        title: `Template Variables for ${hash}`,
-      })
+  //   for (const variable of tmplVars) {
+  //     const value = await vscode.window.showInputBox({
+  //       prompt: `Enter value for template variable "${variable}"`,
+  //       placeHolder: `Value for ${variable}`,
+  //       title: `Template Variables for ${hash}`,
+  //     })
 
-      if (value === undefined) return undefined // User cancelled
+  //     if (value === undefined) return undefined // User cancelled
 
-      result[variable] = this.calculateByteSize(value)
-    }
+  //     result[variable] = this.calculateByteSize(value)
+  //   }
 
-    return result
-  }
+  //   return result
+  // }
 
   private calculateByteSize(input: string): number {
     // Try parsing as BigInt
@@ -239,7 +297,8 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
       sources['txn-group-sources']?.push({
         'sourcemap-location': relativePath,
         hash,
-        tmplVars: selectedOption.tmplVars,
+        // TODO: Uncomment if TMPL loading logic is decided to be enabled again for some edge case
+        // tmplVars: selectedOption.tmplVars,
       })
     }
   }

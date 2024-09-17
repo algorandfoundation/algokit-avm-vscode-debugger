@@ -79,15 +79,18 @@ export type QuickPickSourceMapItem = {
 
 export interface QuickPickWithUri extends vscode.QuickPickItem {
   uri?: vscode.Uri
+  // TODO: Remove before merging if not needed
+  tmplVars?: Record<string, number>
+}
+
+export type SourceRecord = {
+  hash: string
+  'sourcemap-location': string | null
   tmplVars?: Record<string, number>
 }
 
 export type SourcesFile = {
-  'txn-group-sources'?: {
-    hash: string
-    'sourcemap-location': string | null
-    tmplVars?: Record<string, number>
-  }[]
+  'txn-group-sources'?: SourceRecord[]
 }
 
 export function getMissingHashes(uniqueHashes: string[], sources: SourcesFile): string[] {
