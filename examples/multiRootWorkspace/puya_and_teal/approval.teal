@@ -1,0 +1,87 @@
+#pragma version 10
+
+smart_contracts.hello_world.contract.HelloWorld.approval_program:
+    callsub __puya_arc4_router__
+    return
+
+
+// smart_contracts.hello_world.contract.HelloWorld.__puya_arc4_router__() -> uint64:
+__puya_arc4_router__:
+    proto 0 1
+    txn NumAppArgs
+    bz __puya_arc4_router___bare_routing@5
+    method "hello(string,application)string"
+    txna ApplicationArgs 0
+    match __puya_arc4_router___hello_route@2
+    int 0
+    retsub
+
+__puya_arc4_router___hello_route@2:
+    txn OnCompletion
+    !
+    assert // OnCompletion is NoOp
+    txn ApplicationID
+    assert // is not creating
+    txna ApplicationArgs 1
+    extract 2 0
+    txna ApplicationArgs 2
+    btoi
+    txnas Applications
+    callsub hello
+    dup
+    len
+    itob
+    extract 6 2
+    swap
+    concat
+    byte 0x151f7c75
+    swap
+    concat
+    log
+    int 1
+    retsub
+
+__puya_arc4_router___bare_routing@5:
+    txn OnCompletion
+    bnz __puya_arc4_router___after_if_else@9
+    txn ApplicationID
+    !
+    assert // is creating
+    int 1
+    retsub
+
+__puya_arc4_router___after_if_else@9:
+    int 0
+    retsub
+
+
+// smart_contracts.hello_world.contract.HelloWorld.hello(name: bytes, second_app_id: uint64) -> bytes:
+hello:
+    proto 2 1
+    itxn_begin
+    frame_dig -2
+    len
+    itob
+    extract 6 2
+    frame_dig -2
+    concat
+    frame_dig -1
+    itxn_field ApplicationID
+    method "hello(string)string"
+    itxn_field ApplicationArgs
+    itxn_field ApplicationArgs
+    int appl
+    itxn_field TypeEnum
+    int 0
+    itxn_field Fee
+    itxn_submit
+    itxn LastLog
+    dup
+    extract 4 0
+    swap
+    extract 0 4
+    byte 0x151f7c75
+    ==
+    assert // ARC4 prefix is valid
+    extract 2 0
+    retsub
