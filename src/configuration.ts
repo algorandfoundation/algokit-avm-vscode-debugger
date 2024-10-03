@@ -58,15 +58,19 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
       await this.persistSources(folder, programSourcesDescriptionFile, sources)
     }
 
-    const curatedProgramSourcesPath = await this.createCuratedProgramSources(sources, uniqueHashes, programSourcesDescriptionFile)
-    return { ...config, programSourcesDescriptionFile: curatedProgramSourcesPath.fsPath }
+    const curatedProgramSources = await this.createCuratedProgramSources(sources, uniqueHashes)
+    const curatedProgramSourcesPath = vscode.Uri.file(programSourcesDescriptionFile)
+    const programSourcesDescriptionFolder = path.dirname(programSourcesDescriptionFile)
+
+    return {
+      ...config,
+      programSourcesDescription: curatedProgramSources,
+      programSourcesDescriptionFile: curatedProgramSourcesPath.fsPath,
+      programSourcesDescriptionFolder: programSourcesDescriptionFolder,
+    }
   }
 
-  private async createCuratedProgramSources(
-    sources: SourcesFile,
-    uniqueHashes: string[],
-    programSourcesDescriptionFile: string,
-  ): Promise<vscode.Uri> {
+  private async createCuratedProgramSources(sources: SourcesFile, uniqueHashes: string[]): Promise<string> {
     const PRIORITY_MAP: Record<string, number> = {
       '.puya.map': 3,
       '.teal.map': 2,
@@ -88,30 +92,7 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
         return acc
       }, [])
 
-    const curatedProgramSourcesPath = vscode.Uri.joinPath(
-      vscode.Uri.file(programSourcesDescriptionFile),
-      '..',
-      `${Date.now()}.sources.avm.json`,
-    )
-
-    // Write curated sources to the temporary file
-    await vscode.workspace.fs.writeFile(
-      curatedProgramSourcesPath,
-      Buffer.from(JSON.stringify({ 'txn-group-sources': curatedProgramSources }, null, 2)),
-    )
-
-    // Register cleanup function
-    this.disposables.push(
-      vscode.debug.onDidTerminateDebugSession(async () => {
-        try {
-          await vscode.workspace.fs.delete(curatedProgramSourcesPath, { recursive: true })
-        } catch (error) {
-          console.error('Failed to delete curated sources file:', error)
-        }
-      }),
-    )
-
-    return curatedProgramSourcesPath
+    return JSON.stringify({ 'txn-group-sources': curatedProgramSources }, null, 2)
   }
 
   private async getProgramSourcesDescriptionFile(folder: WorkspaceFolder, config: DebugConfiguration): Promise<string> {
