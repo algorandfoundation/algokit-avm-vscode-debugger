@@ -9,7 +9,7 @@
       "hash": "nN5LNX4rlRXfN0ax9hH0TsYh1XDhOSLnANPnrWSdATw="
     },
     {
-      "sourcemap-location": "slot-machine/slot-machine.teal.tok.map",
+      "sourcemap-location": "./slot-machine/slot-machine.teal.tok.map",
       "hash": "AYqVv/i0Y88cebp0m1MAYE9gk/1SnhFm8oLKOBMOKac="
     }
   ]

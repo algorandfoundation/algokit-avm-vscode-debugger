@@ -1,4 +1,5 @@
 import algosdk from 'algosdk'
+import { ProgramSourceEntryFile } from 'avm-debug-adapter'
 import { orderBy, take } from 'lodash'
 import * as vscode from 'vscode'
 import { MAX_FILES_TO_SHOW, NO_WORKSPACE_ERROR_MESSAGE } from './constants'
@@ -79,21 +80,9 @@ export type QuickPickSourceMapItem = {
 
 export interface QuickPickWithUri extends vscode.QuickPickItem {
   uri?: vscode.Uri
-  // TODO: Remove before merging if not needed
-  tmplVars?: Record<string, number>
 }
 
-export type SourceRecord = {
-  hash: string
-  'sourcemap-location': string | null
-  tmplVars?: Record<string, number>
-}
-
-export type SourcesFile = {
-  'txn-group-sources'?: SourceRecord[]
-}
-
-export function getMissingHashes(uniqueHashes: string[], sources: SourcesFile): string[] {
+export function getMissingHashes(uniqueHashes: string[], sources: ProgramSourceEntryFile): string[] {
   const sourcesHashes = new Set((sources['txn-group-sources'] ?? []).map((s) => s.hash))
   return uniqueHashes.filter((hash) => !sourcesHashes.has(hash))
 }

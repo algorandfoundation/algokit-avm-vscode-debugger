@@ -1,4 +1,5 @@
 import algosdk from 'algosdk'
+import { ProgramSourceEntry, ProgramSourceEntryFile } from 'avm-debug-adapter'
 import path from 'path'
 import * as vscode from 'vscode'
 import { CancellationToken, DebugConfiguration, WorkspaceFolder } from 'vscode'
@@ -12,8 +13,6 @@ import {
   getUniqueHashes,
   QuickPickWithUri,
   readFileAsJson,
-  SourceRecord,
-  SourcesFile,
   writeFileAsJson,
 } from './utils'
 
@@ -59,18 +58,16 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     }
 
     const curatedProgramSources = await this.createCuratedProgramSources(sources, uniqueHashes)
-    const curatedProgramSourcesPath = vscode.Uri.file(programSourcesDescriptionFile)
-    const programSourcesDescriptionFolder = path.dirname(programSourcesDescriptionFile)
+    const programSourcesDescriptionFolder = `${path.dirname(programSourcesDescriptionFile)}/`
 
     return {
       ...config,
       programSourcesDescription: curatedProgramSources,
-      programSourcesDescriptionFile: curatedProgramSourcesPath.fsPath,
       programSourcesDescriptionFolder: programSourcesDescriptionFolder,
     }
   }
 
-  private async createCuratedProgramSources(sources: SourcesFile, uniqueHashes: string[]): Promise<string> {
+  private async createCuratedProgramSources(sources: ProgramSourceEntryFile, uniqueHashes: string[]): Promise<ProgramSourceEntryFile> {
     const PRIORITY_MAP: Record<string, number> = {
       '.puya.map': 3,
       '.teal.map': 2,
@@ -78,11 +75,11 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
       '': 0,
     }
 
-    const getPriority = (source: SourceRecord): number => PRIORITY_MAP[path.extname(source['sourcemap-location'] ?? '')] ?? 0
+    const getPriority = (source: ProgramSourceEntry): number => PRIORITY_MAP[path.extname(source['sourcemap-location'] ?? '')] ?? 0
 
     const curatedProgramSources = (sources['txn-group-sources'] ?? [])
-      .filter((source): source is SourceRecord => source !== undefined && uniqueHashes.includes(source.hash))
-      .reduce<SourceRecord[]>((acc, source) => {
+      .filter((source): source is ProgramSourceEntry => source !== undefined && uniqueHashes.includes(source.hash))
+      .reduce<ProgramSourceEntry[]>((acc, source) => {
         const existingIndex = acc.findIndex((s) => s.hash === source.hash)
         if (existingIndex === -1) {
           acc.push(source)
@@ -92,7 +89,7 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
         return acc
       }, [])
 
-    return JSON.stringify({ 'txn-group-sources': curatedProgramSources }, null, 2)
+    return { 'txn-group-sources': curatedProgramSources }
   }
 
   private async getProgramSourcesDescriptionFile(folder: WorkspaceFolder, config: DebugConfiguration): Promise<string> {
@@ -110,11 +107,11 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     }
   }
 
-  private async getSources(filePath: string): Promise<SourcesFile> {
-    const sources = await readFileAsJson<SourcesFile>(filePath)
+  private async getSources(filePath: string): Promise<ProgramSourceEntryFile> {
+    const sources = await readFileAsJson<ProgramSourceEntryFile>(filePath)
     if (!sources) {
       vscode.window.showWarningMessage(`Empty program sources description file at "${filePath}".`)
-      return {}
+      return { 'txn-group-sources': [] }
     }
     return sources
   }
@@ -123,7 +120,7 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     folder: WorkspaceFolder,
     missingHashes: string[],
     simulateTrace: algosdk.modelsv2.SimulateResponse,
-    sources: SourcesFile,
+    sources: ProgramSourceEntryFile,
   ): Promise<void> {
     const sourceMapFiles = await findFilesInWorkspace(folder, ['**/*.tok.map', '**/*.teal.map', '**/*.puya.map'])
     const identifiers = getSourceMapQuickPickItems(missingHashes, simulateTrace)
@@ -132,46 +129,10 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     for (const hash of missingHashes) {
       const selectedOption = await this.showSourceMapsQuickPick(identifiers[hash].title, groupedSourceMaps)
       if (selectedOption) {
-        // Uncomment if TMPL loading logic is decided to be enabled again for some edge case
-        // await this.handleMissingTmplVars(selectedOption, hash)
         this.updateSources(sources, hash, selectedOption)
       }
     }
   }
-
-  // TODO: Remove before merging if not needed
-  // private async handleMissingTmplVars(selectedOption: QuickPickWithUri, hash: string): Promise<void> {
-  //   if (!selectedOption.uri) return
-
-  //   const fileContent: Record<string, unknown> | undefined = await readFileAsJson(selectedOption.uri.fsPath)
-  //   if (!fileContent) {
-  //     vscode.window.showWarningMessage(`Invalid sourcemap file at "${selectedOption.uri.fsPath}".`)
-  //     return
-  //   }
-
-  //   const tmplVars = fileContent['tmpl-vars'] as string[]
-  //   if (tmplVars && Array.isArray(tmplVars)) {
-  //     selectedOption.tmplVars = await this.showTmplVarsInputs(tmplVars, hash)
-  //   }
-  // }
-
-  // private async showTmplVarsInputs(tmplVars: string[], hash: string): Promise<Record<string, number> | undefined> {
-  //   const result: Record<string, number> = {}
-
-  //   for (const variable of tmplVars) {
-  //     const value = await vscode.window.showInputBox({
-  //       prompt: `Enter value for template variable "${variable}"`,
-  //       placeHolder: `Value for ${variable}`,
-  //       title: `Template Variables for ${hash}`,
-  //     })
-
-  //     if (value === undefined) return undefined // User cancelled
-
-  //     result[variable] = this.calculateByteSize(value)
-  //   }
-
-  //   return result
-  // }
 
   private calculateByteSize(input: string): number {
     // Try parsing as BigInt
@@ -252,7 +213,7 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     return selectedOption
   }
 
-  private updateSources(sources: SourcesFile, hash: string, selectedOption: QuickPickWithUri): void {
+  private updateSources(sources: ProgramSourceEntryFile, hash: string, selectedOption: QuickPickWithUri): void {
     const isIgnoreOption = selectedOption.label.includes('Ignore')
     if (isIgnoreOption) {
       vscode.window.showInformationMessage(`Sourcemap for hash ${hash} will be ignored.`)
@@ -278,13 +239,11 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
       sources['txn-group-sources']?.push({
         'sourcemap-location': relativePath,
         hash,
-        // TODO: Uncomment if TMPL loading logic is decided to be enabled again for some edge case
-        // tmplVars: selectedOption.tmplVars,
       })
     }
   }
 
-  private async persistSources(folder: WorkspaceFolder, filePath: string | undefined, sources: SourcesFile): Promise<void> {
+  private async persistSources(folder: WorkspaceFolder, filePath: string | undefined, sources: ProgramSourceEntryFile): Promise<void> {
     if (!filePath) {
       const algoKitSourcesDir = vscode.Uri.joinPath(folder.uri, '.algokit', 'sources')
       const settings = vscode.workspace.getConfiguration('avmDebugger')
