@@ -1,0 +1,109 @@
+{
+  "version": 3,
+  "sources": [
+    "lsig.py"
+  ],
+  "mappings": ";AAMc;;AAAA;;AAAA;;AAAA;AAAA;AAAA;;AACH;;AAAkB;;;AAAlB;AAAP;AACO;;AAAP",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "smart_contracts.lsig.lsig.approve_hello_call",
+      "params": {},
+      "block": "smart_contracts.lsig.lsig.approve_hello_call",
+      "stack_in": [],
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ],
+      "op": "pushint 0"
+    },
+    "3": {
+      "defined_out": [
+        "gtxn_type%0#0"
+      ],
+      "stack_out": [
+        "gtxn_type%0#0"
+      ],
+      "op": "gtxns TypeEnum"
+    },
+    "5": {
+      "defined_out": [
+        "appl"
+      ],
+      "stack_out": [
+        "gtxn_type%0#0",
+        "appl"
+      ],
+      "op": "pushint 6"
+    },
+    "7": {
+      "defined_out": [
+        "gtxn_type_matches%0#0"
+      ],
+      "stack_out": [
+        "gtxn_type_matches%0#0"
+      ],
+      "op": "=="
+    },
+    "8": {
+      "stack_out": [],
+      "op": "assert"
+    },
+    "9": {
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ],
+      "op": "pushint 0"
+    },
+    "11": {
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ],
+      "op": "gtxns ApplicationID"
+    },
+    "13": {
+      "defined_out": [
+        "1002"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "1002"
+      ],
+      "op": "pushint 1002"
+    },
+    "16": {
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ],
+      "op": "=="
+    },
+    "17": {
+      "stack_out": [],
+      "op": "assert"
+    },
+    "18": {
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ],
+      "op": "pushint 1"
+    },
+    "20": {
+      "stack_out": [],
+      "op": "return"
+    }
+  }
+}

@@ -9,7 +9,7 @@
     "scratch-change": true,
     "stack-change": true
   },
-  "last-round": 9,
+  "last-round": 11,
   "txn-groups": [
     {
       "app-budget-added": 1400,
@@ -94,7 +94,7 @@
                 "stack-additions": [
                   {
                     "type": 2,
-                    "uint": 1008
+                    "uint": 1002
                   }
                 ]
               },
@@ -145,7 +145,7 @@
                 "stack-additions": [
                   {
                     "type": 2,
-                    "uint": 1005
+                    "uint": 1004
                   }
                 ],
                 "stack-pop-count": 1
@@ -222,7 +222,7 @@
                 "stack-additions": [
                   {
                     "type": 2,
-                    "uint": 1005
+                    "uint": 1004
                   }
                 ]
               },
@@ -274,9 +274,7 @@
               },
               {
                 "pc": 123,
-                "spawned-inners": [
-                  0
-                ],
+                "spawned-inners": [0],
                 "stack-additions": [
                   {
                     "bytes": "d29ybGQ=",
@@ -284,7 +282,7 @@
                   },
                   {
                     "type": 2,
-                    "uint": 1005
+                    "uint": 1004
                   }
                 ]
               },
@@ -598,7 +596,7 @@
                     "stack-additions": [
                       {
                         "type": 2,
-                        "uint": 1005
+                        "uint": 1004
                       }
                     ]
                   },
@@ -805,52 +803,147 @@
                   }
                 ]
               }
+            ],
+            "logic-sig-hash": "8Y7ddIVDDdijOZcTKzMOxqa3RpJOjUGswRdND/Hdddg=",
+            "logic-sig-trace": [
+              {
+                "pc": 1,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 3,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 6
+                  }
+                ],
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 5,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 6
+                  }
+                ]
+              },
+              {
+                "pc": 7,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 2
+              },
+              {
+                "pc": 8,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 9,
+                "stack-additions": [
+                  {
+                    "type": 2
+                  }
+                ]
+              },
+              {
+                "pc": 11,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1002
+                  }
+                ],
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 13,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1002
+                  }
+                ]
+              },
+              {
+                "pc": 16,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 2
+              },
+              {
+                "pc": 17,
+                "stack-pop-count": 1
+              },
+              {
+                "pc": 18,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ]
+              },
+              {
+                "pc": 20,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 1
+                  }
+                ],
+                "stack-pop-count": 1
+              }
             ]
           },
+          "logic-sig-budget-consumed": 12,
           "txn-result": {
             "inner-txns": [
               {
-                "logs": [
-                  "FR98dQAMSGVsbG8sIHdvcmxk"
-                ],
+                "logs": ["FR98dQAMSGVsbG8sIHdvcmxk"],
                 "pool-error": "",
                 "txn": {
                   "txn": {
-                    "apaa": [
-                      "Ar7OEQ==",
-                      "AAV3b3JsZA=="
-                    ],
-                    "apid": 1005,
-                    "fv": 9,
-                    "lv": 1009,
-                    "snd": "XRFPWLGDGSFC7UVUZ4MFHDCDVKS5GPLDZLW5OC6AUGWK6YEUXZ5GF4G7YA",
+                    "apaa": ["Ar7OEQ==", "AAV3b3JsZA=="],
+                    "apid": 1004,
+                    "fv": 11,
+                    "lv": 1011,
+                    "snd": "O3VYQKJ45XILV2GVDO44LM2IGPUD2QYRXNFX5K4ZDC2B4BD4ZZXU5AQG24",
                     "type": "appl"
                   }
                 }
               }
             ],
-            "logs": [
-              "FR98dQAMSGVsbG8sIHdvcmxk"
-            ],
+            "logs": ["FR98dQAMSGVsbG8sIHdvcmxk"],
             "pool-error": "",
             "txn": {
-              "sig": "DhTqV1oJrHQtMxBDYb6eqnP0xtoc+lHKwbGMQa3f+UyTdoVRrWZH6J8sJv6d5cIJ5c/obzfMUz+4oka+CPMkBA==",
+              "lsig": {
+                "l": "CoEAOBCBBhJEgQA4GIHqBxJEgQFD",
+                "sig": "t5MRSxBBT7edeRJVzgJ4ySZ8QCZ6lNEDrVjzWdDbAPml5Ap/PJk6MiBw1l+N1OVR99H7p7sRJ9CfrO2zSleWDQ=="
+              },
               "txn": {
-                "apaa": [
-                  "WZMacA==",
-                  "AAV3b3JsZA==",
-                  "AQ=="
-                ],
-                "apfa": [
-                  1005
-                ],
-                "apid": 1008,
+                "apaa": ["WZMacA==", "AAV3b3JsZA==", "AQ=="],
+                "apfa": [1004],
+                "apid": 1002,
                 "fee": 472000,
-                "fv": 9,
+                "fv": 11,
                 "gen": "dockernet-v1",
-                "gh": "U9+OuI22nRePyHEcNa1mdzHUoVIRMYJ/1eCtLqqvQUA=",
-                "lv": 1009,
-                "snd": "W2ECTKAWWGHJMGX6DLXE4IYBSDKFVAJ2MQBFHUIHK2K2THBT6QQKXWGCI4",
+                "gh": "Rn0TWrsUZ7r8Yw31jeeDmWj4TXjViPQPtEnaHcmHD5E=",
+                "lv": 1011,
+                "snd": "HMURDOMBZB3H54WY3JVME3BAPWIK7EWTAQRPNGNMAY54VM3H5TVBRGLVVQ",
                 "type": "appl"
               }
             }

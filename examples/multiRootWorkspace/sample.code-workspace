@@ -25,6 +25,12 @@
     {
       "path": "./stepping-test",
     },
+    {
+      "path": "./puya",
+    },
+    {
+      "path": "./puya_and_teal",
+    }
   ],
   "settings": {
     "files.exclude": {

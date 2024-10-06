@@ -1,8 +1,8 @@
 {
   "txn-group-sources": [
     {
-      "sourcemap-location": "./contract/HelloWorld.approval.bin.map",
-      "hash": "bpraJf7C/G0trk7LMjZwUyO2nRquR4vOGEzujlnkWpw="
+      "sourcemap-location": "contract/ProofOfAttendance.approval.puya.map",
+      "hash": "cqTkXo2HRQY5h4/nvU46XmZrHlAe5gCdC/Q9eBAPl5k="
     }
   ]
 }

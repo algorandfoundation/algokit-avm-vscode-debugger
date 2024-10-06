@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": [
-    "/Users/aorumbayev/MakerX/projects/puya-debugger/af-avm-debugger/sampleWorkspace/puya_and_teal/contract.py",
+    "contract.py",
     "/algopy/arc4.py"
   ],
   "mappings": ";;;;;ACAA;;;AAAA;ADKA;;;AAAA;;AAAA;;;AAAA;;;;;;AAAA;;;AAAA;;;;AAAA;AAAA;AACK;;AAAA;AAAA;AAAA;;AAAA;AADL;;;AAAA;;;AACK;;;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AADL;;AAAA;;;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA;;;AAEe;;;;;;;;;AAAA;;AAAA;AAAP",

@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "avm",
+      "request": "launch",
+      "name": "Debug Recursive App",
+
+      "simulateTraceFile": "${workspaceFolder}/debug_traces/simulate-response.trace.avm.json",
+      "programSourcesDescription": {
+        "txn-group-sources": [
+          {
+            "sourcemap-location": "./contract/ProofOfAttendance.approval.puya.map",
+            "hash": "cqTkXo2HRQY5h4/nvU46XmZrHlAe5gCdC/Q9eBAPl5k="
+          }
+        ]
+      },      
+      "programSourcesDescriptionFolder": "${workspaceFolder}/.algokit/sources/",
+      "stopOnEntry": true
+    }
+  ]
+}
