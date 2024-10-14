@@ -1,16 +1,20 @@
 {
   "txn-group-sources": [
     {
-      "sourcemap-location": "first_app/approval.teal.tok.map",
-      "hash": "+M4WXURFSOFzatfICt2miBHDfm5qylmm279/3bZtKjI="
+      "sourcemap-location": "./first_teal_app/approval.teal.tok.map",
+      "hash": "bFjB/jPb8ImVYeAJQIL9lTAtu14+4yet0z5LUMnh1Zk="
     },
     {
-      "sourcemap-location": "second_app/contract_approval.puya.map",
-      "hash": "Vg0dtzIh0CIFZN/+hJG/L+6gSSPPyjuzE0wDqGt0zyU="
+      "sourcemap-location": "./second_puya_app/contract_approval.puya.map",
+      "hash": "DbbtDBEqmyLCjAn3yXEp708hrhHkanuMuZ+039KLp/s="
     },
     {
-      "sourcemap-location": "delegated_lsig/lsig.puya.map",
-      "hash": "8Y7ddIVDDdijOZcTKzMOxqa3RpJOjUGswRdND/Hdddg="
+      "sourcemap-location": "./delegated_puya_lsig/lsig.puya.map",
+      "hash": "cFlJEhm1xu42Dpnqg93nIzNIyY6E2H+uSeVXOv7O6Sk="
+    },
+    {
+      "sourcemap-location": "./third_puyats_app/contract_approval.puya.map",
+      "hash": "q7Vsqme7lK4RlmnIlh8Fplo6kDtrFKwuYsOGZz1dKlM="
     }
   ]
 }

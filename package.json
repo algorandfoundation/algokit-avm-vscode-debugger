@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "algosdk": "^2.9.0",
-    "avm-debug-adapter": "github:algorandfoundation/avm-debugger#feat/puya-support",
+    "avm-debug-adapter": "github:algorandfoundation/avm-debugger#main",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -110,6 +110,12 @@
       }
     ],
     "breakpoints": [
+      {
+        "language": "python"
+      },
+      {
+        "language": "typescript"
+      },
       {
         "language": "teal"
       }

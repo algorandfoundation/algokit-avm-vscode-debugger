@@ -57,7 +57,10 @@ export function getSourceMapQuickPickItems(
             : `Select source map for Application with hash: ${hash}`
           identifiers[hash] = { hash, title }
         } else if (hash === bytesToBase64(logicSigHash)) {
-          const lsigBytes = lsig?.l
+          let lsigBytes: Uint8Array | undefined = lsig?.l
+          if (typeof lsigBytes === 'string') {
+            lsigBytes = new Uint8Array(Buffer.from(lsigBytes, 'base64'))
+          }
           const lsigAddr = lsigBytes ? new algosdk.LogicSigAccount(lsigBytes).address() : undefined
           const title = lsigAddr
             ? `Select source maps for Logic Sig with address: ${lsigAddr}, hash: ${hash}`
@@ -70,7 +73,8 @@ export function getSourceMapQuickPickItems(
     })
   })
 
-  return identifiers
+  const sortedEntries = Object.entries(identifiers).sort((a, b) => a[0].localeCompare(b[0]))
+  return Object.fromEntries(sortedEntries)
 }
 
 export type QuickPickSourceMapItem = {

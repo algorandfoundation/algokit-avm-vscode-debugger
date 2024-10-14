@@ -1,8 +1,12 @@
 {
   "txn-group-sources": [
     {
-      "sourcemap-location": "contract/ProofOfAttendance.approval.puya.map",
-      "hash": "cqTkXo2HRQY5h4/nvU46XmZrHlAe5gCdC/Q9eBAPl5k="
+      "sourcemap-location": "../../ProofOfAttendance.approval.puya.map",
+      "hash": "9OQMiPyi2J20NA7qdxurd6RlJi8dTAlzNxPzdR7pjPc="
+    },
+    {
+      "sourcemap-location": "opup/approval.teal.map",
+      "hash": "p0zHRDBy7V/S2TDcAaXYEd2OF8KSxV/1y0ceYEL6qxU="
     }
   ]
 }

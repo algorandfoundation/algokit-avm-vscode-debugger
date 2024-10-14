@@ -1,0 +1,108 @@
+{
+  "version": 3,
+  "sources": [
+    "lsig.py"
+  ],
+  "mappings": ";AAMc;;AAAA;;AAAA;;AAAA;AAAA;AAAA;;AACH;;AAAkB;;;AAAlB;AAAP;AACO;;AAAP",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "smart_contracts.lsig.lsig.approve_hello_call",
+      "params": {},
+      "block": "smart_contracts.lsig.lsig.approve_hello_call",
+      "stack_in": [],
+      "op": "pushint 0 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "3": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_type%0#0"
+      ],
+      "stack_out": [
+        "gtxn_type%0#0"
+      ]
+    },
+    "5": {
+      "op": "pushint 6 // appl",
+      "defined_out": [
+        "appl",
+        "gtxn_type%0#0"
+      ],
+      "stack_out": [
+        "gtxn_type%0#0",
+        "appl"
+      ]
+    },
+    "7": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_type_matches%0#0"
+      ],
+      "stack_out": [
+        "gtxn_type_matches%0#0"
+      ]
+    },
+    "8": {
+      "op": "assert // transaction type is appl",
+      "stack_out": []
+    },
+    "9": {
+      "op": "pushint 0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "11": {
+      "op": "gtxns ApplicationID",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "13": {
+      "op": "pushint 1012 // 1012",
+      "defined_out": [
+        "1012",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "1012"
+      ]
+    },
+    "16": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "17": {
+      "op": "assert",
+      "stack_out": []
+    },
+    "18": {
+      "op": "pushint 1 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "20": {
+      "op": "return",
+      "stack_out": []
+    }
+  }
+}

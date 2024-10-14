@@ -30,7 +30,10 @@
     },
     {
       "path": "./puya_and_teal",
-    }
+    },
+    {
+      "path": "./puya_third_parties",
+    },
   ],
   "settings": {
     "files.exclude": {

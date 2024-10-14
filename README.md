@@ -57,12 +57,14 @@ Before you can use the AVM Debugger extension, you need to ensure that you have 
 
 In order to use the AVM Debugger extension, you need:
 
-1. TEAL Source Maps. A `*.trace.avm.json` file that maps the compiled TEAL source maps to the original source code. See an example [here](./examples/multiRootWorkspace/slot-machine/debug_traces/simulate-response.trace.avm.json).
-2. Simulate Traces. A `sources.avm.json` file that contains the traces obtained from algod's [`simulate` endpoint](https://developer.algorand.org/docs/get-details/dapps/smart-contracts/debugging/?from_query=simulate#simulate). This serves as an entry point for the debugger. See an example [here](./examples/multiRootWorkspace/slot-machine/.algokit/sources/sources.avm.json).
+1. Simulate Traces. A `*.trace.avm.json` file that maps the compiled TEAL source maps to the original source code. See an example [here](./examples/multiRootWorkspace/slot-machine/debug_traces/simulate-response.trace.avm.json).
+2. TEAL Source Maps. A `sources.avm.json` file that contains the traces obtained from algod's [`simulate` endpoint](https://developer.algorand.org/docs/get-details/dapps/smart-contracts/debugging/?from_query=simulate#simulate). This serves as an entry point for the debugger. See an example [here](./examples/multiRootWorkspace/slot-machine/.algokit/sources/sources.avm.json).
 
 ### a. AlgoKit based project (recommended)
 
-If you are aiming to debug TEAL code in a project generated via [`algokit init`](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/init.md), follow the steps below:
+If you are aiming to debug TEAL code in a project generated via [`algokit init`](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/init.md), follow the steps below.
+
+#### Python
 
 ```py
 # Place this code in a project entry point (e.g. main.py)
@@ -70,18 +72,35 @@ from algokit_utils.config import config
 config.configure(debug=True, trace_all=True)
 ```
 
+#### TypeScript
+
+If your project instance does not contain `algorandfoundation/algokit-utils-debug` in package.json, follow the steps below, otherwise feel free to skip remaining steps.
+
+1. Run `npm install @algorandfoundation/algokit-utils-debug` to install the debug extension.
+2. Add the following code to your project entry point (e.g. index.ts).
+
 ```ts
 // Place this code in a project entry point (e.g. index.ts)
-import { config } from 'algokit-utils-ts'
-config.configure({ debug: true, traceAll: true })
+import { Config } from '@algorandfoundation/algokit-utils'
+import { registerDebugEventHandlers() } from '@algorandfoundation/algokit-utils-debug'
+
+Config.configure({
+  debug: true,
+  traceAll: true,
+})
+registerDebugEventHandlers() // IMPORTANT: must be called before any transactions are submitted.
 ```
+
+For more details on supplementary debug package for algokit-utils-ts, refer to package [repository](https://github.com/algorandfoundation/algokit-utils-ts-debug).
+
+> NOTE: Storing debug traces is not possible in browser environments, your contract project needs access to filesystem via `node`. If you wish to extract simulate traces manually from frontend app that relies on `algokit-utils-ts`, refer to dedicated section in [algokit-utils-ts docs](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md).
 
 ### b. Custom Project
 
 Alternatively, if you are using `algokit-utils` in a project that is not generated via `algokit init`, refer to the following utilities:
 
 - [`algokit-utils-py`](https://github.com/algorandfoundation/algokit-utils-py/blob/main/docs/source/capabilities/debugging.md#debugging-utilities)
-- [`algokit-utils-ts`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md#debugging-utilities).
+- [`algokit-utils-ts`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md#debugging-utilities) + [`algokit-utils-ts-debug`](https://github.com/algorandfoundation/algokit-utils-ts-debug).
 
 Depending on the language you are using, you can use the above utilities to generate `source maps` for your TEAL as well as debug `traces` obtained from algod's `simulate` endpoint (which is also an entry point for this debugger extension). Alternatively, you can use the utilities as a reference for obtaining source maps and traces without `algokit-utils`.
 
@@ -153,17 +172,29 @@ The extension also offers an interactive picker for simulation trace files. The 
 
 This document outlines the features supported by the AVM debugger. Screenshots and features are based on the VS Code client.
 
-| Feature                      | Description                                                                                                                                                                               | Screenshot                                                                               |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| View transaction groups      | Every execution starts with a top-level transaction group.                                                                                                                                | ![A transaction group being debugged](images/transaction%20group.png)                    |
-| Step into programs           | LogicSig and application programs associated with transactions can be stepped into. Source maps show the original source code.                                                            | ![A program being debugged](images/app%20call.png)                                       |
-| Step into inner transactions | The debugger can step into inner transactions spawned by an application. The entire call stack can be seen and inspected.                                                                 | ![An inner transaction group being debugged](images/inner%20transaction%20group.png)     |
-| Step-by-step debugging       | Supports step into, over, out, and back.                                                                                                                                                  |
-| Breakpoint support           | Breakpoints can be set in program source files. The debugger pauses when code corresponding to a breakpoint is about to be executed.                                                      | ![Breakpoints in program code](images/breakpoints.png)                                   |
-| Error reporting              | Execution errors are reported by the debugger. The debugger will not allow you to advance after an error, but you can step backwards to inspect what happened prior to the error.         | ![An error in the debugger](images/error.png)                                            |
-| Inspect program state        | The debugger allows inspection of the state of the program being debugged, including the PC (program counter), stack, and scratch space. Byte arrays can be displayed in various formats. | ![Inspecting program state](images/program%20state%20variables.png)                      |
-| Watch values                 | Specific values can be added to the watch list. Negative indexing is supported to look up values relative to the top of the stack.                                                        | ![Watched values](images/watch%20values.png)                                             |
-| Inspect application state    | The debugger allows inspection and watching of any available application state from the execution.                                                                                        | ![Inspecting application state variables](images/app%20state%20variables%20expanded.png) |
+| Feature                                         | Description                                                                                                                                                                                                                    | Screenshot                                                                               |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| View transaction groups                         | Every execution starts with a top-level transaction group.                                                                                                                                                                     | ![A transaction group being debugged](images/transaction%20group.png)                    |
+| Step into programs                              | LogicSig and application programs associated with transactions can be stepped into. Source maps show the original source code.                                                                                                 | ![A program being debugged](images/app%20call.png)                                       |
+| Step into inner transactions                    | The debugger can step into inner transactions spawned by an application. The entire call stack can be seen and inspected.                                                                                                      | ![An inner transaction group being debugged](images/inner%20transaction%20group.png)     |
+| Step-by-step debugging                          | Supports step into, over, out, and back.                                                                                                                                                                                       |
+| Breakpoint support                              | Breakpoints can be set in program source files. The debugger pauses when code corresponding to a breakpoint is about to be executed.                                                                                           | ![Breakpoints in program code](images/breakpoints.png)                                   |
+| Error reporting                                 | Execution errors are reported by the debugger. The debugger will not allow you to advance after an error, but you can step backwards to inspect what happened prior to the error.                                              | ![An error in the debugger](images/error.png)                                            |
+| Inspect program state                           | The debugger allows inspection of the state of the program being debugged, including the PC (program counter), stack, and scratch space. Byte arrays can be displayed in various formats.                                      | ![Inspecting program state](images/program%20state%20variables.png)                      |
+| Watch values                                    | Specific values can be added to the watch list. Negative indexing is supported to look up values relative to the top of the stack.                                                                                             | ![Watched values](images/watch%20values.png)                                             |
+| Inspect application state                       | The debugger allows inspection and watching of any available application state from the execution.                                                                                                                             | ![Inspecting application state variables](images/app%20state%20variables%20expanded.png) |
+| Support for Puya sourcemaps                     | The debugger now supports Puya sourcemaps, allowing debugging of contracts written in Puya.                                                                                                                                    | ![Puya sourcemap](images/puya-sources.png)                                               |
+| Ability to ignore or select external sourcemaps | Users can browse and select external sourcemap files if they're not found in the workspace. Additionaly providing an option to ignore sourcemaps for specific hashes, which can be reset via the 'Clear AVM Registry' command. | ![Picker v2](images/pickerv2.png)                                                        |
+
+### VSCode Commands
+
+The extension provides the following commands:
+
+| Name                     | Command                                     | Description                                                                                                         |
+| ------------------------ | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Debug AVM Trace File     | extension.avmDebugger.debugOpenTraceFile    | Opens a trace file for debugging. Also accessible via debug icon visible when a trace file is opened in the editor. |
+| Clear AVM Debug Registry | extension.avmDebugger.clearAvmDebugRegistry | Clears the AVM debug registry (contents of sources.avm.json).                                                       |
+| Edit AVM Debug Registry  | extension.avmDebugger.editAvmDebugRegistry  | Edits the AVM debug registry (contents of sources.avm.json).                                                        |
 
 ## How can I contribute?
 

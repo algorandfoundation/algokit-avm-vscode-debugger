@@ -4,18 +4,9 @@
     {
       "type": "avm",
       "request": "launch",
-      "name": "Debug Recursive App",
-
+      "name": "Debug Puya App",
       "simulateTraceFile": "${workspaceFolder}/debug_traces/simulate-response.trace.avm.json",
-      "programSourcesDescription": {
-        "txn-group-sources": [
-          {
-            "sourcemap-location": "./contract/ProofOfAttendance.approval.puya.map",
-            "hash": "cqTkXo2HRQY5h4/nvU46XmZrHlAe5gCdC/Q9eBAPl5k="
-          }
-        ]
-      },      
-      "programSourcesDescriptionFolder": "${workspaceFolder}/.algokit/sources/",
+      "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
       "stopOnEntry": true
     }
   ]

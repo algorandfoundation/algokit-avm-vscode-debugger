@@ -1,16 +1,20 @@
 {
   "txn-group-sources": [
     {
-      "sourcemap-location": "./slot-machine/fake-random.teal.tok.map",
-      "hash": "88rrCGDJdARk4rasK5FN8BzmKTqHW5WRzYiRWmtA7HY="
+      "sourcemap-location": "first_teal_app/approval.teal.tok.map",
+      "hash": "bFjB/jPb8ImVYeAJQIL9lTAtu14+4yet0z5LUMnh1Zk="
     },
     {
-      "sourcemap-location": null,
-      "hash": "nN5LNX4rlRXfN0ax9hH0TsYh1XDhOSLnANPnrWSdATw="
+      "sourcemap-location": "delegated_puya_lsig/lsig.puya.map",
+      "hash": "cFlJEhm1xu42Dpnqg93nIzNIyY6E2H+uSeVXOv7O6Sk="
     },
     {
-      "sourcemap-location": "./slot-machine/slot-machine.teal.tok.map",
-      "hash": "AYqVv/i0Y88cebp0m1MAYE9gk/1SnhFm8oLKOBMOKac="
+      "sourcemap-location": "second_puya_app/contract_approval.puya.map",
+      "hash": "DbbtDBEqmyLCjAn3yXEp708hrhHkanuMuZ+039KLp/s="
+    },
+    {
+      "sourcemap-location": "third_puyats_app/contract_approval.puya.map",
+      "hash": "q7Vsqme7lK4RlmnIlh8Fplo6kDtrFKwuYsOGZz1dKlM="
     }
   ]
 }
