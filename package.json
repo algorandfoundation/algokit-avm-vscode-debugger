@@ -1,7 +1,7 @@
 {
-  "name": "algokit-avm-vscode-debugger",
-  "displayName": "AlgoKit AVM Debugger",
-  "version": "0.1.0",
+  "name": "algokit-avm-vscode-debugger-dev",
+  "displayName": "AlgoKit AVM Debugger [DEV]",
+  "version": "0.2.0",
   "private": false,
   "description": "An extension for debugging AVM transactions and smart contract programs.",
   "author": "Algorand Foundation",
@@ -47,7 +47,7 @@
     "package": "vsce package"
   },
   "dependencies": {
-    "algosdk": "^2.9.0",
+    "algosdk": "^3.0.0",
     "avm-debug-adapter": "github:algorandfoundation/avm-debugger#main",
     "lodash": "^4.17.21"
   },

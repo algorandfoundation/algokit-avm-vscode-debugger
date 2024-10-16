@@ -129,31 +129,9 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     for (const hash of missingHashes) {
       const selectedOption = await this.showSourceMapsQuickPick(identifiers[hash].title, groupedSourceMaps)
       if (selectedOption) {
-        this.updateSources(sources, hash, selectedOption)
+        this.updateSources(sources, hash, selectedOption, folder)
       }
     }
-  }
-
-  private calculateByteSize(input: string): number {
-    // Try parsing as BigInt
-    if (/^-?\d+$/.test(input)) {
-      try {
-        BigInt(input)
-        // BigInt is always 8 bytes in AVM
-        return 8
-      } catch {
-        // If parsing as BigInt fails, continue to other checks
-      }
-    }
-
-    // Check if it's a hex-encoded string (Uint8Array)
-    if (/^[0-9A-Fa-f]+$/.test(input)) {
-      // Each pair of hex characters represents one byte
-      return Math.ceil(input.length / 2)
-    }
-
-    // If it's not a BigInt or hex-encoded, treat it as a UTF-8 string
-    return new TextEncoder().encode(input).length
   }
 
   private async showSourceMapsQuickPick(
@@ -213,7 +191,7 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     return selectedOption
   }
 
-  private updateSources(sources: ProgramSourceEntryFile, hash: string, selectedOption: QuickPickWithUri): void {
+  private updateSources(sources: ProgramSourceEntryFile, hash: string, selectedOption: QuickPickWithUri, folder: WorkspaceFolder): void {
     const isIgnoreOption = selectedOption.label.includes('Ignore')
     if (isIgnoreOption) {
       vscode.window.showInformationMessage(`Sourcemap for hash ${hash} will be ignored.`)
@@ -221,7 +199,7 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
     if (!sources['txn-group-sources']) {
       sources['txn-group-sources'] = []
     }
-    const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath
+    const workspaceRoot = folder.uri.fsPath
     if (isIgnoreOption) {
       sources['txn-group-sources']?.push({
         'sourcemap-location': null,

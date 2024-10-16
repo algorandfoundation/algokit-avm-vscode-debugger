@@ -6,12 +6,20 @@ import { MAX_FILES_TO_SHOW, NO_WORKSPACE_ERROR_MESSAGE } from './constants'
 import { workspaceFileAccessor } from './fileAccessor'
 
 export async function getSimulateTrace(filePath: string): Promise<algosdk.modelsv2.SimulateResponse | null> {
-  const traceFileContent = await readFileAsJson<Record<string, unknown>>(filePath)
+  const traceFileContent = await workspaceFileAccessor.readFile(filePath)
   if (!traceFileContent) {
     vscode.window.showErrorMessage(`Could not open the simulate trace file at path "${filePath}".`)
     return null
   }
-  return algosdk.modelsv2.SimulateResponse.from_obj_for_encoding(traceFileContent)
+  try {
+    // TODO: Decide on whether a workaround for v2 backwards compatibility is needed
+    return algosdk.decodeJSON(algosdk.bytesToString(traceFileContent), algosdk.modelsv2.SimulateResponse)
+  } catch (e) {
+    vscode.window.showErrorMessage(
+      `Could not open the simulate trace file at path "${filePath}". Please note this version of \`algokit-utils-debug\` is compatible with simulate traces generated with algokit-utils >8.x!`,
+    )
+    return null
+  }
 }
 
 export function getUniqueHashes(simulateTrace: algosdk.modelsv2.SimulateResponse): string[] {
@@ -52,12 +60,12 @@ export function getSourceMapQuickPickItems(
         const { txn, lsig } = txnResult.txn
 
         if (hash === bytesToBase64(approvalProgramHash) || hash === bytesToBase64(clearStateProgramHash)) {
-          const title = txn.apid
-            ? `Select source maps for Application with ID: ${txn.apid}, hash: ${hash}`
+          const title = txn.applicationCall?.appIndex
+            ? `Select source maps for Application with ID: ${txn.applicationCall.appIndex}, hash: ${hash}`
             : `Select source map for Application with hash: ${hash}`
           identifiers[hash] = { hash, title }
         } else if (hash === bytesToBase64(logicSigHash)) {
-          let lsigBytes: Uint8Array | undefined = lsig?.l
+          let lsigBytes: Uint8Array | undefined = lsig?.logic
           if (typeof lsigBytes === 'string') {
             lsigBytes = new Uint8Array(Buffer.from(lsigBytes, 'base64'))
           }
@@ -196,6 +204,14 @@ export const readFileAsJson = async <T>(fsPath: string) => {
   try {
     const bytes = await workspaceFileAccessor.readFile(fsPath)
     return JSON.parse(new TextDecoder().decode(bytes)) as T
+  } catch (_e) {
+    return undefined
+  }
+}
+
+export const readFileAsBytes = async (fsPath: string) => {
+  try {
+    return await workspaceFileAccessor.readFile(fsPath)
   } catch (_e) {
     return undefined
   }
