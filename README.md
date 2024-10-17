@@ -100,7 +100,7 @@ For more details on supplementary debug package for algokit-utils-ts, refer to p
 Alternatively, if you are using `algokit-utils` in a project that is not generated via `algokit init`, refer to the following utilities:
 
 - [`algokit-utils-py`](https://github.com/algorandfoundation/algokit-utils-py/blob/main/docs/source/capabilities/debugging.md#debugging-utilities)
-- [`algokit-utils-ts`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md#debugging-utilities) + [`algokit-utils-ts-debug`](https://github.com/algorandfoundation/algokit-utils-ts-debug).
+- [`algokit-utils-ts`](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md#debugging-in-node-environment-recommended) + [`algokit-utils-ts-debug`](https://github.com/algorandfoundation/algokit-utils-ts-debug).
 
 Depending on the language you are using, you can use the above utilities to generate `source maps` for your TEAL as well as debug `traces` obtained from algod's `simulate` endpoint (which is also an entry point for this debugger extension). Alternatively, you can use the utilities as a reference for obtaining source maps and traces without `algokit-utils`.
 
