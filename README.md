@@ -95,6 +95,10 @@ For more details on supplementary debug package for algokit-utils-ts, refer to p
 
 > NOTE: Storing debug traces is not possible in browser environments, your contract project needs access to filesystem via `node`. If you wish to extract simulate traces manually from frontend app that relies on `algokit-utils-ts`, refer to dedicated section in [algokit-utils-ts docs](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md).
 
+#### Source Maps
+
+Note that when using `algokit-utils` (Python or TypeScript versions) with the debug flag set to `true`, the utils will attempt to automatically generate source maps for your TEAL program. However, you can also debug your higher-level contract code, such as `Algorand Python` and any other future 'frontend' languages using the [`puya`](https://github.com/algorandfoundation/puya) compiler. To do so, make sure you are running the latest version of the `puya` compiler. By default, the `--output-source-map` flag is set to `true`, and you will notice `*.puya.map` files generated alongside the output artifacts folder. The extension will automatically find locations of all `*.puya.map`, `*.teal.map`, and `*.tok.map` files and prompt you to select the correct one. You can also mix multiple types of source maps in a single debug session (e.g., TEAL source maps and Algorand Python source maps in the same transaction group).
+
 ### b. Custom Project
 
 Alternatively, if you are using `algokit-utils` in a project that is not generated via `algokit init`, refer to the following utilities:
