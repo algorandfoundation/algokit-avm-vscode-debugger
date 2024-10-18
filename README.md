@@ -93,7 +93,7 @@ registerDebugEventHandlers() // IMPORTANT: must be called before any transaction
 
 For more details on supplementary debug package for algokit-utils-ts, refer to package [repository](https://github.com/algorandfoundation/algokit-utils-ts-debug).
 
-> NOTE: Storing debug traces is not possible in browser environments, your contract project needs access to filesystem via `node`. If you wish to extract simulate traces manually from frontend app that relies on `algokit-utils-ts`, refer to dedicated section in [algokit-utils-ts docs](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md).
+> NOTE: Storing debug traces is not possible in browser environments, your contract project needs access to filesystem via `node`. If you wish to extract simulate traces manually from an app running in a browser that uses `algokit-utils-ts`, refer to [algokit-utils-ts docs](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md#debugging-in-browser-environment).
 
 #### Source Maps
 
