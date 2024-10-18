@@ -55,10 +55,14 @@ Before you can use the AVM Debugger extension, you need to ensure that you have 
 
 ## Usage
 
-In order to use the AVM Debugger extension, you need:
+The AVM Debugger extension automatically detects and operates on the following files:
 
-1. Simulate Traces. A `*.trace.avm.json` file that maps the compiled TEAL source maps to the original source code. See an example [here](./examples/multiRootWorkspace/slot-machine/debug_traces/simulate-response.trace.avm.json).
-2. TEAL Source Maps. A `sources.avm.json` file that contains the traces obtained from algod's [`simulate` endpoint](https://developer.algorand.org/docs/get-details/dapps/smart-contracts/debugging/?from_query=simulate#simulate). This serves as an entry point for the debugger. See an example [here](./examples/multiRootWorkspace/slot-machine/.algokit/sources/sources.avm.json).
+1. Simulate Traces. A `*.trace.avm.json` file that contains the traces obtained from algod's [`simulate` endpoint](https://developer.algorand.org/docs/get-details/dapps/smart-contracts/debugging/?from_query=simulate#simulate). This serves as an entry point for the debugger. See an example [here](./examples/multiRootWorkspace/slot-machine/debug_traces/simulate-response.trace.avm.json).
+2. Source Maps. Source maps for the programs executed within the trace. These can be either a
+   - a TEAL source map, obtained from algod when compiling a TEAL program [example](examples/multiRootWorkspace/slot-machine/.algokit/sources/contract/fake-random.teal.tok.map).
+   - a Puya source map, produced when compiling a Smart Contract with the Puya compiler [example](examples/multiRootWorkspace/puya/ProofOfAttendance.approval.puya.map).
+
+> Additionally, it maintains a file named `sources.avm.json` in the root of your project (defaults to `.algokit/sources/sources.avm.json`), which contains a mapping of the compiled source maps to the original source code.
 
 ### a. AlgoKit based project (recommended)
 
