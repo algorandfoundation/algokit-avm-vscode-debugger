@@ -66,3 +66,5 @@ out/
 
 # webdriver.io
 .wdio-vscode-service/
+
+examples/multiRootWorkspace/.algokit/sources/sources.avm.json

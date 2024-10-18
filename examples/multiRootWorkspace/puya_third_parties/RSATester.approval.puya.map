@@ -1,0 +1,8718 @@
+{
+  "version": 3,
+  "sources": [
+    ".fake-venv/lib/python3.12/site-packages/puya_bignumber/bignumber.py",
+    ".fake-venv/lib/python3.12/site-packages/puya_bignumber/common.py",
+    ".fake-venv/lib/python3.12/site-packages/puya_rsa/rsa.py",
+    "contract.py"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;AGIA;;;AAAA;;AAAA;;;AAAA;;;;;;AAAA;;;AAAA;;;;AAAA;AAAA;AACK;;AAAA;AAAA;AAAA;;AAAA;AADL;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AACK;;;AAAA;AAAA;AADL;;AAAA;;;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACA;;;AASsB;;;;AAAkB;AAAhC;;;AACA;;AAAA;;AAAA;;AAAA;;AAAA;;AAAA;;;;ADER;;;AAQI;;AAAY;AACL;;AAAA;AAAA;;AAAA;AAAP;AAGO;;AAAA;;AAAA;;;AAAP;AACA;;AAAA;;AAAA;;AAAA;;AAAW;;;AAGJ;AAAA;AAAA;;AAAA;AAAP;AAIY;;AAAA;AAAA;AAAyB;;AAAzB;AAAL;;AAAA;AAAP;AACmB;;AAAA;AAAA;AAA6B;;AAA7B;AAAN;AAAD;AACM;;;;AAAA;AAAA;AAAmB;;;AAAnB;AAAlB;;AAAkB;AAEX;;;AAAP;;AFyJJ;;;;;AAGkD;;AAAA;AAAU;;AAAA;AAApB;;;AADT;AACV;;;AACjB;;AAAA;;AAAkB;;;AAAlB;AAAA;;AACA;;AAAA;AAAkB;;;AAAlB;AAAA;;AAEO;AAAA;AALoB;AAKpB;AAAA;AAAP;AACO;AAAA;AANoB;AAMpB;AAAA;AAAP;AAN2B;AAQf;AACH;AAAA;;AAAA;;AAAA;AAAb;;;AAE8B;;AAXC;AAWD;AADH;;AAAA;;AAVI;AAWnB;AADe;AAAA;;AAAA;;AAGA;;AAAA;AAbI;AAcnB;AADe;AAAA;;AAGhB;AAAX;;;AACmB;AAAP;;AAAA;AACD;;AAAA;;AAAA;AAAX;;;AACmB;AAAP;;AAAA;AAVC;;AAAA;AAAA;AAAA;;;;;AAWF;AAAP;;AAAA;ACnLJ;;;AAEO;;AAAA;;AAAA;AAAP;;;AACQ;;AAAA;AACJ;;AAAA;AAvBJ;;;AAEwC;;AAAA;;AAAA;AAApC;;AAAA;AAAyB;AACzB;;AAA6B;AACtB;;AAAA;AAAP;AAbJ;;;AAEW;;AAAA;AAAA;AAAA;;AAAA;AAAP;AACA;;AAAA;AAAqB;AACJ;AACjB;;AAAgB;AAChB;AD0XJ;;;AAII;;AAAA;;AAAA;;;AACO;;AAAA;;AAAA;;AAAA;;AAAA;;;AAAP;AAGJ;;;AAGI;;AAAA;AAAqB;;;AACd;;AAAA;AAAA;;;AAAP;AAC2B;AAAL;AAAX;;AAAA;;AAAA;;;AAAJ;AAAP;AAE6B;AAAL;AAAd;;AAAA;AAAA;;;AAAN;;AAAA;AADO;AAAA;;;AAAJ;AAAP;;AAvTJ;;;AAIkB;;AAAA;AAAa;;AAAA;AAAvB;;;AAFuB;AACV;;;AAGjB;;AAAA;;AAAW;;;AAAX;AAAA;;AACA;;AAAA;AAAW;;;AAAX;AAEY;AAAZ;AAAA;;AAP2B;AAQxB;AAAP;;;AAGQ;;AAAc;AACd;;AAAA;AAEJ;;AAAA;AAA0B;AAAL;AACrB;AAAsB;AAEN;;AAAA;;AAAA;AAAA;;AAAA;;AAAA;;AAAA;AAAhB;;AAAA;AAAA;;AAAgB;AAAhB;;AAAgB;AAChB;;AAAA;;AAAiB;AACD;;AAAA;AAAA;AAAA;;AAAA;;AAAA;AAAA;;AAAA;;AAAA;;AAAA;AAAhB;;AAAgB;AAAhB;;AAAgB;AAChB;;AAAA;;AAAA;;AAAiB;AAEjB;;AAAA;;AAAa;;;AACb;;AAAA;;AAAa;;;AACS;;AAAA;;AAAA;;;AAAsB;;AAAA;;AAAA;;;AAA/B;;;AACS;;AAAA;;;AAAtB;;AAAa;;;AACyB;AAAA;;AAAA;AAAN;AAAhC;;AAAA;AAAoB;AACY;;AAAA;AAAhC;;AAAA;AAAoB;AACT;;;AAAJ;AAAA;;;AAAP;;AAAA;AA9FJ;;;;AAGkD;;AAAA;AAAU;;AAAA;AAApB;;;AADT;AACV;;;AACjB;;AAAA;;AAAkB;;;AAAlB;AAAA;;AACA;;AAAA;AAAkB;;;AAAlB;AAEY;AALe;AAKf;AAAZ;AACA;AAAgB;AAAhB;;AACgB;AAAhB;AAAA;;AAAA;;;;;AACJ;;;AAAsB;;AAAA;AAAA;AAAA;AAAA;AAAA;;AAEQ;;AAAA;AAVC;AAUD;AADH;;AAAA;;AATI;AAUnB;AAEe;;AAAA;;AAZI;AAanB;AAGW;AACmB;;AAAf;;;AACF;AAAA;;;AAAL;AAE2B;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;AAAA;;AAAA;AAAnB;;AAAA;AAAA;;AAAmB;AAAnB;;AAAA;AAAA;AACwB;;AAApB;;;AACF;AAAA;;;AAAL;AAED;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAhB;;AAAS;AAAT;AAAA;;AACA;AAAA;;AAAQ;AAAR;AAAA;;;;;;AAjBR;;;AAAsB;;AAAA;AAAA;AAAA;;;;;;;;;;;;;;AAmBtB;;;AACQ;;AAAA;;AAAA;AAEiB;;AAAA;AAAA;;;AACd;;AAAA;AAAP;;AAAA;AAGJ;;;;;AAIO;;AAAA;AAAA;AAAA;;;AAA4B;;AAAA;AAAA;AAAA;;AAAN;AAAA;AAAA;;AAAL;;AAAA;AAAjB;;;AACC;;AAAA;;AAAA;AAED;;AAAA;;;AAAiB;;AAAA;;AAAA;AAAjB;;;AACC;;AAAA;;AAAA;AAEgC;;AAAA;;AAAA;;;AADT;AACV;;;AACjB;;AAAA;;AAAkB;;;AAClB;;AAAA;;AAAkB;;;AACO;AAC0B;AAAL;AAArB;;;AACR;;;AACV;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;AAAA;;AAAA;AAAA;AAAA;AAAP;;AAAA;AAGJ;;;AAE+B;;AAAA;AAAU;;AAAA;AAApB;;;AACjB;;AAAA;;AAAkB;;;AAClB;;AAAA;;AAAkB;;;AACX;AAAP;AAiUJ;;;;AAIyB;AAAL;AAAhB;AACA;;AAAA;;AAAA;;AAAO;;;AAAP;;AAC6B;;AAAA;AAAa;;AAAb;AAAA;AAAA;;;AAAjC;;;AAA0B;;AAAA;AAAA;AAAA;AAAA;AAAA;;AAClB;;AAAA;;AAAc;AACJ;AAAP;;;;;AAAX;;;AAEgB;;AAAA;;AAAA;;;AADJ;;AAAA;;AAAS;;;;;;;;;;AAGmB;;AAAA;AAAA;;;AAAhC;;AAAA;;AAAO;;;AAAP;;;;AANR;;AAAA;;;AAA0B;;AAAA;AAAA;AAAA;;;;;;;AAOtB;;AAAA;AAxEJ;;;AAEoB;;AAAA;AAAA;AAAa;AAAb;AAChB;;AAAA;;AAAkB;;;AACc;AAAA;AAAA;;AAAA;AAAH;AAA7B;AAAW;AACY;;AAAA;;;AAAvB;;AAAA;AAAW;;;AAAX;;AACO;;AAAA;;;AAAJ;;;AACC;;AAAA;;AAAI;;;;;;;AACU;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAX;AAAA;AAAP;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "smart_contracts.rsa_contract.contract.RSATester.approval_program",
+      "params": {},
+      "block": "smart_contracts.rsa_contract.contract.RSATester.approval_program",
+      "stack_in": [],
+      "op": "intcblock 1 64 0 2"
+    },
+    "7": {
+      "op": "bytecblock 0x 0x068101"
+    },
+    "14": {
+      "callsub": "smart_contracts.rsa_contract.contract.RSATester.__puya_arc4_router__",
+      "op": "callsub __puya_arc4_router__",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "17": {
+      "op": "return",
+      "stack_out": []
+    },
+    "18": {
+      "subroutine": "smart_contracts.rsa_contract.contract.RSATester.__puya_arc4_router__",
+      "params": {},
+      "block": "__puya_arc4_router__",
+      "stack_in": [],
+      "op": "proto 0 1"
+    },
+    "21": {
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "23": {
+      "op": "bz __puya_arc4_router___bare_routing@5",
+      "stack_out": []
+    },
+    "26": {
+      "op": "pushbytes 0x06456b57 // method \"pkcs1_v15_verify(byte[],byte[],byte[],byte[],byte[])void\""
+    },
+    "32": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(pkcs1_v15_verify(byte[],byte[],byte[],byte[],byte[])void)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(pkcs1_v15_verify(byte[],byte[],byte[],byte[],byte[])void)",
+        "tmp%2#0"
+      ]
+    },
+    "35": {
+      "op": "match __puya_arc4_router___pkcs1_v15_verify_route@2",
+      "stack_out": []
+    },
+    "39": {
+      "op": "intc_2 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "40": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "41": {
+      "block": "__puya_arc4_router___pkcs1_v15_verify_route@2",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "43": {
+      "op": "!",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "44": {
+      "op": "assert // OnCompletion is NoOp",
+      "stack_out": []
+    },
+    "45": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "47": {
+      "op": "assert // is not creating",
+      "stack_out": []
+    },
+    "48": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "51": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "54": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "tmp%8#0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%9#0"
+      ]
+    },
+    "57": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%10#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%10#0"
+      ]
+    },
+    "60": {
+      "op": "txna ApplicationArgs 3",
+      "defined_out": [
+        "tmp%10#0",
+        "tmp%11#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%10#0",
+        "tmp%11#0"
+      ]
+    },
+    "63": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%10#0",
+        "tmp%12#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%10#0",
+        "tmp%12#0"
+      ]
+    },
+    "66": {
+      "op": "txna ApplicationArgs 4",
+      "defined_out": [
+        "tmp%10#0",
+        "tmp%12#0",
+        "tmp%13#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%10#0",
+        "tmp%12#0",
+        "tmp%13#0"
+      ]
+    },
+    "69": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%10#0",
+        "tmp%12#0",
+        "tmp%14#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%10#0",
+        "tmp%12#0",
+        "tmp%14#0"
+      ]
+    },
+    "72": {
+      "op": "txna ApplicationArgs 5",
+      "defined_out": [
+        "tmp%10#0",
+        "tmp%12#0",
+        "tmp%14#0",
+        "tmp%15#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%10#0",
+        "tmp%12#0",
+        "tmp%14#0",
+        "tmp%15#0"
+      ]
+    },
+    "75": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%10#0",
+        "tmp%12#0",
+        "tmp%14#0",
+        "tmp%16#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%10#0",
+        "tmp%12#0",
+        "tmp%14#0",
+        "tmp%16#0"
+      ]
+    },
+    "78": {
+      "callsub": "smart_contracts.rsa_contract.contract.RSATester.pkcs1_v15_verify",
+      "op": "callsub pkcs1_v15_verify",
+      "stack_out": []
+    },
+    "81": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "82": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "83": {
+      "block": "__puya_arc4_router___bare_routing@5",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%17#0"
+      ],
+      "stack_out": [
+        "tmp%17#0"
+      ]
+    },
+    "85": {
+      "op": "bnz __puya_arc4_router___after_if_else@9",
+      "stack_out": []
+    },
+    "88": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%18#0"
+      ],
+      "stack_out": [
+        "tmp%18#0"
+      ]
+    },
+    "90": {
+      "op": "!",
+      "defined_out": [
+        "tmp%19#0"
+      ],
+      "stack_out": [
+        "tmp%19#0"
+      ]
+    },
+    "91": {
+      "op": "assert // is creating",
+      "stack_out": []
+    },
+    "92": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "93": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "94": {
+      "block": "__puya_arc4_router___after_if_else@9",
+      "stack_in": [],
+      "op": "intc_2 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "95": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "96": {
+      "subroutine": "smart_contracts.rsa_contract.contract.RSATester.pkcs1_v15_verify",
+      "params": {
+        "msg_digest_info#0": "bytes",
+        "s#0": "bytes",
+        "n#0": "bytes",
+        "e#0": "bytes",
+        "barrett_reduction_factor#0": "bytes"
+      },
+      "block": "pkcs1_v15_verify",
+      "stack_in": [],
+      "op": "proto 5 0"
+    },
+    "99": {
+      "op": "pushint 20000 // 20000",
+      "defined_out": [
+        "20000"
+      ],
+      "stack_out": [
+        "20000"
+      ]
+    },
+    "103": {
+      "op": "intc_2 // 0",
+      "defined_out": [
+        "0",
+        "20000"
+      ],
+      "stack_out": [
+        "20000",
+        "0"
+      ]
+    },
+    "104": {
+      "callsub": "_puya_lib.util.ensure_budget",
+      "op": "callsub ensure_budget",
+      "stack_out": []
+    },
+    "107": {
+      "op": "frame_dig -5",
+      "defined_out": [
+        "msg_digest_info#0 (copy)"
+      ],
+      "stack_out": [
+        "msg_digest_info#0 (copy)"
+      ]
+    },
+    "109": {
+      "op": "frame_dig -4",
+      "defined_out": [
+        "msg_digest_info#0 (copy)",
+        "s#0 (copy)"
+      ],
+      "stack_out": [
+        "msg_digest_info#0 (copy)",
+        "s#0 (copy)"
+      ]
+    },
+    "111": {
+      "op": "frame_dig -3",
+      "defined_out": [
+        "msg_digest_info#0 (copy)",
+        "n#0 (copy)",
+        "s#0 (copy)"
+      ],
+      "stack_out": [
+        "msg_digest_info#0 (copy)",
+        "s#0 (copy)",
+        "n#0 (copy)"
+      ]
+    },
+    "113": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "e#0 (copy)",
+        "msg_digest_info#0 (copy)",
+        "n#0 (copy)",
+        "s#0 (copy)"
+      ],
+      "stack_out": [
+        "msg_digest_info#0 (copy)",
+        "s#0 (copy)",
+        "n#0 (copy)",
+        "e#0 (copy)"
+      ]
+    },
+    "115": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "barrett_reduction_factor#0 (copy)",
+        "e#0 (copy)",
+        "msg_digest_info#0 (copy)",
+        "n#0 (copy)",
+        "s#0 (copy)"
+      ],
+      "stack_out": [
+        "msg_digest_info#0 (copy)",
+        "s#0 (copy)",
+        "n#0 (copy)",
+        "e#0 (copy)",
+        "barrett_reduction_factor#0 (copy)"
+      ]
+    },
+    "117": {
+      "callsub": "puya_rsa.rsa.pkcs1_v15_verify",
+      "op": "callsub puya_rsa.rsa.pkcs1_v15_verify",
+      "stack_out": []
+    },
+    "120": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "121": {
+      "subroutine": "puya_rsa.rsa.pkcs1_v15_verify",
+      "params": {
+        "msg_digest_info#0": "bytes",
+        "s#0": "bytes",
+        "n#0": "bytes",
+        "e#0": "bytes",
+        "barrett_reduction_factor#0": "bytes"
+      },
+      "block": "puya_rsa.rsa.pkcs1_v15_verify",
+      "stack_in": [],
+      "op": "proto 5 0"
+    },
+    "124": {
+      "op": "frame_dig -3",
+      "defined_out": [
+        "n#0 (copy)"
+      ],
+      "stack_out": [
+        "n#0 (copy)"
+      ]
+    },
+    "126": {
+      "op": "len",
+      "defined_out": [
+        "k#0"
+      ],
+      "stack_out": [
+        "k#0"
+      ]
+    },
+    "127": {
+      "op": "frame_dig -4",
+      "defined_out": [
+        "k#0",
+        "s#0 (copy)"
+      ],
+      "stack_out": [
+        "k#0",
+        "s#0 (copy)"
+      ]
+    },
+    "129": {
+      "op": "len",
+      "defined_out": [
+        "k#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "k#0",
+        "tmp%0#0"
+      ]
+    },
+    "130": {
+      "op": "dig 1",
+      "defined_out": [
+        "k#0",
+        "k#0 (copy)",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "k#0",
+        "tmp%0#0",
+        "k#0 (copy)"
+      ]
+    },
+    "132": {
+      "op": "==",
+      "defined_out": [
+        "k#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "k#0",
+        "tmp%1#0"
+      ]
+    },
+    "133": {
+      "op": "assert // signature must have the same length as the modulus",
+      "stack_out": [
+        "k#0"
+      ]
+    },
+    "134": {
+      "op": "frame_dig -4",
+      "stack_out": [
+        "k#0",
+        "s#0 (copy)"
+      ]
+    },
+    "136": {
+      "op": "frame_dig -3",
+      "stack_out": [
+        "k#0",
+        "s#0 (copy)",
+        "n#0 (copy)"
+      ]
+    },
+    "138": {
+      "callsub": "puya_bignumber.bignumber.less_than",
+      "op": "callsub less_than",
+      "defined_out": [
+        "k#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "k#0",
+        "tmp%2#0"
+      ]
+    },
+    "141": {
+      "op": "assert // signature representative out of range",
+      "stack_out": [
+        "k#0"
+      ]
+    },
+    "142": {
+      "op": "frame_dig -4",
+      "stack_out": [
+        "k#0",
+        "s#0 (copy)"
+      ]
+    },
+    "144": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "e#0 (copy)",
+        "k#0",
+        "s#0 (copy)"
+      ],
+      "stack_out": [
+        "k#0",
+        "s#0 (copy)",
+        "e#0 (copy)"
+      ]
+    },
+    "146": {
+      "op": "frame_dig -3",
+      "stack_out": [
+        "k#0",
+        "s#0 (copy)",
+        "e#0 (copy)",
+        "n#0 (copy)"
+      ]
+    },
+    "148": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "barrett_reduction_factor#0 (copy)",
+        "e#0 (copy)",
+        "k#0",
+        "n#0 (copy)",
+        "s#0 (copy)"
+      ],
+      "stack_out": [
+        "k#0",
+        "s#0 (copy)",
+        "e#0 (copy)",
+        "n#0 (copy)",
+        "barrett_reduction_factor#0 (copy)"
+      ]
+    },
+    "150": {
+      "callsub": "puya_bignumber.bignumber.modexp_barrett_reduce",
+      "op": "callsub modexp_barrett_reduce",
+      "defined_out": [
+        "k#0",
+        "m#0"
+      ],
+      "stack_out": [
+        "k#0",
+        "m#0"
+      ]
+    },
+    "153": {
+      "op": "dup",
+      "defined_out": [
+        "k#0",
+        "m#0",
+        "m#0 (copy)"
+      ],
+      "stack_out": [
+        "k#0",
+        "m#0",
+        "m#0 (copy)"
+      ]
+    },
+    "154": {
+      "op": "len",
+      "defined_out": [
+        "k#0",
+        "m#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "k#0",
+        "m#0",
+        "tmp%3#0"
+      ]
+    },
+    "155": {
+      "op": "dig 2",
+      "stack_out": [
+        "k#0",
+        "m#0",
+        "tmp%3#0",
+        "k#0 (copy)"
+      ]
+    },
+    "157": {
+      "op": "==",
+      "defined_out": [
+        "k#0",
+        "m#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "k#0",
+        "m#0",
+        "tmp%4#0"
+      ]
+    },
+    "158": {
+      "op": "assert // m too large",
+      "stack_out": [
+        "k#0",
+        "m#0"
+      ]
+    },
+    "159": {
+      "op": "frame_dig -5",
+      "defined_out": [
+        "k#0",
+        "m#0",
+        "msg_digest_info#0 (copy)"
+      ],
+      "stack_out": [
+        "k#0",
+        "m#0",
+        "msg_digest_info#0 (copy)"
+      ]
+    },
+    "161": {
+      "op": "len",
+      "defined_out": [
+        "k#0",
+        "m#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "k#0",
+        "m#0",
+        "tmp%5#0"
+      ]
+    },
+    "162": {
+      "op": "dup",
+      "defined_out": [
+        "k#0",
+        "m#0",
+        "tmp%5#0",
+        "tmp%5#0 (copy)"
+      ],
+      "stack_out": [
+        "k#0",
+        "m#0",
+        "tmp%5#0",
+        "tmp%5#0 (copy)"
+      ]
+    },
+    "163": {
+      "op": "pushint 11 // 11",
+      "defined_out": [
+        "11",
+        "k#0",
+        "m#0",
+        "tmp%5#0",
+        "tmp%5#0 (copy)"
+      ],
+      "stack_out": [
+        "k#0",
+        "m#0",
+        "tmp%5#0",
+        "tmp%5#0 (copy)",
+        "11"
+      ]
+    },
+    "165": {
+      "op": "+",
+      "defined_out": [
+        "k#0",
+        "m#0",
+        "tmp%5#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "k#0",
+        "m#0",
+        "tmp%5#0",
+        "tmp%6#0"
+      ]
+    },
+    "166": {
+      "op": "dig 3",
+      "stack_out": [
+        "k#0",
+        "m#0",
+        "tmp%5#0",
+        "tmp%6#0",
+        "k#0 (copy)"
+      ]
+    },
+    "168": {
+      "op": "<=",
+      "defined_out": [
+        "k#0",
+        "m#0",
+        "tmp%5#0",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "k#0",
+        "m#0",
+        "tmp%5#0",
+        "tmp%7#0"
+      ]
+    },
+    "169": {
+      "op": "assert // intended encoded message length too short",
+      "stack_out": [
+        "k#0",
+        "m#0",
+        "tmp%5#0"
+      ]
+    },
+    "170": {
+      "op": "uncover 2",
+      "stack_out": [
+        "m#0",
+        "tmp%5#0",
+        "k#0"
+      ]
+    },
+    "172": {
+      "op": "swap",
+      "stack_out": [
+        "m#0",
+        "k#0",
+        "tmp%5#0"
+      ]
+    },
+    "173": {
+      "op": "-",
+      "defined_out": [
+        "m#0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "m#0",
+        "tmp%9#0"
+      ]
+    },
+    "174": {
+      "op": "pushint 3 // 3",
+      "defined_out": [
+        "3",
+        "m#0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "m#0",
+        "tmp%9#0",
+        "3"
+      ]
+    },
+    "176": {
+      "op": "-",
+      "defined_out": [
+        "m#0",
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "m#0",
+        "tmp%10#0"
+      ]
+    },
+    "177": {
+      "op": "bzero",
+      "defined_out": [
+        "m#0",
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "m#0",
+        "tmp%11#0"
+      ]
+    },
+    "178": {
+      "op": "b~",
+      "defined_out": [
+        "PS#0",
+        "m#0"
+      ],
+      "stack_out": [
+        "m#0",
+        "PS#0"
+      ]
+    },
+    "179": {
+      "op": "pushbytes 0x0001",
+      "defined_out": [
+        "0x0001",
+        "PS#0",
+        "m#0"
+      ],
+      "stack_out": [
+        "m#0",
+        "PS#0",
+        "0x0001"
+      ]
+    },
+    "183": {
+      "op": "swap",
+      "stack_out": [
+        "m#0",
+        "0x0001",
+        "PS#0"
+      ]
+    },
+    "184": {
+      "op": "concat",
+      "defined_out": [
+        "m#0",
+        "tmp%12#0"
+      ],
+      "stack_out": [
+        "m#0",
+        "tmp%12#0"
+      ]
+    },
+    "185": {
+      "op": "pushbytes 0x00",
+      "defined_out": [
+        "0x00",
+        "m#0",
+        "tmp%12#0"
+      ],
+      "stack_out": [
+        "m#0",
+        "tmp%12#0",
+        "0x00"
+      ]
+    },
+    "188": {
+      "op": "concat",
+      "defined_out": [
+        "m#0",
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "m#0",
+        "tmp%13#0"
+      ]
+    },
+    "189": {
+      "op": "frame_dig -5",
+      "stack_out": [
+        "m#0",
+        "tmp%13#0",
+        "msg_digest_info#0 (copy)"
+      ]
+    },
+    "191": {
+      "op": "concat",
+      "defined_out": [
+        "em_prime#0",
+        "m#0"
+      ],
+      "stack_out": [
+        "m#0",
+        "em_prime#0"
+      ]
+    },
+    "192": {
+      "callsub": "puya_bignumber.bignumber.equal",
+      "op": "callsub equal",
+      "defined_out": [
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "tmp%14#0"
+      ]
+    },
+    "195": {
+      "op": "assert // em must match em_prime for signature to be valid",
+      "stack_out": []
+    },
+    "196": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "197": {
+      "subroutine": "puya_bignumber.bignumber.less_than",
+      "params": {
+        "a#0": "bytes",
+        "b#0": "bytes"
+      },
+      "block": "less_than",
+      "stack_in": [],
+      "op": "proto 2 1"
+    },
+    "200": {
+      "op": "intc_2 // 0",
+      "stack_out": [
+        "a_digit#0"
+      ]
+    },
+    "201": {
+      "op": "dup",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0"
+      ]
+    },
+    "202": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "a#0 (copy)"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a#0 (copy)"
+      ]
+    },
+    "204": {
+      "op": "len",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "tmp%0#0"
+      ]
+    },
+    "205": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "b#0 (copy)",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "tmp%0#0",
+        "b#0 (copy)"
+      ]
+    },
+    "207": {
+      "op": "len",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "tmp%0#0",
+        "tmp%1#0"
+      ]
+    },
+    "208": {
+      "callsub": "puya_bignumber.common.max_value",
+      "op": "callsub max_value",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "tmp%2#0"
+      ]
+    },
+    "211": {
+      "op": "intc_1 // 64",
+      "defined_out": [
+        "64",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "tmp%2#0",
+        "64"
+      ]
+    },
+    "212": {
+      "callsub": "puya_bignumber.common.enclosing_multiple",
+      "op": "callsub enclosing_multiple",
+      "defined_out": [
+        "length#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "length#0"
+      ]
+    },
+    "215": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "length#0",
+        "a#0 (copy)"
+      ]
+    },
+    "217": {
+      "op": "dig 1",
+      "defined_out": [
+        "a#0 (copy)",
+        "length#0",
+        "length#0 (copy)"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "length#0",
+        "a#0 (copy)",
+        "length#0 (copy)"
+      ]
+    },
+    "219": {
+      "callsub": "puya_bignumber.common.pad",
+      "op": "callsub pad",
+      "defined_out": [
+        "a_digits#0",
+        "length#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "length#0",
+        "a_digits#0"
+      ]
+    },
+    "222": {
+      "op": "dup",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "length#0",
+        "a_digits#0",
+        "a_digits#0 (copy)"
+      ]
+    },
+    "223": {
+      "op": "uncover 2",
+      "defined_out": [
+        "a_digits#0",
+        "length#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "a_digits#0",
+        "length#0"
+      ]
+    },
+    "225": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "a_digits#0",
+        "length#0",
+        "b#0 (copy)"
+      ]
+    },
+    "227": {
+      "op": "swap",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "a_digits#0",
+        "b#0 (copy)",
+        "length#0"
+      ]
+    },
+    "228": {
+      "callsub": "puya_bignumber.common.pad",
+      "op": "callsub pad",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "a_digits#0",
+        "b_digits#0"
+      ]
+    },
+    "231": {
+      "op": "dup",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "a_digits#0",
+        "b_digits#0",
+        "b_digits#0 (copy)"
+      ]
+    },
+    "232": {
+      "op": "uncover 2",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "b_digits#0",
+        "a_digits#0"
+      ]
+    },
+    "234": {
+      "op": "len",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "b_digits#0",
+        "tmp%3#0"
+      ]
+    },
+    "235": {
+      "op": "dup",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%3#0 (copy)"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%3#0 (copy)"
+      ]
+    },
+    "236": {
+      "op": "intc_1 // 64",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%3#0 (copy)",
+        "64"
+      ]
+    },
+    "237": {
+      "op": "%",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%4#0"
+      ]
+    },
+    "238": {
+      "op": "!",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%5#0"
+      ]
+    },
+    "239": {
+      "op": "assert // a length must be multiple of width",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "b_digits#0",
+        "tmp%3#0"
+      ]
+    },
+    "240": {
+      "op": "swap",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "b_digits#0"
+      ]
+    },
+    "241": {
+      "op": "len",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%6#0"
+      ]
+    },
+    "242": {
+      "op": "intc_1 // 64",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%6#0",
+        "64"
+      ]
+    },
+    "243": {
+      "op": "%",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%7#0"
+      ]
+    },
+    "244": {
+      "op": "!",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "tmp%8#0"
+      ]
+    },
+    "245": {
+      "op": "assert // b length must be multiple of width",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0"
+      ]
+    },
+    "246": {
+      "op": "intc_1 // 64",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "64"
+      ]
+    },
+    "247": {
+      "op": "/",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "n#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0"
+      ]
+    },
+    "248": {
+      "op": "intc_2 // 0",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "n#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0"
+      ]
+    },
+    "249": {
+      "block": "less_than_for_header@1",
+      "stack_in": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0"
+      ],
+      "op": "frame_dig 5",
+      "defined_out": [
+        "i#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "i#0"
+      ]
+    },
+    "251": {
+      "op": "frame_dig 4",
+      "defined_out": [
+        "i#0",
+        "n#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "i#0",
+        "n#0"
+      ]
+    },
+    "253": {
+      "op": "<",
+      "defined_out": [
+        "continue_looping%0#0",
+        "i#0",
+        "n#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "continue_looping%0#0"
+      ]
+    },
+    "254": {
+      "op": "bz less_than_after_for@8",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0"
+      ]
+    },
+    "257": {
+      "op": "frame_dig 5",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "i#0"
+      ]
+    },
+    "259": {
+      "op": "intc_1 // 64",
+      "defined_out": [
+        "64",
+        "i#0",
+        "n#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "i#0",
+        "64"
+      ]
+    },
+    "260": {
+      "op": "*",
+      "defined_out": [
+        "i#0",
+        "n#0",
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "tmp%10#0"
+      ]
+    },
+    "261": {
+      "op": "frame_dig 2",
+      "defined_out": [
+        "a_digits#0",
+        "i#0",
+        "n#0",
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "tmp%10#0",
+        "a_digits#0"
+      ]
+    },
+    "263": {
+      "op": "dig 1",
+      "defined_out": [
+        "a_digits#0",
+        "i#0",
+        "n#0",
+        "tmp%10#0",
+        "tmp%10#0 (copy)"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "tmp%10#0",
+        "a_digits#0",
+        "tmp%10#0 (copy)"
+      ]
+    },
+    "265": {
+      "op": "intc_1 // 64",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "tmp%10#0",
+        "a_digits#0",
+        "tmp%10#0 (copy)",
+        "64"
+      ]
+    },
+    "266": {
+      "op": "extract3",
+      "defined_out": [
+        "a_digit#0",
+        "a_digits#0",
+        "i#0",
+        "n#0",
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "tmp%10#0",
+        "a_digit#0"
+      ]
+    },
+    "267": {
+      "op": "dup",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "tmp%10#0",
+        "a_digit#0",
+        "a_digit#0 (copy)"
+      ]
+    },
+    "268": {
+      "op": "cover 2",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "a_digit#0",
+        "tmp%10#0",
+        "a_digit#0"
+      ]
+    },
+    "270": {
+      "op": "frame_bury 0",
+      "defined_out": [
+        "a_digit#0",
+        "a_digits#0",
+        "i#0",
+        "n#0",
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "a_digit#0",
+        "tmp%10#0"
+      ]
+    },
+    "272": {
+      "op": "frame_dig 3",
+      "defined_out": [
+        "a_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "n#0",
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "a_digit#0",
+        "tmp%10#0",
+        "b_digits#0"
+      ]
+    },
+    "274": {
+      "op": "swap",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "a_digit#0",
+        "b_digits#0",
+        "tmp%10#0"
+      ]
+    },
+    "275": {
+      "op": "intc_1 // 64",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "a_digit#0",
+        "b_digits#0",
+        "tmp%10#0",
+        "64"
+      ]
+    },
+    "276": {
+      "op": "extract3",
+      "defined_out": [
+        "a_digit#0",
+        "a_digits#0",
+        "b_digit#0",
+        "b_digits#0",
+        "i#0",
+        "n#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "a_digit#0",
+        "b_digit#0"
+      ]
+    },
+    "277": {
+      "op": "dup",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "a_digit#0",
+        "b_digit#0",
+        "b_digit#0"
+      ]
+    },
+    "278": {
+      "op": "frame_bury 1",
+      "defined_out": [
+        "a_digit#0",
+        "a_digits#0",
+        "b_digit#0",
+        "b_digits#0",
+        "i#0",
+        "n#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "a_digit#0",
+        "b_digit#0"
+      ]
+    },
+    "280": {
+      "op": "b<",
+      "defined_out": [
+        "a_digit#0",
+        "a_digits#0",
+        "b_digit#0",
+        "b_digits#0",
+        "i#0",
+        "n#0",
+        "tmp%12#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "tmp%12#0"
+      ]
+    },
+    "281": {
+      "op": "bz less_than_after_if_else@4",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0"
+      ]
+    },
+    "284": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "a_digit#0",
+        "a_digits#0",
+        "b_digit#0",
+        "b_digits#0",
+        "i#0",
+        "n#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "1"
+      ]
+    },
+    "285": {
+      "op": "frame_bury 0"
+    },
+    "287": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "288": {
+      "block": "less_than_after_if_else@4",
+      "stack_in": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0"
+      ],
+      "op": "frame_dig 0",
+      "defined_out": [
+        "a_digit#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "a_digit#0"
+      ]
+    },
+    "290": {
+      "op": "frame_dig 1",
+      "defined_out": [
+        "a_digit#0",
+        "b_digit#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "a_digit#0",
+        "b_digit#0"
+      ]
+    },
+    "292": {
+      "op": "b>",
+      "defined_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "tmp%13#0"
+      ]
+    },
+    "293": {
+      "op": "bz less_than_after_if_else@6",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0"
+      ]
+    },
+    "296": {
+      "op": "intc_2 // 0",
+      "defined_out": [
+        "0",
+        "a_digit#0",
+        "b_digit#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "0"
+      ]
+    },
+    "297": {
+      "op": "frame_bury 0"
+    },
+    "299": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "300": {
+      "block": "less_than_after_if_else@6",
+      "stack_in": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0"
+      ],
+      "op": "frame_dig 5",
+      "defined_out": [
+        "i#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "i#0"
+      ]
+    },
+    "302": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "i#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "i#0",
+        "1"
+      ]
+    },
+    "303": {
+      "op": "+",
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "i#0"
+      ]
+    },
+    "304": {
+      "op": "frame_bury 5",
+      "defined_out": [
+        "i#0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0"
+      ]
+    },
+    "306": {
+      "op": "b less_than_for_header@1"
+    },
+    "309": {
+      "block": "less_than_after_for@8",
+      "stack_in": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0"
+      ],
+      "op": "intc_2 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "a_digit#0",
+        "b_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "i#0",
+        "0"
+      ]
+    },
+    "310": {
+      "op": "frame_bury 0"
+    },
+    "312": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "313": {
+      "subroutine": "puya_bignumber.common.max_value",
+      "params": {
+        "a#0": "uint64",
+        "b#0": "uint64"
+      },
+      "block": "max_value",
+      "stack_in": [],
+      "op": "proto 2 1"
+    },
+    "316": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "a#0 (copy)"
+      ],
+      "stack_out": [
+        "a#0 (copy)"
+      ]
+    },
+    "318": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "a#0 (copy)",
+        "b#0 (copy)"
+      ],
+      "stack_out": [
+        "a#0 (copy)",
+        "b#0 (copy)"
+      ]
+    },
+    "320": {
+      "op": ">=",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "321": {
+      "op": "bz max_value_after_if_else@2",
+      "stack_out": []
+    },
+    "324": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "a#0 (copy)"
+      ]
+    },
+    "326": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "327": {
+      "block": "max_value_after_if_else@2",
+      "stack_in": [],
+      "op": "frame_dig -1",
+      "defined_out": [
+        "b#0 (copy)"
+      ],
+      "stack_out": [
+        "b#0 (copy)"
+      ]
+    },
+    "329": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "330": {
+      "subroutine": "puya_bignumber.common.enclosing_multiple",
+      "params": {
+        "num#0": "uint64",
+        "multiple#0": "uint64"
+      },
+      "block": "enclosing_multiple",
+      "stack_in": [],
+      "op": "proto 2 1"
+    },
+    "333": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "num#0 (copy)"
+      ],
+      "stack_out": [
+        "num#0 (copy)"
+      ]
+    },
+    "335": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "multiple#0 (copy)",
+        "num#0 (copy)"
+      ],
+      "stack_out": [
+        "num#0 (copy)",
+        "multiple#0 (copy)"
+      ]
+    },
+    "337": {
+      "op": "%",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "338": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "tmp%0#0",
+        "multiple#0 (copy)"
+      ]
+    },
+    "340": {
+      "op": "swap",
+      "stack_out": [
+        "multiple#0 (copy)",
+        "tmp%0#0"
+      ]
+    },
+    "341": {
+      "op": "-",
+      "defined_out": [
+        "missing_length#0"
+      ],
+      "stack_out": [
+        "missing_length#0"
+      ]
+    },
+    "342": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "missing_length#0",
+        "multiple#0 (copy)"
+      ]
+    },
+    "344": {
+      "op": "%",
+      "defined_out": [
+        "missing_length_mod#0"
+      ],
+      "stack_out": [
+        "missing_length_mod#0"
+      ]
+    },
+    "345": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "missing_length_mod#0",
+        "num#0 (copy)"
+      ]
+    },
+    "347": {
+      "op": "+",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "348": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "349": {
+      "subroutine": "puya_bignumber.common.pad",
+      "params": {
+        "value#0": "bytes",
+        "width#0": "uint64"
+      },
+      "block": "pad",
+      "stack_in": [],
+      "op": "proto 2 1"
+    },
+    "352": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "value#0 (copy)"
+      ],
+      "stack_out": [
+        "value#0 (copy)"
+      ]
+    },
+    "354": {
+      "op": "len",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "355": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)"
+      ]
+    },
+    "356": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)",
+        "width#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%0#0 (copy)",
+        "width#0 (copy)"
+      ]
+    },
+    "358": {
+      "op": "<=",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ]
+    },
+    "359": {
+      "op": "assert // Width must be wider than value",
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "360": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "tmp%0#0",
+        "width#0 (copy)"
+      ]
+    },
+    "362": {
+      "op": "swap",
+      "stack_out": [
+        "width#0 (copy)",
+        "tmp%0#0"
+      ]
+    },
+    "363": {
+      "op": "-",
+      "defined_out": [
+        "pad_length#0"
+      ],
+      "stack_out": [
+        "pad_length#0"
+      ]
+    },
+    "364": {
+      "op": "bzero",
+      "defined_out": [
+        "padding#0"
+      ],
+      "stack_out": [
+        "padding#0"
+      ]
+    },
+    "365": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "padding#0",
+        "value#0 (copy)"
+      ]
+    },
+    "367": {
+      "op": "concat",
+      "defined_out": [
+        "padded#0"
+      ],
+      "stack_out": [
+        "padded#0"
+      ]
+    },
+    "368": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "369": {
+      "subroutine": "puya_bignumber.bignumber.modexp_barrett_reduce",
+      "params": {
+        "base#0": "bytes",
+        "exp#0": "bytes",
+        "mod#0": "bytes",
+        "precomputed_factor#0": "bytes"
+      },
+      "block": "modexp_barrett_reduce",
+      "stack_in": [],
+      "op": "proto 4 1"
+    },
+    "372": {
+      "op": "frame_dig -4",
+      "defined_out": [
+        "base#0 (copy)"
+      ],
+      "stack_out": [
+        "base#0 (copy)"
+      ]
+    },
+    "374": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "base#0 (copy)",
+        "mod#0 (copy)"
+      ],
+      "stack_out": [
+        "base#0 (copy)",
+        "mod#0 (copy)"
+      ]
+    },
+    "376": {
+      "callsub": "puya_bignumber.bignumber.modexp_barrett_reduce_assumption_validation",
+      "op": "callsub modexp_barrett_reduce_assumption_validation",
+      "stack_out": []
+    },
+    "379": {
+      "op": "frame_dig -4",
+      "stack_out": [
+        "base#0 (copy)"
+      ]
+    },
+    "381": {
+      "op": "frame_dig -3",
+      "defined_out": [
+        "base#0 (copy)",
+        "exp#0 (copy)"
+      ],
+      "stack_out": [
+        "base#0 (copy)",
+        "exp#0 (copy)"
+      ]
+    },
+    "383": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "base#0 (copy)",
+        "exp#0 (copy)",
+        "mod#0 (copy)"
+      ]
+    },
+    "385": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "base#0 (copy)",
+        "exp#0 (copy)",
+        "mod#0 (copy)",
+        "precomputed_factor#0 (copy)"
+      ],
+      "stack_out": [
+        "base#0 (copy)",
+        "exp#0 (copy)",
+        "mod#0 (copy)",
+        "precomputed_factor#0 (copy)"
+      ]
+    },
+    "387": {
+      "callsub": "puya_bignumber.bignumber.modexp_barrett_reduce_post_validation",
+      "op": "callsub modexp_barrett_reduce_post_validation",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "390": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "391": {
+      "subroutine": "puya_bignumber.bignumber.modexp_barrett_reduce_assumption_validation",
+      "params": {
+        "base#0": "bytes",
+        "mod#0": "bytes"
+      },
+      "block": "modexp_barrett_reduce_assumption_validation",
+      "stack_in": [],
+      "op": "proto 2 0"
+    },
+    "394": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "mod#0 (copy)"
+      ],
+      "stack_out": [
+        "mod#0 (copy)"
+      ]
+    },
+    "396": {
+      "op": "dup",
+      "stack_out": [
+        "mod#0 (copy)",
+        "mod#0 (copy)"
+      ]
+    },
+    "397": {
+      "callsub": "puya_bignumber.bignumber.multiply",
+      "op": "callsub multiply",
+      "defined_out": [
+        "mod_squared#0"
+      ],
+      "stack_out": [
+        "mod_squared#0"
+      ]
+    },
+    "400": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "base#0 (copy)",
+        "mod_squared#0"
+      ],
+      "stack_out": [
+        "mod_squared#0",
+        "base#0 (copy)"
+      ]
+    },
+    "402": {
+      "op": "swap",
+      "stack_out": [
+        "base#0 (copy)",
+        "mod_squared#0"
+      ]
+    },
+    "403": {
+      "callsub": "puya_bignumber.bignumber.less_than",
+      "op": "callsub less_than",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "406": {
+      "op": "assert // Must have 0 <= a < mod ** 2",
+      "stack_out": []
+    },
+    "407": {
+      "op": "intc_2 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "408": {
+      "op": "itob",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "409": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "tmp%1#0",
+        "mod#0 (copy)"
+      ]
+    },
+    "411": {
+      "op": "dig 1",
+      "defined_out": [
+        "mod#0 (copy)",
+        "tmp%1#0",
+        "tmp%1#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "mod#0 (copy)",
+        "tmp%1#0 (copy)"
+      ]
+    },
+    "413": {
+      "callsub": "puya_bignumber.bignumber.equal",
+      "op": "callsub equal",
+      "defined_out": [
+        "tmp%1#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "tmp%2#0"
+      ]
+    },
+    "416": {
+      "op": "!",
+      "defined_out": [
+        "tmp%1#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "tmp%3#0"
+      ]
+    },
+    "417": {
+      "op": "assert // Must have mod != 0",
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "418": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "1"
+      ]
+    },
+    "419": {
+      "op": "itob",
+      "defined_out": [
+        "tmp%1#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "tmp%4#0"
+      ]
+    },
+    "420": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "tmp%1#0",
+        "tmp%4#0",
+        "mod#0 (copy)"
+      ]
+    },
+    "422": {
+      "op": "swap",
+      "stack_out": [
+        "tmp%1#0",
+        "mod#0 (copy)",
+        "tmp%4#0"
+      ]
+    },
+    "423": {
+      "callsub": "puya_bignumber.bignumber.subtract",
+      "op": "callsub subtract",
+      "defined_out": [
+        "tmp%1#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "tmp%5#0"
+      ]
+    },
+    "426": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "tmp%1#0",
+        "tmp%5#0",
+        "mod#0 (copy)"
+      ]
+    },
+    "428": {
+      "op": "b&",
+      "defined_out": [
+        "tmp%1#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "tmp%6#0"
+      ]
+    },
+    "429": {
+      "op": "swap",
+      "stack_out": [
+        "tmp%6#0",
+        "tmp%1#0"
+      ]
+    },
+    "430": {
+      "callsub": "puya_bignumber.bignumber.equal",
+      "op": "callsub equal",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "433": {
+      "op": "!",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "434": {
+      "op": "assert // mod cannot be a power of 2",
+      "stack_out": []
+    },
+    "435": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "436": {
+      "subroutine": "puya_bignumber.bignumber.multiply",
+      "params": {
+        "x_in#0": "bytes",
+        "y_in#0": "bytes"
+      },
+      "block": "multiply",
+      "stack_in": [],
+      "op": "proto 2 1"
+    },
+    "439": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "x_in#0 (copy)"
+      ],
+      "stack_out": [
+        "x_in#0 (copy)"
+      ]
+    },
+    "441": {
+      "op": "len",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "442": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "tmp%0#0",
+        "y_in#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "y_in#0 (copy)"
+      ]
+    },
+    "444": {
+      "op": "len",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ]
+    },
+    "445": {
+      "callsub": "puya_bignumber.common.max_value",
+      "op": "callsub max_value",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "448": {
+      "op": "intc_1 // 64",
+      "defined_out": [
+        "64",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0",
+        "64"
+      ]
+    },
+    "449": {
+      "callsub": "puya_bignumber.common.enclosing_multiple",
+      "op": "callsub enclosing_multiple",
+      "defined_out": [
+        "length#0"
+      ],
+      "stack_out": [
+        "length#0"
+      ]
+    },
+    "452": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "length#0",
+        "x_in#0 (copy)"
+      ]
+    },
+    "454": {
+      "op": "dig 1",
+      "defined_out": [
+        "length#0",
+        "length#0 (copy)",
+        "x_in#0 (copy)"
+      ],
+      "stack_out": [
+        "length#0",
+        "x_in#0 (copy)",
+        "length#0 (copy)"
+      ]
+    },
+    "456": {
+      "callsub": "puya_bignumber.common.pad",
+      "op": "callsub pad",
+      "defined_out": [
+        "length#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "length#0",
+        "x#0"
+      ]
+    },
+    "459": {
+      "op": "dup",
+      "stack_out": [
+        "length#0",
+        "x#0",
+        "x#0 (copy)"
+      ]
+    },
+    "460": {
+      "op": "uncover 2",
+      "defined_out": [
+        "length#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "x#0",
+        "length#0"
+      ]
+    },
+    "462": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "x#0",
+        "x#0",
+        "length#0",
+        "y_in#0 (copy)"
+      ]
+    },
+    "464": {
+      "op": "swap",
+      "stack_out": [
+        "x#0",
+        "x#0",
+        "y_in#0 (copy)",
+        "length#0"
+      ]
+    },
+    "465": {
+      "callsub": "puya_bignumber.common.pad",
+      "op": "callsub pad",
+      "defined_out": [
+        "x#0",
+        "y#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "x#0",
+        "y#0"
+      ]
+    },
+    "468": {
+      "op": "swap",
+      "defined_out": [
+        "x#0",
+        "y#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "y#0",
+        "x#0"
+      ]
+    },
+    "469": {
+      "op": "len",
+      "defined_out": [
+        "n#0",
+        "x#0",
+        "y#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "y#0",
+        "n#0"
+      ]
+    },
+    "470": {
+      "op": "dup",
+      "stack_out": [
+        "x#0",
+        "y#0",
+        "n#0",
+        "n#0"
+      ]
+    },
+    "471": {
+      "op": "cover 2",
+      "defined_out": [
+        "n#0",
+        "x#0",
+        "y#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0"
+      ]
+    },
+    "473": {
+      "op": "intc_1 // 64",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "64"
+      ]
+    },
+    "474": {
+      "op": "<=",
+      "defined_out": [
+        "n#0",
+        "tmp%3#0",
+        "x#0",
+        "y#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "tmp%3#0"
+      ]
+    },
+    "475": {
+      "op": "bz multiply_after_if_else@2",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0"
+      ]
+    },
+    "478": {
+      "op": "frame_dig 0",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "x#0"
+      ]
+    },
+    "480": {
+      "op": "b*",
+      "defined_out": [
+        "n#0",
+        "x#0",
+        "xy#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "xy#0"
+      ]
+    },
+    "481": {
+      "op": "frame_bury 0"
+    },
+    "483": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "484": {
+      "block": "multiply_after_if_else@2",
+      "stack_in": [
+        "x#0",
+        "n#0",
+        "y#0"
+      ],
+      "op": "frame_dig 1",
+      "defined_out": [
+        "n#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0"
+      ]
+    },
+    "486": {
+      "op": "dup",
+      "defined_out": [
+        "n#0",
+        "n#0 (copy)"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "n#0 (copy)"
+      ]
+    },
+    "487": {
+      "op": "intc_3 // 2",
+      "defined_out": [
+        "2",
+        "n#0",
+        "n#0 (copy)"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "n#0 (copy)",
+        "2"
+      ]
+    },
+    "488": {
+      "op": "/",
+      "defined_out": [
+        "first_half#0",
+        "n#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0"
+      ]
+    },
+    "489": {
+      "op": "dup2",
+      "defined_out": [
+        "first_half#0",
+        "first_half#0 (copy)",
+        "n#0",
+        "n#0 (copy)"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "n#0 (copy)",
+        "first_half#0 (copy)"
+      ]
+    },
+    "490": {
+      "op": "-",
+      "defined_out": [
+        "first_half#0",
+        "n#0",
+        "second_half#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0"
+      ]
+    },
+    "491": {
+      "op": "dig 1",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "first_half#0 (copy)"
+      ]
+    },
+    "493": {
+      "op": "dig 3",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "first_half#0 (copy)",
+        "n#0 (copy)"
+      ]
+    },
+    "495": {
+      "op": ">=",
+      "defined_out": [
+        "first_half#0",
+        "is_out_of_bounds%0#0",
+        "n#0",
+        "second_half#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "is_out_of_bounds%0#0"
+      ]
+    },
+    "496": {
+      "op": "dig 2",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "is_out_of_bounds%0#0",
+        "first_half#0 (copy)"
+      ]
+    },
+    "498": {
+      "op": "dig 4",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "is_out_of_bounds%0#0",
+        "first_half#0 (copy)",
+        "n#0 (copy)"
+      ]
+    },
+    "500": {
+      "op": "uncover 2",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "first_half#0 (copy)",
+        "n#0 (copy)",
+        "is_out_of_bounds%0#0"
+      ]
+    },
+    "502": {
+      "op": "select",
+      "defined_out": [
+        "bounded_index%0#0",
+        "first_half#0",
+        "n#0",
+        "second_half#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "bounded_index%0#0"
+      ]
+    },
+    "503": {
+      "op": "frame_dig 0",
+      "defined_out": [
+        "bounded_index%0#0",
+        "first_half#0",
+        "n#0",
+        "second_half#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "bounded_index%0#0",
+        "x#0"
+      ]
+    },
+    "505": {
+      "op": "dup",
+      "defined_out": [
+        "bounded_index%0#0",
+        "first_half#0",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x#0 (copy)"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "bounded_index%0#0",
+        "x#0 (copy)",
+        "x#0 (copy)"
+      ]
+    },
+    "506": {
+      "op": "cover 2",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "x#0",
+        "bounded_index%0#0",
+        "x#0 (copy)"
+      ]
+    },
+    "508": {
+      "op": "intc_2 // 0",
+      "defined_out": [
+        "0",
+        "bounded_index%0#0",
+        "first_half#0",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x#0 (copy)"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "x#0",
+        "bounded_index%0#0",
+        "x#0 (copy)",
+        "0"
+      ]
+    },
+    "509": {
+      "op": "dig 2",
+      "defined_out": [
+        "0",
+        "bounded_index%0#0",
+        "bounded_index%0#0 (copy)",
+        "first_half#0",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x#0 (copy)"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "x#0",
+        "bounded_index%0#0",
+        "x#0 (copy)",
+        "0",
+        "bounded_index%0#0 (copy)"
+      ]
+    },
+    "511": {
+      "op": "substring3",
+      "defined_out": [
+        "bounded_index%0#0",
+        "first_half#0",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "x#0",
+        "bounded_index%0#0",
+        "x_left#0"
+      ]
+    },
+    "512": {
+      "op": "cover 2",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "x_left#0",
+        "x#0",
+        "bounded_index%0#0"
+      ]
+    },
+    "514": {
+      "op": "uncover 5",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "first_half#0",
+        "second_half#0",
+        "x_left#0",
+        "x#0",
+        "bounded_index%0#0",
+        "n#0"
+      ]
+    },
+    "516": {
+      "op": "substring3",
+      "defined_out": [
+        "first_half#0",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "y#0",
+        "first_half#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0"
+      ]
+    },
+    "517": {
+      "op": "uncover 4",
+      "defined_out": [
+        "first_half#0",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0"
+      ]
+    },
+    "519": {
+      "op": "dup",
+      "defined_out": [
+        "first_half#0",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "y#0 (copy)"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "y#0 (copy)"
+      ]
+    },
+    "520": {
+      "op": "len",
+      "defined_out": [
+        "first_half#0",
+        "length%2#0",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "length%2#0"
+      ]
+    },
+    "521": {
+      "op": "dig 5",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "length%2#0",
+        "first_half#0 (copy)"
+      ]
+    },
+    "523": {
+      "op": "dig 1",
+      "defined_out": [
+        "first_half#0",
+        "first_half#0 (copy)",
+        "length%2#0",
+        "length%2#0 (copy)",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "length%2#0",
+        "first_half#0 (copy)",
+        "length%2#0 (copy)"
+      ]
+    },
+    "525": {
+      "op": ">=",
+      "defined_out": [
+        "first_half#0",
+        "is_out_of_bounds%2#0",
+        "length%2#0",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "first_half#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "length%2#0",
+        "is_out_of_bounds%2#0"
+      ]
+    },
+    "526": {
+      "op": "uncover 6",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "length%2#0",
+        "is_out_of_bounds%2#0",
+        "first_half#0"
+      ]
+    },
+    "528": {
+      "op": "dig 2",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "length%2#0",
+        "is_out_of_bounds%2#0",
+        "first_half#0",
+        "length%2#0 (copy)"
+      ]
+    },
+    "530": {
+      "op": "uncover 2",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "length%2#0",
+        "first_half#0",
+        "length%2#0 (copy)",
+        "is_out_of_bounds%2#0"
+      ]
+    },
+    "532": {
+      "op": "select",
+      "defined_out": [
+        "bounded_index%2#0",
+        "length%2#0",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "length%2#0",
+        "bounded_index%2#0"
+      ]
+    },
+    "533": {
+      "op": "dig 2",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "length%2#0",
+        "bounded_index%2#0",
+        "y#0 (copy)"
+      ]
+    },
+    "535": {
+      "op": "intc_2 // 0",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "length%2#0",
+        "bounded_index%2#0",
+        "y#0 (copy)",
+        "0"
+      ]
+    },
+    "536": {
+      "op": "dig 2",
+      "defined_out": [
+        "0",
+        "bounded_index%2#0",
+        "bounded_index%2#0 (copy)",
+        "length%2#0",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "y#0 (copy)"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "length%2#0",
+        "bounded_index%2#0",
+        "y#0 (copy)",
+        "0",
+        "bounded_index%2#0 (copy)"
+      ]
+    },
+    "538": {
+      "op": "substring3",
+      "defined_out": [
+        "bounded_index%2#0",
+        "length%2#0",
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "y_left#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y#0",
+        "length%2#0",
+        "bounded_index%2#0",
+        "y_left#0"
+      ]
+    },
+    "539": {
+      "op": "uncover 3",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "length%2#0",
+        "bounded_index%2#0",
+        "y_left#0",
+        "y#0"
+      ]
+    },
+    "541": {
+      "op": "uncover 2",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "length%2#0",
+        "y_left#0",
+        "y#0",
+        "bounded_index%2#0"
+      ]
+    },
+    "543": {
+      "op": "uncover 3",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y_left#0",
+        "y#0",
+        "bounded_index%2#0",
+        "length%2#0"
+      ]
+    },
+    "545": {
+      "op": "substring3",
+      "defined_out": [
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "y_left#0",
+        "y_right#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y_left#0",
+        "y_right#0"
+      ]
+    },
+    "546": {
+      "op": "dig 3",
+      "defined_out": [
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_left#0 (copy)",
+        "x_right#0",
+        "y_left#0",
+        "y_right#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y_left#0",
+        "y_right#0",
+        "x_left#0 (copy)"
+      ]
+    },
+    "548": {
+      "op": "dig 2",
+      "defined_out": [
+        "n#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_left#0 (copy)",
+        "x_right#0",
+        "y_left#0",
+        "y_left#0 (copy)",
+        "y_right#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y_left#0",
+        "y_right#0",
+        "x_left#0 (copy)",
+        "y_left#0 (copy)"
+      ]
+    },
+    "550": {
+      "callsub": "puya_bignumber.bignumber.multiply",
+      "op": "callsub multiply",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "y_left#0",
+        "y_right#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y_left#0",
+        "y_right#0",
+        "p_1#0"
+      ]
+    },
+    "553": {
+      "op": "dig 3",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "x_right#0 (copy)",
+        "y_left#0",
+        "y_right#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y_left#0",
+        "y_right#0",
+        "p_1#0",
+        "x_right#0 (copy)"
+      ]
+    },
+    "555": {
+      "op": "dig 2",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "x_right#0 (copy)",
+        "y_left#0",
+        "y_right#0",
+        "y_right#0 (copy)"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y_left#0",
+        "y_right#0",
+        "p_1#0",
+        "x_right#0 (copy)",
+        "y_right#0 (copy)"
+      ]
+    },
+    "557": {
+      "callsub": "puya_bignumber.bignumber.multiply",
+      "op": "callsub multiply",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "p_2#0",
+        "second_half#0",
+        "x#0",
+        "x_left#0",
+        "x_right#0",
+        "y_left#0",
+        "y_right#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "x_left#0",
+        "x_right#0",
+        "y_left#0",
+        "y_right#0",
+        "p_1#0",
+        "p_2#0"
+      ]
+    },
+    "560": {
+      "op": "uncover 5"
+    },
+    "562": {
+      "op": "uncover 5",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "y_left#0",
+        "y_right#0",
+        "p_1#0",
+        "p_2#0",
+        "x_left#0",
+        "x_right#0"
+      ]
+    },
+    "564": {
+      "callsub": "puya_bignumber.bignumber.add",
+      "op": "callsub add",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "p_2#0",
+        "second_half#0",
+        "tmp%4#0",
+        "x#0",
+        "y_left#0",
+        "y_right#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "y_left#0",
+        "y_right#0",
+        "p_1#0",
+        "p_2#0",
+        "tmp%4#0"
+      ]
+    },
+    "567": {
+      "op": "uncover 4"
+    },
+    "569": {
+      "op": "uncover 4",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_1#0",
+        "p_2#0",
+        "tmp%4#0",
+        "y_left#0",
+        "y_right#0"
+      ]
+    },
+    "571": {
+      "callsub": "puya_bignumber.bignumber.add",
+      "op": "callsub add",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "p_2#0",
+        "second_half#0",
+        "tmp%4#0",
+        "tmp%5#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_1#0",
+        "p_2#0",
+        "tmp%4#0",
+        "tmp%5#0"
+      ]
+    },
+    "574": {
+      "callsub": "puya_bignumber.bignumber.multiply",
+      "op": "callsub multiply",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "p_2#0",
+        "p_3#0",
+        "second_half#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_1#0",
+        "p_2#0",
+        "p_3#0"
+      ]
+    },
+    "577": {
+      "op": "dig 2",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "p_1#0 (copy)",
+        "p_2#0",
+        "p_3#0",
+        "second_half#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_1#0",
+        "p_2#0",
+        "p_3#0",
+        "p_1#0 (copy)"
+      ]
+    },
+    "579": {
+      "callsub": "puya_bignumber.bignumber.subtract",
+      "op": "callsub subtract",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "p_2#0",
+        "second_half#0",
+        "tmp%6#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_1#0",
+        "p_2#0",
+        "tmp%6#0"
+      ]
+    },
+    "582": {
+      "op": "dig 1",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "p_2#0",
+        "p_2#0 (copy)",
+        "second_half#0",
+        "tmp%6#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_1#0",
+        "p_2#0",
+        "tmp%6#0",
+        "p_2#0 (copy)"
+      ]
+    },
+    "584": {
+      "callsub": "puya_bignumber.bignumber.subtract",
+      "op": "callsub subtract",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "p_2#0",
+        "p_4#0",
+        "second_half#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_1#0",
+        "p_2#0",
+        "p_4#0"
+      ]
+    },
+    "587": {
+      "op": "intc_3 // 2",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_1#0",
+        "p_2#0",
+        "p_4#0",
+        "2"
+      ]
+    },
+    "588": {
+      "op": "dig 4",
+      "defined_out": [
+        "2",
+        "n#0",
+        "p_1#0",
+        "p_2#0",
+        "p_4#0",
+        "second_half#0",
+        "second_half#0 (copy)",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_1#0",
+        "p_2#0",
+        "p_4#0",
+        "2",
+        "second_half#0 (copy)"
+      ]
+    },
+    "590": {
+      "op": "*",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "p_2#0",
+        "p_4#0",
+        "second_half#0",
+        "tmp%7#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_1#0",
+        "p_2#0",
+        "p_4#0",
+        "tmp%7#0"
+      ]
+    },
+    "591": {
+      "op": "bzero",
+      "defined_out": [
+        "n#0",
+        "p_1#0",
+        "p_2#0",
+        "p_4#0",
+        "second_half#0",
+        "tmp%8#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_1#0",
+        "p_2#0",
+        "p_4#0",
+        "tmp%8#0"
+      ]
+    },
+    "592": {
+      "op": "uncover 3",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_2#0",
+        "p_4#0",
+        "tmp%8#0",
+        "p_1#0"
+      ]
+    },
+    "594": {
+      "op": "swap",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_2#0",
+        "p_4#0",
+        "p_1#0",
+        "tmp%8#0"
+      ]
+    },
+    "595": {
+      "op": "concat",
+      "defined_out": [
+        "n#0",
+        "p_2#0",
+        "p_4#0",
+        "second_half#0",
+        "shifted_P1#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "second_half#0",
+        "p_2#0",
+        "p_4#0",
+        "shifted_P1#0"
+      ]
+    },
+    "596": {
+      "op": "uncover 3",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "p_2#0",
+        "p_4#0",
+        "shifted_P1#0",
+        "second_half#0"
+      ]
+    },
+    "598": {
+      "op": "bzero",
+      "defined_out": [
+        "n#0",
+        "p_2#0",
+        "p_4#0",
+        "shifted_P1#0",
+        "tmp%9#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "p_2#0",
+        "p_4#0",
+        "shifted_P1#0",
+        "tmp%9#0"
+      ]
+    },
+    "599": {
+      "op": "uncover 2",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "p_2#0",
+        "shifted_P1#0",
+        "tmp%9#0",
+        "p_4#0"
+      ]
+    },
+    "601": {
+      "op": "swap",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "p_2#0",
+        "shifted_P1#0",
+        "p_4#0",
+        "tmp%9#0"
+      ]
+    },
+    "602": {
+      "op": "concat",
+      "defined_out": [
+        "n#0",
+        "p_2#0",
+        "shifted_P1#0",
+        "shifted_P4#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "p_2#0",
+        "shifted_P1#0",
+        "shifted_P4#0"
+      ]
+    },
+    "603": {
+      "callsub": "puya_bignumber.bignumber.add",
+      "op": "callsub add",
+      "defined_out": [
+        "n#0",
+        "p_2#0",
+        "tmp%10#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "p_2#0",
+        "tmp%10#0"
+      ]
+    },
+    "606": {
+      "op": "swap",
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "tmp%10#0",
+        "p_2#0"
+      ]
+    },
+    "607": {
+      "callsub": "puya_bignumber.bignumber.add",
+      "op": "callsub add",
+      "defined_out": [
+        "n#0",
+        "tmp%11#0",
+        "x#0"
+      ],
+      "stack_out": [
+        "x#0",
+        "n#0",
+        "tmp%11#0"
+      ]
+    },
+    "610": {
+      "op": "frame_bury 0"
+    },
+    "612": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "613": {
+      "subroutine": "puya_bignumber.bignumber.add",
+      "params": {
+        "a#0": "bytes",
+        "b#0": "bytes"
+      },
+      "block": "add",
+      "stack_in": [],
+      "op": "proto 2 1"
+    },
+    "616": {
+      "op": "bytec_0 // \"\"",
+      "stack_out": [
+        "i#0"
+      ]
+    },
+    "617": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "a#0 (copy)"
+      ],
+      "stack_out": [
+        "i#0",
+        "a#0 (copy)"
+      ]
+    },
+    "619": {
+      "op": "len",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "tmp%0#0"
+      ]
+    },
+    "620": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "b#0 (copy)",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "tmp%0#0",
+        "b#0 (copy)"
+      ]
+    },
+    "622": {
+      "op": "len",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "tmp%0#0",
+        "tmp%1#0"
+      ]
+    },
+    "623": {
+      "callsub": "puya_bignumber.common.max_value",
+      "op": "callsub max_value",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "tmp%2#0"
+      ]
+    },
+    "626": {
+      "op": "intc_1 // 64",
+      "defined_out": [
+        "64",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "tmp%2#0",
+        "64"
+      ]
+    },
+    "627": {
+      "callsub": "puya_bignumber.common.enclosing_multiple",
+      "op": "callsub enclosing_multiple",
+      "defined_out": [
+        "length#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "length#0"
+      ]
+    },
+    "630": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "i#0",
+        "length#0",
+        "a#0 (copy)"
+      ]
+    },
+    "632": {
+      "op": "dig 1",
+      "defined_out": [
+        "a#0 (copy)",
+        "length#0",
+        "length#0 (copy)"
+      ],
+      "stack_out": [
+        "i#0",
+        "length#0",
+        "a#0 (copy)",
+        "length#0 (copy)"
+      ]
+    },
+    "634": {
+      "callsub": "puya_bignumber.common.pad",
+      "op": "callsub pad",
+      "defined_out": [
+        "a_digits#0",
+        "length#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "length#0",
+        "a_digits#0"
+      ]
+    },
+    "637": {
+      "op": "dup",
+      "stack_out": [
+        "i#0",
+        "length#0",
+        "a_digits#0",
+        "a_digits#0 (copy)"
+      ]
+    },
+    "638": {
+      "op": "uncover 2",
+      "defined_out": [
+        "a_digits#0",
+        "length#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "a_digits#0",
+        "length#0"
+      ]
+    },
+    "640": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "a_digits#0",
+        "length#0",
+        "b#0 (copy)"
+      ]
+    },
+    "642": {
+      "op": "swap",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "a_digits#0",
+        "b#0 (copy)",
+        "length#0"
+      ]
+    },
+    "643": {
+      "callsub": "puya_bignumber.common.pad",
+      "op": "callsub pad",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "a_digits#0",
+        "b_digits#0"
+      ]
+    },
+    "646": {
+      "op": "swap",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "a_digits#0"
+      ]
+    },
+    "647": {
+      "op": "len",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0"
+      ]
+    },
+    "648": {
+      "op": "intc_1 // 64",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%3#0",
+        "64"
+      ]
+    },
+    "649": {
+      "op": "/",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "n#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0"
+      ]
+    },
+    "650": {
+      "op": "dup",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "n#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "n#0"
+      ]
+    },
+    "651": {
+      "op": "bytec_0 // 0x"
+    },
+    "652": {
+      "op": "dup",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "n#0",
+        "result#0",
+        "result#0"
+      ]
+    },
+    "653": {
+      "op": "cover 2",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "n#0",
+        "result#0"
+      ]
+    },
+    "655": {
+      "op": "intc_2 // 0"
+    },
+    "656": {
+      "op": "dup",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "carry#0",
+        "n#0",
+        "result#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "carry#0 (copy)"
+      ]
+    },
+    "657": {
+      "op": "cover 2",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "n#0",
+        "carry#0",
+        "result#0",
+        "carry#0"
+      ]
+    },
+    "659": {
+      "op": "cover 3",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "carry#0",
+        "n#0",
+        "result#0",
+        "result#9"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "n#0",
+        "carry#0",
+        "result#9"
+      ]
+    },
+    "661": {
+      "op": "cover 2",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "carry#0",
+        "carry#9",
+        "n#0",
+        "result#0",
+        "result#9"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "n#0",
+        "carry#9"
+      ]
+    },
+    "663": {
+      "op": "swap",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "n#0"
+      ]
+    },
+    "664": {
+      "op": "bz add_after_for@5",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9"
+      ]
+    },
+    "667": {
+      "op": "frame_dig 3",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "n#0"
+      ]
+    },
+    "669": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "a_digits#0",
+        "b_digits#0",
+        "carry#0",
+        "carry#9",
+        "n#0",
+        "result#0",
+        "result#9"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "n#0",
+        "1"
+      ]
+    },
+    "670": {
+      "op": "-",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "carry#0",
+        "carry#9",
+        "n#0",
+        "range_length_minus_one%0#0",
+        "result#0",
+        "result#9"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "range_length_minus_one%0#0"
+      ]
+    },
+    "671": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "range_length_minus_one%0#0",
+        "1"
+      ]
+    },
+    "672": {
+      "op": "/",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "carry#0",
+        "carry#9",
+        "i#0",
+        "n#0",
+        "result#0",
+        "result#9"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0"
+      ]
+    },
+    "673": {
+      "op": "frame_bury 0",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9"
+      ]
+    },
+    "675": {
+      "block": "add_for_body@2",
+      "stack_in": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9"
+      ],
+      "op": "frame_dig 0",
+      "defined_out": [
+        "i#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0"
+      ]
+    },
+    "677": {
+      "op": "dup",
+      "defined_out": [
+        "i#0",
+        "i#0 (copy)"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "i#0 (copy)"
+      ]
+    },
+    "678": {
+      "op": "intc_1 // 64",
+      "defined_out": [
+        "64",
+        "i#0",
+        "i#0 (copy)"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "i#0 (copy)",
+        "64"
+      ]
+    },
+    "679": {
+      "op": "*",
+      "defined_out": [
+        "i#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "tmp%4#0"
+      ]
+    },
+    "680": {
+      "op": "frame_dig 1",
+      "defined_out": [
+        "a_digits#0",
+        "i#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "tmp%4#0",
+        "a_digits#0"
+      ]
+    },
+    "682": {
+      "op": "dig 1",
+      "defined_out": [
+        "a_digits#0",
+        "i#0",
+        "tmp%4#0",
+        "tmp%4#0 (copy)"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "tmp%4#0",
+        "a_digits#0",
+        "tmp%4#0 (copy)"
+      ]
+    },
+    "684": {
+      "op": "intc_1 // 64",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "tmp%4#0",
+        "a_digits#0",
+        "tmp%4#0 (copy)",
+        "64"
+      ]
+    },
+    "685": {
+      "op": "extract3",
+      "defined_out": [
+        "a_digit#0",
+        "a_digits#0",
+        "i#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "tmp%4#0",
+        "a_digit#0"
+      ]
+    },
+    "686": {
+      "op": "frame_dig 2",
+      "defined_out": [
+        "a_digit#0",
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "tmp%4#0",
+        "a_digit#0",
+        "b_digits#0"
+      ]
+    },
+    "688": {
+      "op": "uncover 2",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "a_digit#0",
+        "b_digits#0",
+        "tmp%4#0"
+      ]
+    },
+    "690": {
+      "op": "intc_1 // 64",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "a_digit#0",
+        "b_digits#0",
+        "tmp%4#0",
+        "64"
+      ]
+    },
+    "691": {
+      "op": "extract3",
+      "defined_out": [
+        "a_digit#0",
+        "a_digits#0",
+        "b_digit#0",
+        "b_digits#0",
+        "i#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "a_digit#0",
+        "b_digit#0"
+      ]
+    },
+    "692": {
+      "op": "b+",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "sum#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum#0"
+      ]
+    },
+    "693": {
+      "op": "pushint 65 // 65",
+      "defined_out": [
+        "65",
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "sum#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum#0",
+        "65"
+      ]
+    },
+    "695": {
+      "callsub": "puya_bignumber.common.pad",
+      "op": "callsub pad",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "sum_bytes#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0"
+      ]
+    },
+    "698": {
+      "op": "dup",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "sum_bytes#0",
+        "sum_bytes#0 (copy)"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0",
+        "sum_bytes#0 (copy)"
+      ]
+    },
+    "699": {
+      "op": "extract 0 1",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "sum_bytes#0",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0",
+        "tmp%7#0"
+      ]
+    },
+    "702": {
+      "op": "btoi",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "sum_bytes#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0",
+        "sum_carry#0"
+      ]
+    },
+    "703": {
+      "op": "dig 1",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0",
+        "sum_carry#0",
+        "sum_bytes#0 (copy)"
+      ]
+    },
+    "705": {
+      "op": "len",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "length%0#0",
+        "sum_bytes#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0",
+        "sum_carry#0",
+        "length%0#0"
+      ]
+    },
+    "706": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "length%0#0",
+        "sum_bytes#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0",
+        "sum_carry#0",
+        "length%0#0",
+        "1"
+      ]
+    },
+    "707": {
+      "op": "dig 1",
+      "defined_out": [
+        "1",
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "length%0#0",
+        "length%0#0 (copy)",
+        "sum_bytes#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0",
+        "sum_carry#0",
+        "length%0#0",
+        "1",
+        "length%0#0 (copy)"
+      ]
+    },
+    "709": {
+      "op": ">=",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "is_out_of_bounds%0#0",
+        "length%0#0",
+        "sum_bytes#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0",
+        "sum_carry#0",
+        "length%0#0",
+        "is_out_of_bounds%0#0"
+      ]
+    },
+    "710": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0",
+        "sum_carry#0",
+        "length%0#0",
+        "is_out_of_bounds%0#0",
+        "1"
+      ]
+    },
+    "711": {
+      "op": "dig 2",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0",
+        "sum_carry#0",
+        "length%0#0",
+        "is_out_of_bounds%0#0",
+        "1",
+        "length%0#0 (copy)"
+      ]
+    },
+    "713": {
+      "op": "uncover 2",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0",
+        "sum_carry#0",
+        "length%0#0",
+        "1",
+        "length%0#0 (copy)",
+        "is_out_of_bounds%0#0"
+      ]
+    },
+    "715": {
+      "op": "select",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "bounded_index%0#0",
+        "i#0",
+        "length%0#0",
+        "sum_bytes#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_bytes#0",
+        "sum_carry#0",
+        "length%0#0",
+        "bounded_index%0#0"
+      ]
+    },
+    "716": {
+      "op": "uncover 3",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "length%0#0",
+        "bounded_index%0#0",
+        "sum_bytes#0"
+      ]
+    },
+    "718": {
+      "op": "swap",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "length%0#0",
+        "sum_bytes#0",
+        "bounded_index%0#0"
+      ]
+    },
+    "719": {
+      "op": "uncover 2",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "sum_bytes#0",
+        "bounded_index%0#0",
+        "length%0#0"
+      ]
+    },
+    "721": {
+      "op": "substring3",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "i#0",
+        "reinterpret_biguint%2#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "reinterpret_biguint%2#0"
+      ]
+    },
+    "722": {
+      "op": "frame_dig 5",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "reinterpret_biguint%2#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "reinterpret_biguint%2#0",
+        "carry#0"
+      ]
+    },
+    "724": {
+      "op": "itob",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "reinterpret_biguint%2#0",
+        "sum_carry#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "reinterpret_biguint%2#0",
+        "tmp%8#0"
+      ]
+    },
+    "725": {
+      "op": "b+",
+      "defined_out": [
+        "a_digits#0",
+        "ab_carry#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry#0"
+      ]
+    },
+    "726": {
+      "op": "pushint 65 // 65",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry#0",
+        "65"
+      ]
+    },
+    "728": {
+      "callsub": "puya_bignumber.common.pad",
+      "op": "callsub pad",
+      "defined_out": [
+        "a_digits#0",
+        "ab_carry_bytes#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0"
+      ]
+    },
+    "731": {
+      "op": "dup",
+      "defined_out": [
+        "a_digits#0",
+        "ab_carry_bytes#0",
+        "ab_carry_bytes#0 (copy)",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0",
+        "ab_carry_bytes#0 (copy)"
+      ]
+    },
+    "732": {
+      "op": "extract 0 1",
+      "defined_out": [
+        "a_digits#0",
+        "ab_carry_bytes#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "sum_carry#0",
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0",
+        "tmp%10#0"
+      ]
+    },
+    "735": {
+      "op": "btoi",
+      "defined_out": [
+        "a_digits#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0"
+      ]
+    },
+    "736": {
+      "op": "dig 1",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "ab_carry_bytes#0 (copy)"
+      ]
+    },
+    "738": {
+      "op": "len",
+      "defined_out": [
+        "a_digits#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "length%1#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "length%1#0"
+      ]
+    },
+    "739": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "length%1#0",
+        "1"
+      ]
+    },
+    "740": {
+      "op": "dig 1",
+      "defined_out": [
+        "1",
+        "a_digits#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "length%1#0",
+        "length%1#0 (copy)",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "length%1#0",
+        "1",
+        "length%1#0 (copy)"
+      ]
+    },
+    "742": {
+      "op": ">=",
+      "defined_out": [
+        "a_digits#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "is_out_of_bounds%1#0",
+        "length%1#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "length%1#0",
+        "is_out_of_bounds%1#0"
+      ]
+    },
+    "743": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "length%1#0",
+        "is_out_of_bounds%1#0",
+        "1"
+      ]
+    },
+    "744": {
+      "op": "dig 2",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "length%1#0",
+        "is_out_of_bounds%1#0",
+        "1",
+        "length%1#0 (copy)"
+      ]
+    },
+    "746": {
+      "op": "uncover 2",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "length%1#0",
+        "1",
+        "length%1#0 (copy)",
+        "is_out_of_bounds%1#0"
+      ]
+    },
+    "748": {
+      "op": "select",
+      "defined_out": [
+        "a_digits#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "b_digits#0",
+        "bounded_index%1#0",
+        "carry#0",
+        "i#0",
+        "length%1#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_bytes#0",
+        "ab_carry_carry#0",
+        "length%1#0",
+        "bounded_index%1#0"
+      ]
+    },
+    "749": {
+      "op": "uncover 3",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_carry#0",
+        "length%1#0",
+        "bounded_index%1#0",
+        "ab_carry_bytes#0"
+      ]
+    },
+    "751": {
+      "op": "swap",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_carry#0",
+        "length%1#0",
+        "ab_carry_bytes#0",
+        "bounded_index%1#0"
+      ]
+    },
+    "752": {
+      "op": "uncover 2",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_carry#0",
+        "ab_carry_bytes#0",
+        "bounded_index%1#0",
+        "length%1#0"
+      ]
+    },
+    "754": {
+      "op": "substring3",
+      "defined_out": [
+        "a_digits#0",
+        "ab_carry_carry#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "sum_carry#0",
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_carry#0",
+        "tmp%11#0"
+      ]
+    },
+    "755": {
+      "op": "frame_dig 4",
+      "defined_out": [
+        "a_digits#0",
+        "ab_carry_carry#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "result#0",
+        "sum_carry#0",
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_carry#0",
+        "tmp%11#0",
+        "result#0"
+      ]
+    },
+    "757": {
+      "op": "concat",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_carry#0",
+        "result#0"
+      ]
+    },
+    "758": {
+      "op": "dup",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_carry#0",
+        "result#0",
+        "result#0"
+      ]
+    },
+    "759": {
+      "op": "frame_bury 4",
+      "defined_out": [
+        "a_digits#0",
+        "ab_carry_carry#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "result#0",
+        "sum_carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "ab_carry_carry#0",
+        "result#0"
+      ]
+    },
+    "761": {
+      "op": "swap",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "sum_carry#0",
+        "result#0",
+        "ab_carry_carry#0"
+      ]
+    },
+    "762": {
+      "op": "uncover 2",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "result#0",
+        "ab_carry_carry#0",
+        "sum_carry#0"
+      ]
+    },
+    "764": {
+      "op": "+",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "result#0",
+        "carry#0"
+      ]
+    },
+    "765": {
+      "op": "dup",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "result#0",
+        "carry#0",
+        "carry#0"
+      ]
+    },
+    "766": {
+      "op": "frame_bury 5",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "carry#0",
+        "i#0",
+        "result#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "result#0",
+        "carry#0"
+      ]
+    },
+    "768": {
+      "op": "frame_bury 7"
+    },
+    "770": {
+      "op": "frame_bury 6",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "carry#0",
+        "carry#9",
+        "i#0",
+        "result#0",
+        "result#9"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0"
+      ]
+    },
+    "772": {
+      "op": "bz add_after_for@5",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9"
+      ]
+    },
+    "775": {
+      "op": "frame_dig 0",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0"
+      ]
+    },
+    "777": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0",
+        "1"
+      ]
+    },
+    "778": {
+      "op": "-",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "i#0"
+      ]
+    },
+    "779": {
+      "op": "frame_bury 0",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "carry#0",
+        "carry#9",
+        "i#0",
+        "result#0",
+        "result#9"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9"
+      ]
+    },
+    "781": {
+      "op": "b add_for_body@2"
+    },
+    "784": {
+      "block": "add_after_for@5",
+      "stack_in": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9"
+      ],
+      "op": "frame_dig 6",
+      "defined_out": [
+        "result#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "result#0"
+      ]
+    },
+    "786": {
+      "op": "frame_bury 4",
+      "defined_out": [
+        "result#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9"
+      ]
+    },
+    "788": {
+      "op": "frame_dig 7",
+      "defined_out": [
+        "carry#0",
+        "result#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "carry#0"
+      ]
+    },
+    "790": {
+      "op": "dup",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "carry#0",
+        "carry#0"
+      ]
+    },
+    "791": {
+      "op": "frame_bury 5",
+      "defined_out": [
+        "carry#0",
+        "result#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "carry#0"
+      ]
+    },
+    "793": {
+      "op": "bnz add_after_if_else@7",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9"
+      ]
+    },
+    "796": {
+      "op": "frame_dig 4",
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "result#0"
+      ]
+    },
+    "798": {
+      "op": "frame_bury 0"
+    },
+    "800": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "801": {
+      "block": "add_after_if_else@7",
+      "stack_in": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9"
+      ],
+      "op": "frame_dig 5",
+      "defined_out": [
+        "carry#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "carry#0"
+      ]
+    },
+    "803": {
+      "op": "itob",
+      "defined_out": [
+        "carry#0",
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "tmp%13#0"
+      ]
+    },
+    "804": {
+      "op": "extract 7 1",
+      "defined_out": [
+        "carry#0",
+        "carry_bytes#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "carry_bytes#0"
+      ]
+    },
+    "807": {
+      "op": "frame_dig 4",
+      "defined_out": [
+        "carry#0",
+        "carry_bytes#0",
+        "result#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "carry_bytes#0",
+        "result#0"
+      ]
+    },
+    "809": {
+      "op": "concat",
+      "defined_out": [
+        "carry#0",
+        "result#0",
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "i#0",
+        "a_digits#0",
+        "b_digits#0",
+        "n#0",
+        "result#0",
+        "carry#0",
+        "result#9",
+        "carry#9",
+        "tmp%14#0"
+      ]
+    },
+    "810": {
+      "op": "frame_bury 0"
+    },
+    "812": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "813": {
+      "subroutine": "puya_bignumber.bignumber.subtract",
+      "params": {
+        "a#0": "bytes",
+        "b#0": "bytes"
+      },
+      "block": "subtract",
+      "stack_in": [],
+      "op": "proto 2 1"
+    },
+    "816": {
+      "op": "intc_2 // 0",
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "817": {
+      "op": "bytec_0 // \"\"",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0"
+      ]
+    },
+    "818": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "a#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "a#0 (copy)"
+      ]
+    },
+    "820": {
+      "op": "len",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0"
+      ]
+    },
+    "821": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%0#0"
+      ]
+    },
+    "822": {
+      "op": "bz subtract_if_body@2",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0"
+      ]
+    },
+    "825": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "b#0 (copy)",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "b#0 (copy)"
+      ]
+    },
+    "827": {
+      "op": "len",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ]
+    },
+    "828": {
+      "op": "dup",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%2#0",
+        "tmp%2#0"
+      ]
+    },
+    "829": {
+      "op": "frame_bury 1",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ]
+    },
+    "831": {
+      "op": "bzero",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%2#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%3#0"
+      ]
+    },
+    "832": {
+      "op": "dup",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%3#0",
+        "tmp%3#0"
+      ]
+    },
+    "833": {
+      "op": "frame_bury 0",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%2#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%3#0"
+      ]
+    },
+    "835": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%3#0",
+        "a#0 (copy)"
+      ]
+    },
+    "837": {
+      "op": "==",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%2#0",
+        "tmp%3#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%4#0"
+      ]
+    },
+    "838": {
+      "op": "bz subtract_after_if_else@3",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0"
+      ]
+    },
+    "841": {
+      "block": "subtract_if_body@2",
+      "stack_in": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0"
+      ],
+      "op": "frame_dig -2",
+      "defined_out": [
+        "a#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a#0 (copy)"
+      ]
+    },
+    "843": {
+      "op": "frame_bury 0"
+    },
+    "845": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "846": {
+      "block": "subtract_after_if_else@3",
+      "stack_in": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0"
+      ],
+      "op": "frame_dig 1",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ]
+    },
+    "848": {
+      "op": "bz subtract_if_body@5",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0"
+      ]
+    },
+    "851": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "b#0 (copy)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "b#0 (copy)"
+      ]
+    },
+    "853": {
+      "op": "frame_dig 0",
+      "defined_out": [
+        "b#0 (copy)",
+        "tmp%2#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "b#0 (copy)",
+        "tmp%3#0"
+      ]
+    },
+    "855": {
+      "op": "==",
+      "defined_out": [
+        "tmp%2#0",
+        "tmp%3#0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%9#0"
+      ]
+    },
+    "856": {
+      "op": "bz subtract_after_if_else@6",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0"
+      ]
+    },
+    "859": {
+      "block": "subtract_if_body@5",
+      "stack_in": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0"
+      ],
+      "op": "frame_dig -2",
+      "defined_out": [
+        "a#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a#0 (copy)"
+      ]
+    },
+    "861": {
+      "op": "frame_bury 0"
+    },
+    "863": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "864": {
+      "block": "subtract_after_if_else@6",
+      "stack_in": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0"
+      ],
+      "op": "frame_dig 2",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%0#0"
+      ]
+    },
+    "866": {
+      "op": "frame_dig 1",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ]
+    },
+    "868": {
+      "callsub": "puya_bignumber.common.max_value",
+      "op": "callsub max_value",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%12#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%12#0"
+      ]
+    },
+    "871": {
+      "op": "intc_1 // 64",
+      "defined_out": [
+        "64",
+        "tmp%0#0",
+        "tmp%12#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%12#0",
+        "64"
+      ]
+    },
+    "872": {
+      "callsub": "puya_bignumber.common.enclosing_multiple",
+      "op": "callsub enclosing_multiple",
+      "defined_out": [
+        "length#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "length#0"
+      ]
+    },
+    "875": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "a#0 (copy)",
+        "length#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "length#0",
+        "a#0 (copy)"
+      ]
+    },
+    "877": {
+      "op": "dig 1",
+      "defined_out": [
+        "a#0 (copy)",
+        "length#0",
+        "length#0 (copy)",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "length#0",
+        "a#0 (copy)",
+        "length#0 (copy)"
+      ]
+    },
+    "879": {
+      "callsub": "puya_bignumber.common.pad",
+      "op": "callsub pad",
+      "defined_out": [
+        "a_digits#0",
+        "length#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "length#0",
+        "a_digits#0"
+      ]
+    },
+    "882": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "a_digits#0",
+        "b#0 (copy)",
+        "length#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "length#0",
+        "a_digits#0",
+        "b#0 (copy)"
+      ]
+    },
+    "884": {
+      "op": "uncover 2",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_digits#0",
+        "b#0 (copy)",
+        "length#0"
+      ]
+    },
+    "886": {
+      "callsub": "puya_bignumber.common.pad",
+      "op": "callsub pad",
+      "defined_out": [
+        "a_digits#0",
+        "b_digits#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_digits#0",
+        "b_digits#0"
+      ]
+    },
+    "889": {
+      "op": "b~",
+      "defined_out": [
+        "a_digits#0",
+        "ones_complement#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_digits#0",
+        "ones_complement#0"
+      ]
+    },
+    "890": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "a_digits#0",
+        "ones_complement#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_digits#0",
+        "ones_complement#0",
+        "1"
+      ]
+    },
+    "891": {
+      "op": "itob",
+      "defined_out": [
+        "a_digits#0",
+        "ones_complement#0",
+        "tmp%0#0",
+        "tmp%13#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_digits#0",
+        "ones_complement#0",
+        "tmp%13#0"
+      ]
+    },
+    "892": {
+      "callsub": "puya_bignumber.bignumber.add",
+      "op": "callsub add",
+      "defined_out": [
+        "a_digits#0",
+        "tmp%0#0",
+        "tmp%2#0",
+        "twos_complement#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_digits#0",
+        "twos_complement#0"
+      ]
+    },
+    "895": {
+      "callsub": "puya_bignumber.bignumber.add",
+      "op": "callsub add",
+      "defined_out": [
+        "a_inv_b#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_inv_b#0"
+      ]
+    },
+    "898": {
+      "op": "dup",
+      "defined_out": [
+        "a_inv_b#0",
+        "a_inv_b#0 (copy)",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_inv_b#0",
+        "a_inv_b#0 (copy)"
+      ]
+    },
+    "899": {
+      "op": "len",
+      "defined_out": [
+        "a_inv_b#0",
+        "length%0#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_inv_b#0",
+        "length%0#0"
+      ]
+    },
+    "900": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_inv_b#0",
+        "length%0#0",
+        "1"
+      ]
+    },
+    "901": {
+      "op": "dig 1",
+      "defined_out": [
+        "1",
+        "a_inv_b#0",
+        "length%0#0",
+        "length%0#0 (copy)",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_inv_b#0",
+        "length%0#0",
+        "1",
+        "length%0#0 (copy)"
+      ]
+    },
+    "903": {
+      "op": ">=",
+      "defined_out": [
+        "a_inv_b#0",
+        "is_out_of_bounds%0#0",
+        "length%0#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_inv_b#0",
+        "length%0#0",
+        "is_out_of_bounds%0#0"
+      ]
+    },
+    "904": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_inv_b#0",
+        "length%0#0",
+        "is_out_of_bounds%0#0",
+        "1"
+      ]
+    },
+    "905": {
+      "op": "dig 2",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_inv_b#0",
+        "length%0#0",
+        "is_out_of_bounds%0#0",
+        "1",
+        "length%0#0 (copy)"
+      ]
+    },
+    "907": {
+      "op": "uncover 2",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_inv_b#0",
+        "length%0#0",
+        "1",
+        "length%0#0 (copy)",
+        "is_out_of_bounds%0#0"
+      ]
+    },
+    "909": {
+      "op": "select",
+      "defined_out": [
+        "a_inv_b#0",
+        "bounded_index%0#0",
+        "length%0#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_inv_b#0",
+        "length%0#0",
+        "bounded_index%0#0"
+      ]
+    },
+    "910": {
+      "op": "swap",
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "a_inv_b#0",
+        "bounded_index%0#0",
+        "length%0#0"
+      ]
+    },
+    "911": {
+      "op": "substring3",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%14#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%2#0",
+        "tmp%0#0",
+        "tmp%14#0"
+      ]
+    },
+    "912": {
+      "op": "frame_bury 0"
+    },
+    "914": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "915": {
+      "subroutine": "puya_bignumber.bignumber.equal",
+      "params": {
+        "a#0": "bytes",
+        "b#0": "bytes"
+      },
+      "block": "equal",
+      "stack_in": [],
+      "op": "proto 2 1"
+    },
+    "918": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "a#0 (copy)"
+      ],
+      "stack_out": [
+        "a#0 (copy)"
+      ]
+    },
+    "920": {
+      "op": "len",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "921": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "b#0 (copy)",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "b#0 (copy)"
+      ]
+    },
+    "923": {
+      "op": "len",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%1#0"
+      ]
+    },
+    "924": {
+      "callsub": "puya_bignumber.common.max_value",
+      "op": "callsub max_value",
+      "defined_out": [
+        "length#0"
+      ],
+      "stack_out": [
+        "length#0"
+      ]
+    },
+    "927": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "length#0",
+        "a#0 (copy)"
+      ]
+    },
+    "929": {
+      "op": "dig 1",
+      "defined_out": [
+        "a#0 (copy)",
+        "length#0",
+        "length#0 (copy)"
+      ],
+      "stack_out": [
+        "length#0",
+        "a#0 (copy)",
+        "length#0 (copy)"
+      ]
+    },
+    "931": {
+      "callsub": "puya_bignumber.common.pad",
+      "op": "callsub pad",
+      "defined_out": [
+        "length#0",
+        "padded_a#0"
+      ],
+      "stack_out": [
+        "length#0",
+        "padded_a#0"
+      ]
+    },
+    "934": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "length#0",
+        "padded_a#0",
+        "b#0 (copy)"
+      ]
+    },
+    "936": {
+      "op": "uncover 2",
+      "stack_out": [
+        "padded_a#0",
+        "b#0 (copy)",
+        "length#0"
+      ]
+    },
+    "938": {
+      "callsub": "puya_bignumber.common.pad",
+      "op": "callsub pad",
+      "defined_out": [
+        "padded_a#0",
+        "padded_b#0"
+      ],
+      "stack_out": [
+        "padded_a#0",
+        "padded_b#0"
+      ]
+    },
+    "941": {
+      "op": "==",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "942": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "943": {
+      "subroutine": "puya_bignumber.bignumber.modexp_barrett_reduce_post_validation",
+      "params": {
+        "base#0": "bytes",
+        "exp#0": "bytes",
+        "mod#0": "bytes",
+        "precomputed_factor#0": "bytes"
+      },
+      "block": "modexp_barrett_reduce_post_validation",
+      "stack_in": [],
+      "op": "proto 4 1"
+    },
+    "946": {
+      "op": "bytec_0 // \"\"",
+      "stack_out": [
+        "bit_i#0"
+      ]
+    },
+    "947": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "1"
+      ]
+    },
+    "948": {
+      "op": "itob",
+      "defined_out": [
+        "result#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0"
+      ]
+    },
+    "949": {
+      "op": "dup",
+      "defined_out": [
+        "result#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "result#0"
+      ]
+    },
+    "950": {
+      "op": "frame_dig -4",
+      "defined_out": [
+        "base#0 (copy)",
+        "result#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "result#0",
+        "base#0 (copy)"
+      ]
+    },
+    "952": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "base#0 (copy)",
+        "mod#0 (copy)",
+        "result#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "result#0",
+        "base#0 (copy)",
+        "mod#0 (copy)"
+      ]
+    },
+    "954": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "base#0 (copy)",
+        "mod#0 (copy)",
+        "precomputed_factor#0 (copy)",
+        "result#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "result#0",
+        "base#0 (copy)",
+        "mod#0 (copy)",
+        "precomputed_factor#0 (copy)"
+      ]
+    },
+    "956": {
+      "callsub": "puya_bignumber.bignumber._calc_mod_barrett_reduce",
+      "op": "callsub _calc_mod_barrett_reduce",
+      "defined_out": [
+        "base#0",
+        "result#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "result#0",
+        "base#0"
+      ]
+    },
+    "959": {
+      "op": "frame_bury -4",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "result#0"
+      ]
+    },
+    "961": {
+      "op": "frame_dig -3",
+      "defined_out": [
+        "exp#0 (copy)",
+        "result#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "result#0",
+        "exp#0 (copy)"
+      ]
+    },
+    "963": {
+      "op": "len",
+      "defined_out": [
+        "result#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "result#0",
+        "tmp%0#0"
+      ]
+    },
+    "964": {
+      "op": "pushint 8 // 8",
+      "defined_out": [
+        "8",
+        "result#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "result#0",
+        "tmp%0#0",
+        "8"
+      ]
+    },
+    "966": {
+      "op": "*",
+      "defined_out": [
+        "result#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "result#0",
+        "tmp%1#0"
+      ]
+    },
+    "967": {
+      "op": "dup"
+    },
+    "968": {
+      "op": "uncover 2",
+      "defined_out": [
+        "result#0",
+        "result#10",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "tmp%1#0",
+        "result#10"
+      ]
+    },
+    "970": {
+      "op": "swap",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "tmp%1#0"
+      ]
+    },
+    "971": {
+      "op": "bz modexp_barrett_reduce_post_validation_after_for@7",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10"
+      ]
+    },
+    "974": {
+      "op": "frame_dig 2",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "tmp%1#0"
+      ]
+    },
+    "976": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "tmp%1#0",
+        "1"
+      ]
+    },
+    "977": {
+      "op": "-",
+      "defined_out": [
+        "range_length_minus_one%0#0",
+        "result#0",
+        "result#10",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "range_length_minus_one%0#0"
+      ]
+    },
+    "978": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "range_length_minus_one%0#0",
+        "1"
+      ]
+    },
+    "979": {
+      "op": "/",
+      "defined_out": [
+        "bit_i#0",
+        "result#0",
+        "result#10",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "bit_i#0"
+      ]
+    },
+    "980": {
+      "op": "frame_bury 0",
+      "defined_out": [
+        "bit_i#0",
+        "result#0",
+        "result#10",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10"
+      ]
+    },
+    "982": {
+      "block": "modexp_barrett_reduce_post_validation_for_body@2",
+      "stack_in": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10"
+      ],
+      "op": "frame_dig -3",
+      "defined_out": [
+        "exp#0 (copy)"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "exp#0 (copy)"
+      ]
+    },
+    "984": {
+      "op": "frame_dig 0",
+      "defined_out": [
+        "bit_i#0",
+        "exp#0 (copy)"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "exp#0 (copy)",
+        "bit_i#0"
+      ]
+    },
+    "986": {
+      "op": "getbit",
+      "defined_out": [
+        "bit#0",
+        "bit_i#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "bit#0"
+      ]
+    },
+    "987": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "bit#0",
+        "bit_i#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "bit#0",
+        "1"
+      ]
+    },
+    "988": {
+      "op": "==",
+      "defined_out": [
+        "bit_i#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "tmp%2#0"
+      ]
+    },
+    "989": {
+      "op": "frame_dig 1",
+      "defined_out": [
+        "bit_i#0",
+        "result#10",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "tmp%2#0",
+        "result#10"
+      ]
+    },
+    "991": {
+      "op": "frame_bury 3",
+      "defined_out": [
+        "bit_i#0",
+        "result#10",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "tmp%2#0"
+      ]
+    },
+    "993": {
+      "op": "bz modexp_barrett_reduce_post_validation_after_if_else@4",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10"
+      ]
+    },
+    "996": {
+      "op": "frame_dig 1",
+      "defined_out": [
+        "bit_i#0",
+        "result#0",
+        "result#10"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#0"
+      ]
+    },
+    "998": {
+      "op": "frame_dig -4",
+      "defined_out": [
+        "base#0 (copy)",
+        "bit_i#0",
+        "result#0",
+        "result#10"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#0",
+        "base#0 (copy)"
+      ]
+    },
+    "1000": {
+      "callsub": "puya_bignumber.bignumber.multiply",
+      "op": "callsub multiply",
+      "defined_out": [
+        "bit_i#0",
+        "result#0",
+        "result#10",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "tmp%3#0"
+      ]
+    },
+    "1003": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "bit_i#0",
+        "mod#0 (copy)",
+        "result#0",
+        "result#10",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "tmp%3#0",
+        "mod#0 (copy)"
+      ]
+    },
+    "1005": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "bit_i#0",
+        "mod#0 (copy)",
+        "precomputed_factor#0 (copy)",
+        "result#0",
+        "result#10",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "tmp%3#0",
+        "mod#0 (copy)",
+        "precomputed_factor#0 (copy)"
+      ]
+    },
+    "1007": {
+      "callsub": "puya_bignumber.bignumber._calc_mod_barrett_reduce",
+      "op": "callsub _calc_mod_barrett_reduce",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#10"
+      ]
+    },
+    "1010": {
+      "op": "frame_bury 3",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10"
+      ]
+    },
+    "1012": {
+      "block": "modexp_barrett_reduce_post_validation_after_if_else@4",
+      "stack_in": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10"
+      ],
+      "op": "frame_dig 3",
+      "defined_out": [
+        "result#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#0"
+      ]
+    },
+    "1014": {
+      "op": "dup",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#0",
+        "result#0"
+      ]
+    },
+    "1015": {
+      "op": "frame_bury 1",
+      "defined_out": [
+        "result#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#0"
+      ]
+    },
+    "1017": {
+      "op": "frame_dig -4",
+      "defined_out": [
+        "base#0 (copy)",
+        "result#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#0",
+        "base#0 (copy)"
+      ]
+    },
+    "1019": {
+      "op": "dup",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#0",
+        "base#0 (copy)",
+        "base#0 (copy)"
+      ]
+    },
+    "1020": {
+      "callsub": "puya_bignumber.bignumber.multiply",
+      "op": "callsub multiply",
+      "defined_out": [
+        "result#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#0",
+        "tmp%4#0"
+      ]
+    },
+    "1023": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "mod#0 (copy)",
+        "result#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#0",
+        "tmp%4#0",
+        "mod#0 (copy)"
+      ]
+    },
+    "1025": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "mod#0 (copy)",
+        "precomputed_factor#0 (copy)",
+        "result#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#0",
+        "tmp%4#0",
+        "mod#0 (copy)",
+        "precomputed_factor#0 (copy)"
+      ]
+    },
+    "1027": {
+      "callsub": "puya_bignumber.bignumber._calc_mod_barrett_reduce",
+      "op": "callsub _calc_mod_barrett_reduce",
+      "defined_out": [
+        "base#0",
+        "result#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#0",
+        "base#0"
+      ]
+    },
+    "1030": {
+      "op": "frame_bury -4",
+      "defined_out": [
+        "result#0",
+        "result#10"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#10"
+      ]
+    },
+    "1032": {
+      "op": "frame_bury 3",
+      "defined_out": [
+        "result#0",
+        "result#10"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10"
+      ]
+    },
+    "1034": {
+      "op": "frame_dig 0",
+      "defined_out": [
+        "bit_i#0",
+        "result#0",
+        "result#10"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "bit_i#0"
+      ]
+    },
+    "1036": {
+      "op": "bz modexp_barrett_reduce_post_validation_after_for@7",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10"
+      ]
+    },
+    "1039": {
+      "op": "frame_dig 0",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "bit_i#0"
+      ]
+    },
+    "1041": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "bit_i#0",
+        "1"
+      ]
+    },
+    "1042": {
+      "op": "-",
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "bit_i#0"
+      ]
+    },
+    "1043": {
+      "op": "frame_bury 0",
+      "defined_out": [
+        "bit_i#0",
+        "result#0",
+        "result#10"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10"
+      ]
+    },
+    "1045": {
+      "op": "b modexp_barrett_reduce_post_validation_for_body@2"
+    },
+    "1048": {
+      "block": "modexp_barrett_reduce_post_validation_after_for@7",
+      "stack_in": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10"
+      ],
+      "op": "frame_dig 3",
+      "defined_out": [
+        "result#0"
+      ],
+      "stack_out": [
+        "bit_i#0",
+        "result#0",
+        "tmp%1#0",
+        "result#10",
+        "result#0"
+      ]
+    },
+    "1050": {
+      "op": "frame_bury 0"
+    },
+    "1052": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "1053": {
+      "subroutine": "puya_bignumber.bignumber._calc_mod_barrett_reduce",
+      "params": {
+        "a#0": "bytes",
+        "mod#0": "bytes",
+        "precomputed_factor#0": "bytes"
+      },
+      "block": "_calc_mod_barrett_reduce",
+      "stack_in": [],
+      "op": "proto 3 1"
+    },
+    "1056": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "mod#0 (copy)"
+      ],
+      "stack_out": [
+        "mod#0 (copy)"
+      ]
+    },
+    "1058": {
+      "op": "len",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "1059": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%0#0"
+      ]
+    },
+    "1060": {
+      "op": "intc_3 // 2",
+      "defined_out": [
+        "2",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%0#0",
+        "2"
+      ]
+    },
+    "1061": {
+      "op": "*",
+      "defined_out": [
+        "shift#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "shift#0"
+      ]
+    },
+    "1062": {
+      "op": "frame_dig -3",
+      "defined_out": [
+        "a#0 (copy)",
+        "shift#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "shift#0",
+        "a#0 (copy)"
+      ]
+    },
+    "1064": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "a#0 (copy)",
+        "precomputed_factor#0 (copy)",
+        "shift#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "shift#0",
+        "a#0 (copy)",
+        "precomputed_factor#0 (copy)"
+      ]
+    },
+    "1066": {
+      "callsub": "puya_bignumber.bignumber.multiply",
+      "op": "callsub multiply",
+      "defined_out": [
+        "a_factor#0",
+        "shift#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "shift#0",
+        "a_factor#0"
+      ]
+    },
+    "1069": {
+      "op": "dup",
+      "defined_out": [
+        "a_factor#0",
+        "a_factor#0 (copy)",
+        "shift#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "shift#0",
+        "a_factor#0",
+        "a_factor#0 (copy)"
+      ]
+    },
+    "1070": {
+      "op": "len",
+      "defined_out": [
+        "a_factor#0",
+        "shift#0",
+        "tmp%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "shift#0",
+        "a_factor#0",
+        "tmp%1#0"
+      ]
+    },
+    "1071": {
+      "op": "uncover 2",
+      "stack_out": [
+        "tmp%0#0",
+        "a_factor#0",
+        "tmp%1#0",
+        "shift#0"
+      ]
+    },
+    "1073": {
+      "op": "-",
+      "defined_out": [
+        "a_factor#0",
+        "tmp%0#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "a_factor#0",
+        "tmp%2#0"
+      ]
+    },
+    "1074": {
+      "op": "intc_2 // 0"
+    },
+    "1075": {
+      "op": "swap",
+      "stack_out": [
+        "tmp%0#0",
+        "a_factor#0",
+        "0",
+        "tmp%2#0"
+      ]
+    },
+    "1076": {
+      "op": "extract3",
+      "defined_out": [
+        "q#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "q#0"
+      ]
+    },
+    "1077": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "tmp%0#0",
+        "q#0",
+        "mod#0 (copy)"
+      ]
+    },
+    "1079": {
+      "callsub": "puya_bignumber.bignumber.multiply",
+      "op": "callsub multiply",
+      "defined_out": [
+        "tmp%0#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%3#0"
+      ]
+    },
+    "1082": {
+      "op": "frame_dig -3",
+      "stack_out": [
+        "tmp%0#0",
+        "tmp%3#0",
+        "a#0 (copy)"
+      ]
+    },
+    "1084": {
+      "op": "swap",
+      "stack_out": [
+        "tmp%0#0",
+        "a#0 (copy)",
+        "tmp%3#0"
+      ]
+    },
+    "1085": {
+      "callsub": "puya_bignumber.bignumber.subtract",
+      "op": "callsub subtract",
+      "defined_out": [
+        "r#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "r#0"
+      ]
+    },
+    "1088": {
+      "op": "dupn 2",
+      "defined_out": [
+        "r#0",
+        "r#0 (copy)",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#0",
+        "r#0 (copy)"
+      ]
+    },
+    "1090": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#0",
+        "r#0 (copy)",
+        "mod#0 (copy)"
+      ]
+    },
+    "1092": {
+      "callsub": "puya_bignumber.bignumber.less_than",
+      "op": "callsub less_than",
+      "defined_out": [
+        "r#0",
+        "r#5",
+        "tmp%0#0",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "tmp%4#0"
+      ]
+    },
+    "1095": {
+      "op": "bnz _calc_mod_barrett_reduce_after_if_else@2",
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5"
+      ]
+    },
+    "1098": {
+      "op": "frame_dig 1",
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "r#0"
+      ]
+    },
+    "1100": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "r#0",
+        "mod#0 (copy)"
+      ]
+    },
+    "1102": {
+      "callsub": "puya_bignumber.bignumber.subtract",
+      "op": "callsub subtract",
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "r#5"
+      ]
+    },
+    "1105": {
+      "op": "frame_bury 2",
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5"
+      ]
+    },
+    "1107": {
+      "block": "_calc_mod_barrett_reduce_after_if_else@2",
+      "stack_in": [
+        "tmp%0#0",
+        "r#0",
+        "r#5"
+      ],
+      "op": "frame_dig 2",
+      "defined_out": [
+        "r#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "r#0"
+      ]
+    },
+    "1109": {
+      "op": "dup",
+      "defined_out": [
+        "r#0",
+        "r#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "r#0",
+        "r#0 (copy)"
+      ]
+    },
+    "1110": {
+      "op": "len",
+      "defined_out": [
+        "r#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "r#0",
+        "tmp%5#0"
+      ]
+    },
+    "1111": {
+      "op": "frame_dig 0",
+      "defined_out": [
+        "r#0",
+        "tmp%0#0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "r#0",
+        "tmp%5#0",
+        "tmp%0#0"
+      ]
+    },
+    "1113": {
+      "op": "dup",
+      "defined_out": [
+        "r#0",
+        "tmp%0#0",
+        "tmp%0#0 (copy)",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "r#0",
+        "tmp%5#0",
+        "tmp%0#0 (copy)",
+        "tmp%0#0 (copy)"
+      ]
+    },
+    "1114": {
+      "op": "cover 2",
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "r#0",
+        "tmp%0#0",
+        "tmp%5#0",
+        "tmp%0#0 (copy)"
+      ]
+    },
+    "1116": {
+      "op": "-",
+      "defined_out": [
+        "r#0",
+        "tmp%0#0",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "r#0",
+        "tmp%0#0",
+        "tmp%7#0"
+      ]
+    },
+    "1117": {
+      "op": "swap",
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "r#0",
+        "tmp%7#0",
+        "tmp%0#0"
+      ]
+    },
+    "1118": {
+      "op": "extract3",
+      "defined_out": [
+        "r#0",
+        "tmp%0#0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "r#0",
+        "r#5",
+        "tmp%9#0"
+      ]
+    },
+    "1119": {
+      "op": "frame_bury 0"
+    },
+    "1121": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "1122": {
+      "subroutine": "_puya_lib.util.ensure_budget",
+      "params": {
+        "required_budget#0": "uint64",
+        "fee_source#0": "uint64"
+      },
+      "block": "ensure_budget",
+      "stack_in": [],
+      "op": "proto 2 0"
+    },
+    "1125": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "required_budget#0 (copy)"
+      ],
+      "stack_out": [
+        "required_budget#0 (copy)"
+      ]
+    },
+    "1127": {
+      "op": "pushint 10 // 10",
+      "defined_out": [
+        "10",
+        "required_budget#0 (copy)"
+      ],
+      "stack_out": [
+        "required_budget#0 (copy)",
+        "10"
+      ]
+    },
+    "1129": {
+      "op": "+",
+      "defined_out": [
+        "required_budget_with_buffer#0"
+      ],
+      "stack_out": [
+        "required_budget_with_buffer#0"
+      ]
+    },
+    "1130": {
+      "block": "ensure_budget_while_top@1",
+      "stack_in": [
+        "required_budget_with_buffer#0"
+      ],
+      "op": "frame_dig 0"
+    },
+    "1132": {
+      "op": "global OpcodeBudget",
+      "defined_out": [
+        "required_budget_with_buffer#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "required_budget_with_buffer#0",
+        "required_budget_with_buffer#0",
+        "tmp%0#0"
+      ]
+    },
+    "1134": {
+      "op": ">",
+      "defined_out": [
+        "required_budget_with_buffer#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "required_budget_with_buffer#0",
+        "tmp%1#0"
+      ]
+    },
+    "1135": {
+      "op": "bz ensure_budget_after_while@7",
+      "stack_out": [
+        "required_budget_with_buffer#0"
+      ]
+    },
+    "1138": {
+      "op": "itxn_begin"
+    },
+    "1139": {
+      "op": "pushint 6 // appl",
+      "defined_out": [
+        "appl",
+        "required_budget_with_buffer#0"
+      ],
+      "stack_out": [
+        "required_budget_with_buffer#0",
+        "appl"
+      ]
+    },
+    "1141": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "required_budget_with_buffer#0"
+      ]
+    },
+    "1143": {
+      "op": "pushint 5 // DeleteApplication",
+      "defined_out": [
+        "DeleteApplication",
+        "required_budget_with_buffer#0"
+      ],
+      "stack_out": [
+        "required_budget_with_buffer#0",
+        "DeleteApplication"
+      ]
+    },
+    "1145": {
+      "op": "itxn_field OnCompletion",
+      "stack_out": [
+        "required_budget_with_buffer#0"
+      ]
+    },
+    "1147": {
+      "op": "bytec_1 // 0x068101",
+      "defined_out": [
+        "0x068101",
+        "required_budget_with_buffer#0"
+      ],
+      "stack_out": [
+        "required_budget_with_buffer#0",
+        "0x068101"
+      ]
+    },
+    "1148": {
+      "op": "itxn_field ApprovalProgram",
+      "stack_out": [
+        "required_budget_with_buffer#0"
+      ]
+    },
+    "1150": {
+      "op": "bytec_1 // 0x068101",
+      "stack_out": [
+        "required_budget_with_buffer#0",
+        "0x068101"
+      ]
+    },
+    "1151": {
+      "op": "itxn_field ClearStateProgram",
+      "stack_out": [
+        "required_budget_with_buffer#0"
+      ]
+    },
+    "1153": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "fee_source#0 (copy)",
+        "required_budget_with_buffer#0"
+      ],
+      "stack_out": [
+        "required_budget_with_buffer#0",
+        "fee_source#0 (copy)"
+      ]
+    },
+    "1155": {
+      "op": "switch ensure_budget_switch_case_0@3 ensure_budget_switch_case_1@4",
+      "stack_out": [
+        "required_budget_with_buffer#0"
+      ]
+    },
+    "1161": {
+      "op": "b ensure_budget_switch_case_next@6"
+    },
+    "1164": {
+      "block": "ensure_budget_switch_case_0@3",
+      "stack_in": [
+        "required_budget_with_buffer#0"
+      ],
+      "op": "intc_2 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "required_budget_with_buffer#0",
+        "0"
+      ]
+    },
+    "1165": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "required_budget_with_buffer#0"
+      ]
+    },
+    "1167": {
+      "op": "b ensure_budget_switch_case_next@6"
+    },
+    "1170": {
+      "block": "ensure_budget_switch_case_1@4",
+      "stack_in": [
+        "required_budget_with_buffer#0"
+      ],
+      "op": "global MinTxnFee",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "required_budget_with_buffer#0",
+        "tmp%2#0"
+      ]
+    },
+    "1172": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "required_budget_with_buffer#0"
+      ]
+    },
+    "1174": {
+      "block": "ensure_budget_switch_case_next@6",
+      "stack_in": [
+        "required_budget_with_buffer#0"
+      ],
+      "op": "itxn_submit"
+    },
+    "1175": {
+      "op": "b ensure_budget_while_top@1"
+    },
+    "1178": {
+      "block": "ensure_budget_after_while@7",
+      "stack_in": [
+        "required_budget_with_buffer#0"
+      ],
+      "retsub": true,
+      "op": "retsub"
+    }
+  }
+}

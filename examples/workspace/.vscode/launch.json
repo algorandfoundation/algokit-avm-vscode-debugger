@@ -11,7 +11,7 @@
     {
       "type": "avm",
       "request": "launch",
-      "name": "Debug Slot Machine",
+      "name": "Debug Puya App",
       "simulateTraceFile": "${workspaceFolder}/debug_traces/simulate-response.trace.avm.json",
       "programSourcesDescriptionFile": "${workspaceFolder}/.algokit/sources/sources.avm.json",
       "stopOnEntry": true
