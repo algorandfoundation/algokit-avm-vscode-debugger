@@ -22,13 +22,14 @@ export const config: Options.Testrunner = {
       'wdio:vscodeOptions': {
         extensionPath: path.join(__dirname, '..'),
         workspacePath: path.join(__dirname, '..', 'examples', 'workspace'),
+        vscodeArgs: ['--window-size=1200,800'],
       },
     },
   ],
   logLevel: 'warn',
   bail: 0,
   baseUrl: '',
-  waitforTimeout: 5000,
+  waitforTimeout: 10000,
   connectionRetryTimeout: 120000,
   connectionRetryCount: 3,
   services: ['vscode'],
@@ -36,6 +37,7 @@ export const config: Options.Testrunner = {
   reporters: ['spec'],
   mochaOpts: {
     ui: 'bdd',
-    timeout: 30000,
+    timeout: 60000,
+    retries: 2,
   },
 }

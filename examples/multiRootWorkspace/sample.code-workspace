@@ -2,29 +2,38 @@
   "folders": [
     {
       "path": "./",
-      "name": "ROOT"
+      "name": "ROOT",
     },
     {
-      "path": "./app-state-changes"
+      "path": "./app-state-changes",
     },
     {
-      "path": "./errors"
+      "path": "./errors",
     },
     {
-      "path": "./recursive-app"
+      "path": "./recursive-app",
     },
     {
-      "path": "./slot-machine"
+      "path": "./slot-machine",
     },
     {
-      "path": "./sourcemap-test"
+      "path": "./sourcemap-test",
     },
     {
-      "path": "./stack-scratch"
+      "path": "./stack-scratch",
     },
     {
-      "path": "./stepping-test"
-    }
+      "path": "./stepping-test",
+    },
+    {
+      "path": "./puya",
+    },
+    {
+      "path": "./puya_and_teal",
+    },
+    {
+      "path": "./puya_third_parties",
+    },
   ],
   "settings": {
     "files.exclude": {
@@ -34,8 +43,8 @@
       "slot-machine/": true,
       "sourcemap-test/": true,
       "stack-scratch/": true,
-      "stepping-test/": true
-    }
+      "stepping-test/": true,
+    },
     // "avmDebugger.debugAdapter.port": 4711 // Uncomment to debug the AVM debugger/debug adapter by running the "Server" launch configuration found in https://github.com/algorand/avm-debugger
-  }
+  },
 }

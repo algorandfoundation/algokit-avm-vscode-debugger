@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "algosdk": "^2.9.0",
-    "avm-debug-adapter": "^0.2.0",
+    "avm-debug-adapter": "^0.3.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -61,7 +61,7 @@
     "@types/lodash": "^4.17.7",
     "@types/mocha": "^10.0.7",
     "@types/node": "^18.18.11",
-    "@types/vscode": "^1.92.0",
+    "@types/vscode": "^1.80.0",
     "@vscode/vsce": "^2.22.0",
     "@wdio/cli": "^8.33.1",
     "@wdio/local-runner": "^8.33.1",
@@ -110,6 +110,12 @@
       }
     ],
     "breakpoints": [
+      {
+        "language": "python"
+      },
+      {
+        "language": "typescript"
+      },
       {
         "language": "teal"
       }
@@ -195,6 +201,16 @@
         "category": "AlgoKit AVM Debug",
         "enablement": "!inDebugMode",
         "icon": "$(debug-alt)"
+      },
+      {
+        "command": "extension.avmDebugger.clearAvmDebugRegistry",
+        "title": "Clear AVM Debug Registry",
+        "category": "AlgoKit AVM Debug"
+      },
+      {
+        "command": "extension.avmDebugger.editAvmDebugRegistry",
+        "title": "Edit AVM Debug Registry",
+        "category": "AlgoKit AVM Debug"
       }
     ],
     "configuration": {
@@ -207,6 +223,11 @@
           ],
           "default": null,
           "description": "If specified, the extension will connect to a debug adapter server running on the supplied port. By default the debug adapter will be run inline automatically. This setting should only be used in advanced scenarios."
+        },
+        "avmDebugger.defaultSourcemapRegistryFile": {
+          "type": "string",
+          "default": "",
+          "description": "The default path for the sourcemap registry file. If not set, defaults to '.algokit/sources/sources.avm.json' in the workspace root."
         }
       }
     }
