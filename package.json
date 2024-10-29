@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "algosdk": "^2.9.0",
-    "avm-debug-adapter": "github:algorandfoundation/avm-debugger#main",
+    "avm-debug-adapter": "^0.3.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
