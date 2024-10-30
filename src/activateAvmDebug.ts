@@ -27,20 +27,16 @@ export function activateAvmDebug(context: vscode.ExtensionContext, factory: vsco
 
   context.subscriptions.push(
     vscode.commands.registerCommand('extension.avmDebugger.clearAvmDebugRegistry', async () => {
-      const config = vscode.workspace.getConfiguration('avmDebugger')
-      let sourcesFilePath = config.get<string>('programSourcesDescriptionFile')
+      const workspaceFolder = await getWorkspaceFolder()
+      if (!workspaceFolder) return
 
-      if (!sourcesFilePath) {
-        const workspaceFolder = await getWorkspaceFolder()
-        if (!workspaceFolder) return
-
-        sourcesFilePath = await findAndPickFile(workspaceFolder, SOURCES_FILE_PATTERN, {
-          title: 'Select program sources description file to clear',
-          placeHolder: 'Please select a file to clear',
-          noFilesErrorMessage: `No program sources description files (with name ${SOURCES_FILE_NAME}) were found in the workspace.`,
-        })
-        if (!sourcesFilePath) return
-      }
+      const sourcesFilePath = await findAndPickFile(workspaceFolder, SOURCES_FILE_PATTERN, {
+        title: 'Select program sources description file to clear',
+        placeHolder: 'Please select a file to clear',
+        noFilesErrorMessage: `No program sources description files (with name ${SOURCES_FILE_NAME}) were found in the workspace.`,
+        exitIfNoFiles: true,
+      })
+      if (!sourcesFilePath) return
 
       const confirmation = await vscode.window.showWarningMessage(
         `Are you sure you want to clear the content of ${sourcesFilePath}?`,
@@ -49,34 +45,35 @@ export function activateAvmDebug(context: vscode.ExtensionContext, factory: vsco
       )
 
       if (confirmation === 'Yes') {
-        await workspaceFileAccessor.writeFile(sourcesFilePath, new TextEncoder().encode(JSON.stringify({}, null, 2)))
-        vscode.window.showInformationMessage('AVM Debug Registry cleared.')
+        const fileUri = vscode.Uri.joinPath(workspaceFolder.uri, sourcesFilePath)
+        await vscode.workspace.fs.delete(fileUri)
+        await workspaceFileAccessor.writeFile(fileUri.fsPath, new TextEncoder().encode(JSON.stringify({}, null, 2)))
+        vscode.window.showInformationMessage(
+          'AVM Debug Registry file cleared. You can now restart the debugger to pick a new sourcemap to use.',
+        )
       }
     }),
   )
 
   context.subscriptions.push(
     vscode.commands.registerCommand('extension.avmDebugger.editAvmDebugRegistry', async () => {
-      const config = vscode.workspace.getConfiguration('avmDebugger')
-      const currentFile = config.get<string>('programSourcesDescriptionFile')
-
-      if (currentFile) {
-        const document = await vscode.workspace.openTextDocument(currentFile)
-        await vscode.window.showTextDocument(document)
-      } else {
-        const workspaceFolder = await getWorkspaceFolder()
-        if (!workspaceFolder) return
-
-        const sourcesFilePath = await findAndPickFile(workspaceFolder, SOURCES_FILE_PATTERN, {
-          title: 'Program sources description file',
-          placeHolder: 'Please select a program sources description file',
-          noFilesErrorMessage: `No program sources description files (with name ${SOURCES_FILE_NAME}) were found in the workspace.`,
-        })
-        if (!sourcesFilePath) return
-
-        const document = await vscode.workspace.openTextDocument(sourcesFilePath)
-        await vscode.window.showTextDocument(document)
+      const workspaceFolder = await getWorkspaceFolder()
+      if (!workspaceFolder) {
+        vscode.window.showWarningMessage('No workspace folder found.')
+        return
       }
+
+      const sourcesFilePath = await findAndPickFile(workspaceFolder, SOURCES_FILE_PATTERN, {
+        title: 'Program sources description file',
+        placeHolder: 'Please select a program sources description file',
+        noFilesErrorMessage: `No program sources description files (with name ${SOURCES_FILE_NAME}) were found in the workspace.`,
+        exitIfNoFiles: true,
+      })
+      if (!sourcesFilePath) return
+
+      const fileUri = vscode.Uri.joinPath(workspaceFolder.uri, sourcesFilePath)
+      const document = await vscode.workspace.openTextDocument(fileUri)
+      await vscode.window.showTextDocument(document)
 
       vscode.window.showInformationMessage('AVM Debug Registry opened for editing.')
     }),
