@@ -13,7 +13,7 @@
 
 ---
 
-The AlgoKit AVM VS Code Debugger extension provides a convenient way to debug any Algorand Smart Contracts written in TEAL.
+The AlgoKit AVM VS Code Debugger extension enables line-by-line debugging of Algorand smart contracts on the AVM, whether written in TEAL directly or compiled from [Puya](https://github.com/algorandfoundation/puya). It leverages AVM simulate traces and source maps to provide a seamless debugging experience. For detailed setup instructions, see the [Detailed Usage](#detailed-usage) section.
 
 ---
 
@@ -23,7 +23,7 @@ The AlgoKit AVM VS Code Debugger extension provides a convenient way to debug an
 
 ---
 
-It is built on top of the official [AVM Debug Adapter](https://github.com/algorand/avm-debugger) provided by [Algorand Technologies](https://www.algorand.com/). Additionally, a set of companion utilities are provided in the [TypeScript](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md) and [Python](https://github.com/algorandfoundation/algokit-utils-py/blob/main/docs/source/capabilities/debugging.md) versions of `algokit-utils`, making it easier for developers to set up the required prerequisites and run the debugger.
+The core functionality is built on top of the [AVM Debug Adapter](https://github.com/algorand/avm-debugger). Additionally, a set of companion utilities are provided in the [TypeScript](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md) and [Python](https://github.com/algorandfoundation/algokit-utils-py/blob/main/docs/source/capabilities/debugging.md) versions of `algokit-utils`, making it easier for developers to set up the required prerequisites and run the debugger.
 
 > To skip straight to the list of features, go to [Features](#features).
 
@@ -46,14 +46,39 @@ Before you can use the AVM Debugger extension, you need to ensure that you have 
 - [Visual Studio Code](https://code.visualstudio.com/download): Version 1.80.0 or higher. You can check your version by going to `Help > About` in VS Code.
 - [Node.js](https://nodejs.org/en/download/): Version 18.x or higher. The extension is built with Node.js. Check your Node.js version by running `node -v` in your terminal/command prompt.
 
-> The extension is designed to debug TEAL programs running on the Algorand Virtual Machine. It provides a step-by-step debugging experience by utilizing transaction execution traces and compiled source maps of your smart contract. However, it's crucial to understand that debugging a smart contract language like TEAL has its unique aspects compared to general-purpose languages. For a comprehensive guide on how to initiate a debugging session, please refer to the [Usage](#usage) section.
+### Quick Start
 
-## Installation
+Below is a bare-bones example of how to get started with the AVM Debugger extension in an AlgoKit based project relying on `algokit-utils`.
 
-1. Install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=algorandfoundation.algokit-avm-vscode-debugger).
-2. Follow the next steps in the [Usage](#usage) section.
+1. **Enable debugging in algokit-utils**:
 
-## Usage
+   ```typescript
+   // In your main file (TypeScript)
+   import { config } from 'algokit-utils-ts'
+   config.configure({ debug: true, traceAll: true })
+   ```
+
+   or
+
+   ```python
+   # In your main file (Python)
+   from algokit_utils.config import config
+   config.configure(debug=True, trace_all=True)
+   ```
+
+2. **Interact with your smart contract**: Perform an application call using `algokit-utils`.
+
+3. **Start debugging**:
+   - Open the AVM simulate trace file (ends with `.trace.avm.json`)
+   - If using an official `algokit-python-template`, execute the `Debug TEAL via AlgoKit AVM Debugger` launch configuration. Otherwise, create a new VSCode launch configuration of type `avm` (which will automatically set recommended defaults).
+   - The extension can also be invoked via the debug icon in the editor (visible in top right corner when viewing a trace file) or using the `Debug AVM Trace File` command from the Command Palette.
+   - The debugger will guide you through the process of selecting the correct source files and traces and will initiate the debugging session.
+
+> **Pro Tip**: Use the `Clear AVM Debug Registry` command if you need to reset your sourcemap selections or if you're experiencing mapping issues.
+
+To learn more about the features and how to use them, continue reading below.
+
+## Detailed Usage
 
 The AVM Debugger extension automatically detects and operates on the following files:
 
@@ -163,6 +188,33 @@ The extension also offers an interactive picker for simulation trace files. The 
 
 > Please note the limit for max visible items in the extension picker is 100. If you have more than 100 `sources.avm.json` files in the working directory, consider using the `programSourcesDescriptionFile` property to specify the path to a specific file.
 
+### VSCode Commands and Settings
+
+The following will become available within the IDE after the extension is installed.
+
+#### Commands
+
+The extension provides the following commands that can be accessed via the Command Palette (Ctrl+Shift+P / Cmd+Shift+P):
+
+| Command                    | Description                                                                                                               |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `Debug AVM Trace File`     | Initiates a debugging session from an open trace file. Can also be triggered via the debug icon when viewing a trace file |
+| `Clear AVM Debug Registry` | Resets the AVM debug registry file (sources.avm.json) - useful when you want to start fresh with sourcemap selections     |
+| `Edit AVM Debug Registry`  | Opens the AVM debug registry file for manual editing                                                                      |
+
+#### Settings
+
+Configure the debugger behavior through VS Code settings:
+
+| Setting                                    | Description                                                                                | Default                             |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------ | ----------------------------------- |
+| `avmDebugger.debugAdapter.port`            | Port number for the debug adapter when running in server mode. Leave empty for inline mode | `null`                              |
+| `avmDebugger.defaultSourcemapRegistryFile` | Custom path to the sources.avm.json registry file                                          | `.algokit/sources/sources.avm.json` |
+
+> **Tip for Beginners**: Start with the default settings. The inline debug adapter mode (default when `debugAdapter.port` is not set) is perfect for most use cases.
+
+> **Advanced Usage**: Set `debugAdapter.port` when you need to run the debug adapter as a separate process, which can be useful for development or debugging of the extension itself.
+
 ## Features
 
 This document outlines the features supported by the AVM debugger. Screenshots and features are based on the VS Code client.
@@ -180,16 +232,6 @@ This document outlines the features supported by the AVM debugger. Screenshots a
 | Inspect application state                       | The debugger allows inspection and watching of any available application state from the execution.                                                                                                                             | ![Inspecting application state variables](images/app%20state%20variables%20expanded.png) |
 | Support for Puya sourcemaps                     | The debugger now supports Puya sourcemaps, allowing debugging of contracts written in Puya.                                                                                                                                    | ![Puya sourcemap](images/puya-sources.png)                                               |
 | Ability to ignore or select external sourcemaps | Users can browse and select external sourcemap files if they're not found in the workspace. Additionaly providing an option to ignore sourcemaps for specific hashes, which can be reset via the 'Clear AVM Registry' command. | ![Picker v2](images/pickerv2.png)                                                        |
-
-### VSCode Commands
-
-The extension provides the following commands:
-
-| Name                     | Command                                     | Description                                                                                                         |
-| ------------------------ | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Debug AVM Trace File     | extension.avmDebugger.debugOpenTraceFile    | Opens a trace file for debugging. Also accessible via debug icon visible when a trace file is opened in the editor. |
-| Clear AVM Debug Registry | extension.avmDebugger.clearAvmDebugRegistry | Clears the AVM debug registry (contents of sources.avm.json).                                                       |
-| Edit AVM Debug Registry  | extension.avmDebugger.editAvmDebugRegistry  | Edits the AVM debug registry (contents of sources.avm.json).                                                        |
 
 ## How can I contribute?
 

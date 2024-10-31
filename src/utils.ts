@@ -116,6 +116,7 @@ export async function findAndPickFile(
     noFilesErrorMessage: string
     allowBrowse?: boolean
     fileType?: string
+    exitIfNoFiles?: boolean
   },
 ): Promise<string | undefined> {
   const fileUris = await findFilesInWorkspace(workspaceFolder, filePattern)
@@ -143,6 +144,11 @@ export async function findAndPickFile(
       { label: 'External Files', kind: vscode.QuickPickItemKind.Separator },
       { label: 'Browse...', description: `Select external ${options.fileType || 'file'}` },
     )
+  }
+
+  if (options.exitIfNoFiles && fileUris.length === 0) {
+    vscode.window.showWarningMessage(options.noFilesErrorMessage)
+    return undefined
   }
 
   const selected = await vscode.window.showQuickPick(quickPickItems, {
