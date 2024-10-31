@@ -13,7 +13,7 @@
 
 ---
 
-The AlgoKit AVM VS Code Debugger extension enables step-by-step debugging of Algorand smart contracts on the AVM, whether written in TEAL directly or compiled from [Puya](https://github.com/algorandfoundation/puya). It leverages transaction traces and source maps to provide a seamless debugging experience. For detailed setup instructions, see the [Detailed Usage](#detailed-usage) section.
+The AlgoKit AVM VS Code Debugger extension enables line-by-line debugging of Algorand smart contracts on the AVM, whether written in TEAL directly or compiled from [Puya](https://github.com/algorandfoundation/puya). It leverages AVM simulate traces and source maps to provide a seamless debugging experience. For detailed setup instructions, see the [Detailed Usage](#detailed-usage) section.
 
 ---
 
@@ -23,7 +23,7 @@ The AlgoKit AVM VS Code Debugger extension enables step-by-step debugging of Alg
 
 ---
 
-The core functionality is built on top of the official [AVM Debug Adapter](https://github.com/algorand/avm-debugger) provided by [Algorand Technologies](https://www.algorand.com/). Additionally, a set of companion utilities are provided in the [TypeScript](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md) and [Python](https://github.com/algorandfoundation/algokit-utils-py/blob/main/docs/source/capabilities/debugging.md) versions of `algokit-utils`, making it easier for developers to set up the required prerequisites and run the debugger.
+The core functionality is built on top of the [AVM Debug Adapter](https://github.com/algorand/avm-debugger). Additionally, a set of companion utilities are provided in the [TypeScript](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md) and [Python](https://github.com/algorandfoundation/algokit-utils-py/blob/main/docs/source/capabilities/debugging.md) versions of `algokit-utils`, making it easier for developers to set up the required prerequisites and run the debugger.
 
 > To skip straight to the list of features, go to [Features](#features).
 
@@ -69,7 +69,7 @@ Below is a bare-bones example of how to get started with the AVM Debugger extens
 2. **Interact with your smart contract**: Perform an application call using `algokit-utils`.
 
 3. **Start debugging**:
-   - Open the trace file (ends with `.trace.avm.json`)
+   - Open the AVM simulate trace file (ends with `.trace.avm.json`)
    - If using an official `algokit-python-template`, execute the `Debug TEAL via AlgoKit AVM Debugger` launch configuration. Otherwise, create a new VSCode launch configuration of type `avm` (which will automatically set recommended defaults).
    - The extension can also be invoked via the debug icon in the editor (visible in top right corner when viewing a trace file) or using the `Debug AVM Trace File` command from the Command Palette.
    - The debugger will guide you through the process of selecting the correct source files and traces and will initiate the debugging session.
@@ -190,7 +190,7 @@ The extension also offers an interactive picker for simulation trace files. The 
 
 ### VSCode Commands and Settings
 
-The following will become available within IDE after extension is installed.
+The following will become available within the IDE after the extension is installed.
 
 #### Commands
 
@@ -213,7 +213,7 @@ Configure the debugger behavior through VS Code settings:
 
 > **Tip for Beginners**: Start with the default settings. The inline debug adapter mode (default when `debugAdapter.port` is not set) is perfect for most use cases.
 
-> **Advanced Usage**: Set `debugAdapter.port` when you need to run the debug adapter as a separate process, which can be useful for development or when debugging the extension itself.
+> **Advanced Usage**: Set `debugAdapter.port` when you need to run the debug adapter as a separate process, which can be useful for development or debugging of the extension itself.
 
 ## Features
 
