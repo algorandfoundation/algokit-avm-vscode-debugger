@@ -65,7 +65,7 @@
     "@vscode/vsce": "^2.22.0",
     "@wdio/cli": "^8.33.1",
     "@wdio/local-runner": "^8.33.1",
-    "@wdio/mocha-framework": "^8.33.1",
+    "@wdio/mocha-framework": "^9.2.8",
     "@wdio/spec-reporter": "^8.32.4",
     "conventional-changelog-conventionalcommits": "^7.0.2",
     "esbuild": "^0.23.1",
