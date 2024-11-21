@@ -62,7 +62,7 @@
     "@types/mocha": "^10.0.7",
     "@types/node": "^18.18.11",
     "@types/vscode": "^1.80.0",
-    "@vscode/vsce": "^2.22.0",
+    "@vscode/vsce": "^3.2.1",
     "@wdio/cli": "^8.33.1",
     "@wdio/local-runner": "^8.33.1",
     "@wdio/mocha-framework": "^8.33.1",
