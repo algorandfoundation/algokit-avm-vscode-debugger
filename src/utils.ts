@@ -5,13 +5,74 @@ import * as vscode from 'vscode'
 import { MAX_FILES_TO_SHOW, NO_WORKSPACE_ERROR_MESSAGE } from './constants'
 import { workspaceFileAccessor } from './fileAccessor'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
+function parseAlgosdkV2SimulateResponse(obj: any): any {
+  if (obj === null || typeof obj !== 'object') return obj
+
+  const addressFields = new Set(['snd', 'close', 'aclose', 'rekey', 'rcv', 'arcv', 'fadd', 'asnd'])
+  const toUintFields = new Set(['gh', 'apaa'])
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const processValue = (key: string, value: any): any => {
+    if (typeof value === 'string') {
+      if (addressFields.has(key)) {
+        try {
+          return algosdk.encodeAddress(algosdk.base64ToBytes(value))
+        } catch {
+          return value
+        }
+      }
+      if (toUintFields.has(key)) {
+        return algosdk.base64ToBytes(value)
+      }
+    } else if (Array.isArray(value)) {
+      if (toUintFields.has(key)) {
+        return value.map((item) => (typeof item === 'string' ? algosdk.base64ToBytes(item) : item))
+      }
+      return value.map((item) => parseAlgosdkV2SimulateResponse(item))
+    } else if (typeof value === 'object' && value !== null) {
+      return parseAlgosdkV2SimulateResponse(value)
+    }
+    return value
+  }
+
+  return Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, processValue(key, value)]))
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function objectToMapRecursive(obj: any): any {
+  if (obj === null || typeof obj !== 'object' || obj instanceof Uint8Array) {
+    return obj
+  }
+
+  if (Array.isArray(obj)) {
+    return obj.map(objectToMapRecursive)
+  }
+
+  return new Map(Object.entries(obj).map(([key, value]) => [key, objectToMapRecursive(value)]))
+}
+
+function tryParseAlgosdkV2SimulateResponse(rawSimulateTrace: object): algosdk.modelsv2.SimulateResponse {
+  const algosdkV2Response = parseAlgosdkV2SimulateResponse(rawSimulateTrace)
+
+  if (algosdkV2Response.version !== 2) {
+    throw new Error(`Unsupported simulate response version: ${algosdkV2Response.version}`)
+  }
+
+  return algosdk.modelsv2.SimulateResponse.fromEncodingData(objectToMapRecursive(algosdkV2Response))
+}
+
 export async function getSimulateTrace(filePath: string): Promise<algosdk.modelsv2.SimulateResponse | null> {
   const traceFileContent = await readFileAsJson<Record<string, unknown>>(filePath)
   if (!traceFileContent) {
     vscode.window.showErrorMessage(`Could not open the simulate trace file at path "${filePath}".`)
     return null
   }
-  return algosdk.modelsv2.SimulateResponse.from_obj_for_encoding(traceFileContent)
+  try {
+    return algosdk.decodeJSON(JSON.stringify(traceFileContent), algosdk.modelsv2.SimulateResponse)
+  } catch (e) {
+    return tryParseAlgosdkV2SimulateResponse(traceFileContent)
+  }
 }
 
 export function getUniqueHashes(simulateTrace: algosdk.modelsv2.SimulateResponse): string[] {
@@ -52,12 +113,12 @@ export function getSourceMapQuickPickItems(
         const { txn, lsig } = txnResult.txn
 
         if (hash === bytesToBase64(approvalProgramHash) || hash === bytesToBase64(clearStateProgramHash)) {
-          const title = txn.apid
-            ? `Select source maps for Application with ID: ${txn.apid}, hash: ${hash}`
+          const title = txn.applicationCall?.appIndex
+            ? `Select source maps for Application with ID: ${txn.applicationCall.appIndex}, hash: ${hash}`
             : `Select source map for Application with hash: ${hash}`
           identifiers[hash] = { hash, title }
         } else if (hash === bytesToBase64(logicSigHash)) {
-          let lsigBytes: Uint8Array | undefined = lsig?.l
+          let lsigBytes: Uint8Array | undefined = lsig?.logic
           if (typeof lsigBytes === 'string') {
             lsigBytes = new Uint8Array(Buffer.from(lsigBytes, 'base64'))
           }

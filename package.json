@@ -47,7 +47,7 @@
     "package": "vsce package"
   },
   "dependencies": {
-    "algosdk": "^2.9.0",
+    "algosdk": "^3.0.0",
     "avm-debug-adapter": "^0.3.0",
     "lodash": "^4.17.21"
   },
