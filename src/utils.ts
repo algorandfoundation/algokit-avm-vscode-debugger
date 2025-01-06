@@ -5,11 +5,13 @@ import * as vscode from 'vscode'
 import { MAX_FILES_TO_SHOW, NO_WORKSPACE_ERROR_MESSAGE } from './constants'
 import { workspaceFileAccessor } from './fileAccessor'
 
+// NOTE: Changes to 'address' or 'toUint' fields below must be propagated to other algokit repos using similar parsing logic
+// Such as: https://github.com/algorandfoundation/algokit-subscriber-ts/pull/102#discussion_r1888287708
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 function parseAlgosdkV2SimulateResponse(obj: any): any {
   if (obj === null || typeof obj !== 'object') return obj
 
-  const addressFields = new Set(['snd', 'close', 'aclose', 'rekey', 'rcv', 'arcv', 'fadd', 'asnd'])
+  const addressFields = new Set(['snd', 'close', 'aclose', 'rekey', 'rcv', 'arcv', 'fadd', 'asnd', 'm', 'r', 'f', 'c'])
   const toUintFields = new Set(['gh', 'apaa'])
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
