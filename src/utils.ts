@@ -11,8 +11,32 @@ import { workspaceFileAccessor } from './fileAccessor'
 function parseAlgosdkV2SimulateResponse(obj: any): any {
   if (obj === null || typeof obj !== 'object') return obj
 
-  const addressFields = new Set(['snd', 'close', 'aclose', 'rekey', 'rcv', 'arcv', 'fadd', 'asnd', 'm', 'r', 'f', 'c'])
-  const toUintFields = new Set(['gh', 'apaa'])
+  const addressFields = new Set([
+    'snd', // Sender address
+    'close', // CloseRemainderTo address (payment tx)
+    'aclose', // AssetCloseTo address (asset transfer tx)
+    'rekey', // RekeyTo address
+    'rcv', // Receiver address (payment tx)
+    'arcv', // AssetReceiver address (asset transfer tx)
+    'fadd', // FreezeAccount address (asset freeze tx)
+    'asnd', // AssetSender address (asset transfer/clawback tx)
+    'm', // ManagerAddr (asset config)
+    'r', // ReserveAddr (asset config)
+    'f', // FreezeAddr (asset config)
+    'c', // ClawbackAddr (asset config)
+  ])
+
+  const toUintFields = new Set([
+    'gh', // GenesisHash - Hash of genesis block
+    'apaa', // AppArguments - Application call arguments
+    'apap', // ApprovalProgram - Logic for app approval program
+    'note', // Note field - Optional data up to 1000 bytes
+    'lx', // Lease field - For transaction mutual exclusion
+    'grp', // Group field - Transaction group identifier
+    'apsu', // ClearStateProgram - Logic for app clear state
+    'am', // MetaDataHash - Asset metadata hash (32 bytes)
+    'n', // Box name fields in apbx array
+  ])
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const processValue = (key: string, value: any): any => {
