@@ -23,7 +23,7 @@ The AlgoKit AVM VS Code Debugger extension enables line-by-line debugging of Alg
 
 ---
 
-The core functionality is built on top of the [AVM Debug Adapter](https://github.com/algorand/avm-debugger). Additionally, a set of companion utilities are provided in the [TypeScript](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md) and [Python](https://github.com/algorandfoundation/algokit-utils-py/blob/main/docs/source/capabilities/debugging.md) versions of `algokit-utils`, making it easier for developers to set up the required prerequisites and run the debugger.
+The core functionality is built on top of the [AlgoKit AVM Debug Adapter](https://github.com/algorandfoundation/algokit-avm-debugger). Additionally, a set of companion utilities are provided in the [TypeScript](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md) and [Python](https://github.com/algorandfoundation/algokit-utils-py/blob/main/docs/source/capabilities/debugging.md) versions of `algokit-utils`, making it easier for developers to set up the required prerequisites and run the debugger.
 
 > To skip straight to the list of features, go to [Features](#features).
 
@@ -54,8 +54,11 @@ Below is a bare-bones example of how to get started with the AVM Debugger extens
 
    ```typescript
    // In your main file (TypeScript)
-   import { config } from 'algokit-utils-ts'
-   config.configure({ debug: true, traceAll: true })
+   import * as algokit from '@algorandfoundation/algokit-utils'
+   import { registerDebugEventHandlers } from '@algorandfoundation/algokit-utils-debug'
+
+   algokit.Config.configure({ debug: true, traceAll: true })
+   registerDebugEventHandlers()
    ```
 
    or
@@ -105,8 +108,11 @@ config.configure(debug=True, trace_all=True)
 
 ```ts
 // Place this code in a project entry point (e.g. index.ts)
-import { config } from 'algokit-utils-ts'
-config.configure({ debug: true, traceAll: true })
+import * as algokit from '@algorandfoundation/algokit-utils'
+import { registerDebugEventHandlers } from '@algorandfoundation/algokit-utils-debug'
+
+algokit.Config.configure({ debug: true, traceAll: true })
+registerDebugEventHandlers()
 ```
 
 > NOTE: Storing debug traces is not possible in browser environments, your contract project needs access to filesystem via `node`. If you wish to extract simulate traces manually from an app running in a browser that uses `algokit-utils-ts`, refer to [algokit-utils-ts docs](https://github.com/algorandfoundation/algokit-utils-ts/blob/main/docs/capabilities/debugging.md#debugging-in-browser-environment).

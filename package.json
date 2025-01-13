@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "algosdk": "^3.0.0",
-    "@algorandfoundation/algokit-avm-debugger": "^1.0.1-beta.1",
+    "@algorandfoundation/algokit-avm-debugger": "^1.0.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
