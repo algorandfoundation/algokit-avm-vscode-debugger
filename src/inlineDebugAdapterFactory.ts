@@ -1,4 +1,4 @@
-import { AvmDebugSession } from 'avm-debug-adapter'
+import { AvmDebugSession } from '@algorandfoundation/algokit-avm-debugger'
 import * as vscode from 'vscode'
 import { ProviderResult } from 'vscode'
 import { workspaceFileAccessor } from './fileAccessor'

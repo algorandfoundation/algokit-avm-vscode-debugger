@@ -1,5 +1,5 @@
+import { ProgramSourceEntry, ProgramSourceEntryFile } from '@algorandfoundation/algokit-avm-debugger'
 import algosdk from 'algosdk'
-import { ProgramSourceEntry, ProgramSourceEntryFile } from 'avm-debug-adapter'
 import path from 'path'
 import * as vscode from 'vscode'
 import { CancellationToken, DebugConfiguration, WorkspaceFolder } from 'vscode'

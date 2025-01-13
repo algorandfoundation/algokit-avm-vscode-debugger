@@ -1,5 +1,5 @@
+import { ProgramSourceEntryFile } from '@algorandfoundation/algokit-avm-debugger'
 import algosdk from 'algosdk'
-import { ProgramSourceEntryFile } from 'avm-debug-adapter'
 import { orderBy, take } from 'lodash'
 import * as vscode from 'vscode'
 import { MAX_FILES_TO_SHOW, NO_WORKSPACE_ERROR_MESSAGE } from './constants'

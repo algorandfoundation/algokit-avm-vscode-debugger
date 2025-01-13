@@ -1,4 +1,4 @@
-import { FileAccessor } from 'avm-debug-adapter'
+import { FileAccessor } from '@algorandfoundation/algokit-avm-debugger'
 import * as vscode from 'vscode'
 
 export const workspaceFileAccessor: FileAccessor = {
