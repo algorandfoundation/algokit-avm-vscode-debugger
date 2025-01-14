@@ -22,7 +22,7 @@ export const workspaceFileAccessor: FileAccessor = {
   filePathRelativeTo(base: string, filePath: string): string {
     // Check if filePath is an absolute path
     if (this.isWindows) {
-      if (filePath.match(/^[a-zA-Z]:\\/)) {
+      if (filePath.match(/^[a-zA-Z]:[\\/]/)) {
         return filePath
       }
     } else {
