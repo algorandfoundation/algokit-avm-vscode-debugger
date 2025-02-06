@@ -13,7 +13,7 @@ assignees: ''
 ### Your environment
 
 <!--
-* Please provide the output of `algokit doctor` command response,
+* Please provide information about the vscode version you are using.
 * This will give us a good idea about your environment
 -->
 
