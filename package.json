@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^18.4.3",
+    "@commitlint/config-conventional": "^19.8.1",
     "@makerx/eslint-config": "3.1.1",
     "@makerx/prettier-config": "2.0.1",
     "@makerx/ts-config": "^1.0.1",
