@@ -29,10 +29,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Generate bot token
+        uses: actions/create-github-app-token@v1
+        id: app_token
+        with:
+          app-id: ${{ secrets.BOT_ID }}
+          private-key: ${{ secrets.BOT_SK }}
+
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ steps.app_token.outputs.token }}
 
       - name: Use Node.js 20.x
         uses: actions/setup-node@v3
@@ -52,13 +59,13 @@ jobs:
         if: ${{ github.ref_name == 'main' && inputs.production_release != 'true' }}
         run: 'npx semantic-release'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app_token.outputs.token }}
 
       - name: Create Release - Prod
         if: ${{ github.ref_name == 'main' && inputs.production_release == 'true' }}
         run: 'npx semantic-release --branches main'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app_token.outputs.token }}
 
       - name: Publish to Marketplace - Prod
         if: ${{ github.ref_name == 'main' && inputs.production_release == 'true' }}
