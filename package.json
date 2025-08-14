@@ -84,7 +84,6 @@
     "wdio-vscode-service": "^6.0.3"
   },
   "overrides": {
-    "esbuild": "^0.25.0",
     "cross-spawn": "^7.0.5",
     "ws": "^8.17.1"
   },
