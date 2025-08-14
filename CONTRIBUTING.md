@@ -34,3 +34,36 @@
 ## Commits
 
 We are using the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) standard for commit messages. This allows us to automatically generate release notes and version numbers. We do this via [Semantic Release](https://semantic-release.gitbook.io/semantic-release/) and [GitHub actions](.github/workflows/cd.yaml).
+
+## Update minimum required VS Code version
+
+The minimum required VS Code version is specified in the `package.json` file
+
+- The required VS Code version
+
+```json
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+```
+
+- The type definitions for VS Code
+
+```json
+  ...
+  "devDependencies": {
+    ...
+    "@types/vscode": "~1.92.0",
+    ...
+  }
+```
+
+Note: the dependency `@types/vscode` only accept patch updates because VS Code type definitions can be different between minor updates.
+
+To update the minimum required VS Code version, run:
+
+```bash
+npm install @types/vscode@1.92.0 --save-dev --save-prefix='~'
+```
+
+where `{new-version}` is the new version. This command will update both elements.

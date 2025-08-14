@@ -96,7 +96,7 @@ export async function getSimulateTrace(filePath: string): Promise<algosdk.models
   }
   try {
     return algosdk.decodeJSON(JSON.stringify(traceFileContent), algosdk.modelsv2.SimulateResponse)
-  } catch (e) {
+  } catch {
     return tryParseAlgosdkV2SimulateResponse(traceFileContent)
   }
 }
@@ -289,7 +289,7 @@ export const readFileAsJson = async <T>(fsPath: string) => {
   try {
     const bytes = await workspaceFileAccessor.readFile(fsPath)
     return JSON.parse(new TextDecoder().decode(bytes)) as T
-  } catch (_e) {
+  } catch {
     return undefined
   }
 }
