@@ -47,23 +47,23 @@ The minimum required VS Code version is specified in the `package.json` file
   },
 ```
 
-- The type definition for VS Code
+- The type definitions for VS Code
 
 ```json
   ...
   "devDependencies": {
     ...
-    "@types/vscode": "1.92.0",
+    "@types/vscode": "~1.92.0",
     ...
   }
 ```
 
-These two component should match to ensure that the extension can be packaged correctly. Note: `@types/vscode` is defined with exact version.
+Note: the dependency `@types/vscode` only accept patch updates because VS Code type definitions can be different between minor updates.
 
-To update it, run:
+To update the minimum required VS Code version, run:
 
 ```bash
-npm install @types/vscode@{new-version} --save-dev --save-exact
+npm install @types/vscode@1.92.0 --save-dev --save-prefix='~'
 ```
 
-where `{new-version}` is the new version. This updates the VS Code engine as well as `@types/vscode` package.
+where `{new-version}` is the new version. This command will update both elements.
