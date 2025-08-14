@@ -6,6 +6,8 @@ updates:
       interval: 'weekly'
     commit-message:
       prefix: 'chore(deps)'
+    ignore:
+      - dependency-name: '@types/vscode'
     groups:
       all:
         patterns:
