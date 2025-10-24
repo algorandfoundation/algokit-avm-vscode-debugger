@@ -11,6 +11,10 @@ import { workspaceFileAccessor } from './fileAccessor'
 function parseAlgosdkV2SimulateResponse(obj: any): any {
   if (obj === null || typeof obj !== 'object') return obj
 
+  const toBigIntFields = new Set([
+    'uint', // General uint fields
+  ])
+
   const addressFields = new Set([
     'snd', // Sender address
     'close', // CloseRemainderTo address (payment tx)
@@ -47,6 +51,9 @@ function parseAlgosdkV2SimulateResponse(obj: any): any {
         } catch {
           return value
         }
+      }
+      if (toBigIntFields.has(key)) {
+        return BigInt(value)
       }
       if (toUintFields.has(key)) {
         return algosdk.base64ToBytes(value)
