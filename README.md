@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger"><img src="https://bafkreidtmbarmzvewlbrsz7lwwusi276lvltp6xqxvatce32ch3zc4f7eq.ipfs.nftstorage.link/" width=60%></a>
+  <a href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger"><img src="images/banner.png" width=60%></a>
 </div>
 
 <p align="center">
@@ -18,7 +18,7 @@ The AlgoKit AVM VS Code Debugger extension enables line-by-line debugging of Alg
 ---
 
 <div align="center">
-  <a href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger"><img src="https://bafybeib4mrixfhkgi5qbgc7yaplkve3vppbno4jmzoxyqzw5qxendxn274.ipfs.nftstorage.link/" width=70%></a>
+  <a href="https://github.com/algorandfoundation/algokit-avm-vscode-debugger"><img src="images/showcase.gif" width=70%></a>
 </div>
 
 ---
