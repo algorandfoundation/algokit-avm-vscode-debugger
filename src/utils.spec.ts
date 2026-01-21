@@ -26,7 +26,7 @@ vi.mock('./fileAccessor', () => ({
   },
 }))
 
-describe('Should successfully parse algosdk v2 simulate traces', () => {
+describe('Should successfully parse simulate traces', () => {
   it.each([
     ['app-state-changes/debug_traces/box-simulate-response.trace.avm.json'],
     ['app-state-changes/debug_traces/global-simulate-response.trace.avm.json'],

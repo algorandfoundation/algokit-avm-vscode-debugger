@@ -1,45 +1,58 @@
 import { ProgramSourceEntryFile } from '@algorandfoundation/algokit-avm-debugger'
-import algosdk from 'algosdk'
+import {
+  encodeAddress,
+  base64ToBytes,
+  bytesToBase64 as utilsBytesToBase64,
+  hash,
+} from '@algorandfoundation/algokit-utils/common'
+import {
+  SimulateResponse,
+  SimulationTransactionExecTrace,
+  decodeSimulateResponseFromJson,
+} from '@algorandfoundation/algokit-utils/algod-client'
 import { orderBy, take } from 'lodash'
 import * as vscode from 'vscode'
 import { MAX_FILES_TO_SHOW, NO_WORKSPACE_ERROR_MESSAGE } from './constants'
 import { workspaceFileAccessor } from './fileAccessor'
 
-// NOTE: Changes to 'address' or 'toUint' fields below must be propagated to other algokit repos using similar parsing logic
-// Such as: https://github.com/algorandfoundation/algokit-subscriber-ts/pull/102#discussion_r1888287708
-// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
-function parseAlgosdkV2SimulateResponse(obj: any): any {
+function computeLogicSigAddress(programBytes: Uint8Array): string {
+  const prefix = new TextEncoder().encode('Program')
+  const toHash = new Uint8Array(prefix.length + programBytes.length)
+  toHash.set(prefix)
+  toHash.set(programBytes, prefix.length)
+  const hashed = hash(toHash)
+  return encodeAddress(hashed)
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function parseSimulateResponseFields(obj: any): any {
   if (obj === null || typeof obj !== 'object') return obj
 
-  const toBigIntFields = new Set([
-    'uint', // General uint fields
-  ])
-
   const addressFields = new Set([
-    'snd', // Sender address
-    'close', // CloseRemainderTo address (payment tx)
-    'aclose', // AssetCloseTo address (asset transfer tx)
-    'rekey', // RekeyTo address
-    'rcv', // Receiver address (payment tx)
-    'arcv', // AssetReceiver address (asset transfer tx)
-    'fadd', // FreezeAccount address (asset freeze tx)
-    'asnd', // AssetSender address (asset transfer/clawback tx)
-    'm', // ManagerAddr (asset config)
-    'r', // ReserveAddr (asset config)
-    'f', // FreezeAddr (asset config)
-    'c', // ClawbackAddr (asset config)
+    'snd',
+    'close',
+    'aclose',
+    'rekey',
+    'rcv',
+    'arcv',
+    'fadd',
+    'asnd',
+    'm',
+    'r',
+    'f',
+    'c',
   ])
 
   const toUintFields = new Set([
-    'gh', // GenesisHash - Hash of genesis block
-    'apaa', // AppArguments - Application call arguments
-    'apap', // ApprovalProgram - Logic for app approval program
-    'note', // Note field - Optional data up to 1000 bytes
-    'lx', // Lease field - For transaction mutual exclusion
-    'grp', // Group field - Transaction group identifier
-    'apsu', // ClearStateProgram - Logic for app clear state
-    'am', // MetaDataHash - Asset metadata hash (32 bytes)
-    'n', // Box name fields in apbx array
+    'gh',
+    'apaa',
+    'apap',
+    'note',
+    'lx',
+    'grp',
+    'apsu',
+    'am',
+    'n',
   ])
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -47,24 +60,21 @@ function parseAlgosdkV2SimulateResponse(obj: any): any {
     if (typeof value === 'string') {
       if (addressFields.has(key)) {
         try {
-          return algosdk.encodeAddress(algosdk.base64ToBytes(value))
+          return encodeAddress(base64ToBytes(value))
         } catch {
           return value
         }
       }
-      if (toBigIntFields.has(key)) {
-        return BigInt(value)
-      }
       if (toUintFields.has(key)) {
-        return algosdk.base64ToBytes(value)
+        return base64ToBytes(value)
       }
     } else if (Array.isArray(value)) {
       if (toUintFields.has(key)) {
-        return value.map((item) => (typeof item === 'string' ? algosdk.base64ToBytes(item) : item))
+        return value.map((item) => (typeof item === 'string' ? base64ToBytes(item) : item))
       }
-      return value.map((item) => parseAlgosdkV2SimulateResponse(item))
+      return value.map((item) => parseSimulateResponseFields(item))
     } else if (typeof value === 'object' && value !== null) {
-      return parseAlgosdkV2SimulateResponse(value)
+      return parseSimulateResponseFields(value)
     }
     return value
   }
@@ -72,50 +82,37 @@ function parseAlgosdkV2SimulateResponse(obj: any): any {
   return Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, processValue(key, value)]))
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function objectToMapRecursive(obj: any): any {
-  if (obj === null || typeof obj !== 'object' || obj instanceof Uint8Array) {
-    return obj
+function tryParseSimulateResponse(rawSimulateTrace: Record<string, unknown>): SimulateResponse {
+  const processed = parseSimulateResponseFields(rawSimulateTrace)
+
+  if (processed.version !== 2) {
+    throw new Error(`Unsupported simulate response version: ${processed.version}`)
   }
 
-  if (Array.isArray(obj)) {
-    return obj.map(objectToMapRecursive)
-  }
-
-  return new Map(Object.entries(obj).map(([key, value]) => [key, objectToMapRecursive(value)]))
+  return decodeSimulateResponseFromJson(processed)
 }
 
-function tryParseAlgosdkV2SimulateResponse(rawSimulateTrace: object): algosdk.modelsv2.SimulateResponse {
-  const algosdkV2Response = parseAlgosdkV2SimulateResponse(rawSimulateTrace)
-
-  if (algosdkV2Response.version !== 2) {
-    throw new Error(`Unsupported simulate response version: ${algosdkV2Response.version}`)
-  }
-
-  return algosdk.modelsv2.SimulateResponse.fromEncodingData(objectToMapRecursive(algosdkV2Response))
-}
-
-export async function getSimulateTrace(filePath: string): Promise<algosdk.modelsv2.SimulateResponse | null> {
+export async function getSimulateTrace(filePath: string): Promise<SimulateResponse | null> {
   const traceFileContent = await readFileAsJson<Record<string, unknown>>(filePath)
   if (!traceFileContent) {
     vscode.window.showErrorMessage(`Could not open the simulate trace file at path "${filePath}".`)
     return null
   }
   try {
-    return algosdk.decodeJSON(JSON.stringify(traceFileContent), algosdk.modelsv2.SimulateResponse)
+    return decodeSimulateResponseFromJson(traceFileContent)
   } catch {
-    return tryParseAlgosdkV2SimulateResponse(traceFileContent)
+    return tryParseSimulateResponse(traceFileContent)
   }
 }
 
-export function getUniqueHashes(simulateTrace: algosdk.modelsv2.SimulateResponse): string[] {
+export function getUniqueHashes(simulateTrace: SimulateResponse): string[] {
   const hashes = simulateTrace.txnGroups.flatMap((group) =>
     group.txnResults.flatMap((result) => (result.execTrace ? getHashes(result.execTrace) : [])),
   )
   return [...new Set(hashes)]
 }
 
-export function getHashes(trace: algosdk.modelsv2.SimulationTransactionExecTrace): string[] {
+export function getHashes(trace: SimulationTransactionExecTrace): string[] {
   const approvalHash = bytesToBase64(trace.approvalProgramHash)
   const clearHash = bytesToBase64(trace.clearStateProgramHash)
   const logicSigHash = bytesToBase64(trace.logicSigHash)
@@ -130,7 +127,7 @@ export function getHashes(trace: algosdk.modelsv2.SimulationTransactionExecTrace
 
 export function getSourceMapQuickPickItems(
   hashes: string[],
-  trace: algosdk.modelsv2.SimulateResponse,
+  trace: SimulateResponse,
 ): Record<string, QuickPickSourceMapItem> {
   const identifiers: Record<string, QuickPickSourceMapItem> = {}
 
@@ -138,30 +135,30 @@ export function getSourceMapQuickPickItems(
     group.txnResults.forEach((result) => {
       if (!result.execTrace) return
 
-      hashes.forEach((hash) => {
+      hashes.forEach((hashValue) => {
         const { execTrace, txnResult } = result
         if (!execTrace) return
 
         const { approvalProgramHash, clearStateProgramHash, logicSigHash } = execTrace
         const { txn, lsig } = txnResult.txn
 
-        if (hash === bytesToBase64(approvalProgramHash) || hash === bytesToBase64(clearStateProgramHash)) {
-          const title = txn.applicationCall?.appIndex
-            ? `Select source maps for Application with ID: ${txn.applicationCall.appIndex}, hash: ${hash}`
-            : `Select source map for Application with hash: ${hash}`
-          identifiers[hash] = { hash, title }
-        } else if (hash === bytesToBase64(logicSigHash)) {
+        if (hashValue === bytesToBase64(approvalProgramHash) || hashValue === bytesToBase64(clearStateProgramHash)) {
+          const title = txn.appCall?.appId
+            ? `Select source maps for Application with ID: ${txn.appCall.appId}, hash: ${hashValue}`
+            : `Select source map for Application with hash: ${hashValue}`
+          identifiers[hashValue] = { hash: hashValue, title }
+        } else if (hashValue === bytesToBase64(logicSigHash)) {
           let lsigBytes: Uint8Array | undefined = lsig?.logic
           if (typeof lsigBytes === 'string') {
             lsigBytes = new Uint8Array(Buffer.from(lsigBytes, 'base64'))
           }
-          const lsigAddr = lsigBytes ? new algosdk.LogicSigAccount(lsigBytes).address() : undefined
+          const lsigAddr = lsigBytes ? computeLogicSigAddress(lsigBytes) : undefined
           const title = lsigAddr
-            ? `Select source maps for Logic Sig with address: ${lsigAddr}, hash: ${hash}`
-            : `Select source map for Logic Sig with hash: ${hash}`
-          identifiers[hash] = { hash, title }
-        } else if (!identifiers[hash]) {
-          identifiers[hash] = { hash, title: `Select source map for Application with hash: ${hash}` }
+            ? `Select source maps for Logic Sig with address: ${lsigAddr}, hash: ${hashValue}`
+            : `Select source map for Logic Sig with hash: ${hashValue}`
+          identifiers[hashValue] = { hash: hashValue, title }
+        } else if (!identifiers[hashValue]) {
+          identifiers[hashValue] = { hash: hashValue, title: `Select source map for Application with hash: ${hashValue}` }
         }
       })
     })
@@ -305,7 +302,7 @@ export const writeFileAsJson = async <T>(fsPath: string, data: T) => {
   await workspaceFileAccessor.writeFile(fsPath, new TextEncoder().encode(JSON.stringify(data, null, 2)))
 }
 
-export const bytesToBase64 = (bytes?: Uint8Array) => (bytes ? Buffer.from(bytes).toString('base64') : undefined)
+export const bytesToBase64 = (bytes?: Uint8Array) => (bytes ? utilsBytesToBase64(bytes) : undefined)
 
 export const concatIfTruthy = <T>(array: T[], items: Array<T | undefined>) => {
   const truthyItems = items.filter((item): item is T => !!item)

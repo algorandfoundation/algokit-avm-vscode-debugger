@@ -48,8 +48,8 @@
     "package": "vsce package"
   },
   "dependencies": {
-    "@algorandfoundation/algokit-avm-debugger": "^1.0.2",
-    "algosdk": "^3.0.0",
+    "@algorandfoundation/algokit-avm-debugger": "file:../algokit-avm-debugger/algorandfoundation-algokit-avm-debugger-0.0.0.tgz",
+    "@algorandfoundation/algokit-utils": "file:../algokit-utils-ts/dist/algorandfoundation-algokit-utils-0.1.0.tgz",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
