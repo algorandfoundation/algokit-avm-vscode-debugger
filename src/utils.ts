@@ -3,8 +3,8 @@ import {
   encodeAddress,
   base64ToBytes,
   bytesToBase64 as utilsBytesToBase64,
-  hash,
 } from '@algorandfoundation/algokit-utils/common'
+import { hash } from '@algorandfoundation/algokit-utils/crypto'
 import {
   SimulateResponse,
   SimulationTransactionExecTrace,
