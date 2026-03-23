@@ -43,13 +43,13 @@
     "test:unit": "vitest --run",
     "test:build-app": "npm run build",
     "test:run": "wdio run ./test/wdio.conf.ts",
-    "audit": "npm audit --audit-level=critical",
+    "audit": "npm audit --audit-level=critical --omit=dev",
     "pre-commit": "run-s build lint:fix audit format test",
     "package": "vsce package"
   },
   "dependencies": {
-    "@algorandfoundation/algokit-avm-debugger": "file:../algokit-avm-debugger/algorandfoundation-algokit-avm-debugger-0.0.0.tgz",
-    "@algorandfoundation/algokit-utils": "file:../algokit-utils-ts/dist/algorandfoundation-algokit-utils-0.1.0.tgz",
+    "@algorandfoundation/algokit-avm-debugger": "1.0.3-beta.1",
+    "@algorandfoundation/algokit-utils": "10.0.0-alpha.45",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -66,6 +66,7 @@
     "@vitest/ui": "^3.1.3",
     "@vscode/vsce": "^3.3.2",
     "@wdio/cli": "^9.13.0",
+    "@wdio/globals": "^8.46.0",
     "@wdio/local-runner": "^8.33.1",
     "@wdio/mocha-framework": "^9.13.0",
     "@wdio/spec-reporter": "^8.32.4",

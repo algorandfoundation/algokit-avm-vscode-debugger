@@ -1,9 +1,5 @@
 import { ProgramSourceEntryFile } from '@algorandfoundation/algokit-avm-debugger'
-import {
-  encodeAddress,
-  base64ToBytes,
-  bytesToBase64 as utilsBytesToBase64,
-} from '@algorandfoundation/algokit-utils/common'
+import { encodeAddress, base64ToBytes, bytesToBase64 as utilsBytesToBase64 } from '@algorandfoundation/algokit-utils/common'
 import { hash } from '@algorandfoundation/algokit-utils/crypto'
 import {
   SimulateResponse,
@@ -28,32 +24,9 @@ function computeLogicSigAddress(programBytes: Uint8Array): string {
 function parseSimulateResponseFields(obj: any): any {
   if (obj === null || typeof obj !== 'object') return obj
 
-  const addressFields = new Set([
-    'snd',
-    'close',
-    'aclose',
-    'rekey',
-    'rcv',
-    'arcv',
-    'fadd',
-    'asnd',
-    'm',
-    'r',
-    'f',
-    'c',
-  ])
+  const addressFields = new Set(['snd', 'close', 'aclose', 'rekey', 'rcv', 'arcv', 'fadd', 'asnd', 'm', 'r', 'f', 'c'])
 
-  const toUintFields = new Set([
-    'gh',
-    'apaa',
-    'apap',
-    'note',
-    'lx',
-    'grp',
-    'apsu',
-    'am',
-    'n',
-  ])
+  const toUintFields = new Set(['gh', 'apaa', 'apap', 'note', 'lx', 'grp', 'apsu', 'am', 'n'])
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const processValue = (key: string, value: any): any => {
@@ -125,10 +98,7 @@ export function getHashes(trace: SimulationTransactionExecTrace): string[] {
   return hashes
 }
 
-export function getSourceMapQuickPickItems(
-  hashes: string[],
-  trace: SimulateResponse,
-): Record<string, QuickPickSourceMapItem> {
+export function getSourceMapQuickPickItems(hashes: string[], trace: SimulateResponse): Record<string, QuickPickSourceMapItem> {
   const identifiers: Record<string, QuickPickSourceMapItem> = {}
 
   trace.txnGroups.forEach((group) => {
