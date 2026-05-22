@@ -1,5 +1,5 @@
 import { ProgramSourceEntry, ProgramSourceEntryFile } from '@algorandfoundation/algokit-avm-debugger'
-import algosdk from 'algosdk'
+import { SimulateResponse } from '@algorandfoundation/algokit-utils/algod-client'
 import path from 'path'
 import * as vscode from 'vscode'
 import { CancellationToken, DebugConfiguration, WorkspaceFolder } from 'vscode'
@@ -119,7 +119,7 @@ export class AvmDebugConfigProvider implements vscode.DebugConfigurationProvider
   private async handleMissingHashes(
     folder: WorkspaceFolder,
     missingHashes: string[],
-    simulateTrace: algosdk.modelsv2.SimulateResponse,
+    simulateTrace: SimulateResponse,
     sources: ProgramSourceEntryFile,
   ): Promise<void> {
     const sourceMapFiles = await findFilesInWorkspace(folder, ['**/*.tok.map', '**/*.teal.map', '**/*.puya.map'])
