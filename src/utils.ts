@@ -1,6 +1,6 @@
 import { ProgramSourceEntryFile } from '@algorandfoundation/algokit-avm-debugger'
 import { encodeAddress, base64ToBytes, bytesToBase64 as utilsBytesToBase64 } from '@algorandfoundation/algokit-utils/common'
-import { hash } from '@algorandfoundation/algokit-utils/crypto'
+import { LogicSig } from '@algorandfoundation/algokit-utils/transact'
 import {
   SimulateResponse,
   SimulationTransactionExecTrace,
@@ -10,15 +10,6 @@ import { orderBy, take } from 'lodash'
 import * as vscode from 'vscode'
 import { MAX_FILES_TO_SHOW, NO_WORKSPACE_ERROR_MESSAGE } from './constants'
 import { workspaceFileAccessor } from './fileAccessor'
-
-function computeLogicSigAddress(programBytes: Uint8Array): string {
-  const prefix = new TextEncoder().encode('Program')
-  const toHash = new Uint8Array(prefix.length + programBytes.length)
-  toHash.set(prefix)
-  toHash.set(programBytes, prefix.length)
-  const hashed = hash(toHash)
-  return encodeAddress(hashed)
-}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function parseSimulateResponseFields(obj: any): any {
@@ -122,7 +113,7 @@ export function getSourceMapQuickPickItems(hashes: string[], trace: SimulateResp
           if (typeof lsigBytes === 'string') {
             lsigBytes = new Uint8Array(Buffer.from(lsigBytes, 'base64'))
           }
-          const lsigAddr = lsigBytes ? computeLogicSigAddress(lsigBytes) : undefined
+          const lsigAddr = lsigBytes ? new LogicSig(lsigBytes).address() : undefined
           const title = lsigAddr
             ? `Select source maps for Logic Sig with address: ${lsigAddr}, hash: ${hashValue}`
             : `Select source map for Logic Sig with hash: ${hashValue}`
