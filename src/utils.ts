@@ -1,11 +1,11 @@
 import { ProgramSourceEntryFile } from '@algorandfoundation/algokit-avm-debugger'
-import { encodeAddress, base64ToBytes, bytesToBase64 as utilsBytesToBase64 } from '@algorandfoundation/algokit-utils/common'
-import { LogicSig } from '@algorandfoundation/algokit-utils/transact'
 import {
   SimulateResponse,
   SimulationTransactionExecTrace,
   decodeSimulateResponseFromJson,
 } from '@algorandfoundation/algokit-utils/algod-client'
+import { base64ToBytes, encodeAddress, parseJson, bytesToBase64 as utilsBytesToBase64 } from '@algorandfoundation/algokit-utils/common'
+import { LogicSig } from '@algorandfoundation/algokit-utils/transact'
 import { orderBy, take } from 'lodash'
 import * as vscode from 'vscode'
 import { MAX_FILES_TO_SHOW, NO_WORKSPACE_ERROR_MESSAGE } from './constants'
@@ -57,11 +57,17 @@ function tryParseSimulateResponse(rawSimulateTrace: Record<string, unknown>): Si
 }
 
 export async function getSimulateTrace(filePath: string): Promise<SimulateResponse | null> {
-  const traceFileContent = await readFileAsJson<Record<string, unknown>>(filePath)
-  if (!traceFileContent) {
+  // read the raw file content and parse it with bigint-aware decoding
+  // otherwise we might botch large uint64 numbers
+  let traceFileContent: Record<string, unknown>
+  try {
+    const bytes = await workspaceFileAccessor.readFile(filePath)
+    traceFileContent = parseJson(new TextDecoder().decode(bytes))
+  } catch {
     vscode.window.showErrorMessage(`Could not open the simulate trace file at path "${filePath}".`)
     return null
   }
+
   try {
     return decodeSimulateResponseFromJson(traceFileContent)
   } catch {

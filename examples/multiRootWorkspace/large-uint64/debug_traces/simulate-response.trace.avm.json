@@ -1,0 +1,51 @@
+{
+  "exec-trace-config": {
+    "enable": true,
+    "scratch-change": true,
+    "stack-change": true,
+    "state-change": true
+  },
+  "last-round": 61132879,
+  "txn-groups": [
+    {
+      "app-budget-added": 700,
+      "app-budget-consumed": 23,
+      "txn-results": [
+        {
+          "app-budget-consumed": 23,
+          "exec-trace": {
+            "approval-program-hash": "zu7nlC89alo0DQFE0YGHn3RvvvTyHmpu1t6el3K+boc=",
+            "approval-program-trace": [
+              {
+                "pc": 40,
+                "stack-additions": [
+                  {
+                    "type": 2,
+                    "uint": 18446744073709551227
+                  }
+                ]
+              }
+            ]
+          },
+          "txn-result": {
+            "txn": {
+              "sig": "KEj30pqis5bgB17y83+X0rzyuQZzw6lGWwfktma8nnygDz6zbObxC0Mn9g88j4qiozerUEAtgUam6Oaqd/4iBg==",
+              "txn": {
+                "apaa": ["b25fdXBkYXRl", "MTYyNC45MjE0NzU2ODQ0MjAwMDAw", "MC4yNjg4MzAyMDE4NDE2MTAw"],
+                "apid": 3494126405,
+                "fee": 1000,
+                "fv": 61132878,
+                "gen": "mainnet-v1.0",
+                "gh": "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8=",
+                "lv": 61133878,
+                "snd": "N6JZYPCU22PWORVZPOZEDAZO6OEYRSRVAVJGDNDKWGVHM37YHJJJK4554Q",
+                "type": "appl"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "version": 2
+}
