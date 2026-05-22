@@ -40,6 +40,7 @@ describe('Should successfully parse simulate traces', () => {
     ['errors/debug_traces/app.trace.avm.json'],
     ['errors/debug_traces/app-from-logicsig.trace.avm.json'],
     ['errors/debug_traces/inner-app-overspend.trace.avm.json'],
+    ['large-uint64/debug_traces/simulate-response.trace.avm.json'],
   ])('should successfully parse simulate trace from %s', async (filePath) => {
     // Setup
     const fullPath = path.join(__dirname, '..', 'examples', 'multiRootWorkspace', filePath)
@@ -54,5 +55,21 @@ describe('Should successfully parse simulate traces', () => {
     expect(Array.isArray(result?.txnGroups)).toBe(true)
     expect(result?.txnGroups.length).toBeGreaterThan(0)
     expect(result?.execTraceConfig).toBeDefined()
+  })
+
+  it('should preserve large uint64 values without truncating them to unsafe integers', async () => {
+    // Regression test for https://github.com/algorandfoundation/algokit-avm-vscode-debugger/issues/109
+    const fullPath = path.join(
+      __dirname,
+      '..',
+      'examples',
+      'multiRootWorkspace',
+      'large-uint64/debug_traces/simulate-response.trace.avm.json',
+    )
+
+    const result = await getSimulateTrace(fullPath)
+
+    const stackAddition = result?.txnGroups[0].txnResults[0].execTrace?.approvalProgramTrace?.[0].stackAdditions?.[0]
+    expect(stackAddition?.uint).toBe(18446744073709551227n)
   })
 })
